@@ -66,7 +66,7 @@ module.exports = function( grunt )
                 files: [
                     "source/modules/_nstitute/templates/index.html"
                 ],
-                tasks: [ "envDev", "copy:index", "replace" ]
+                tasks: [ "envDev", "copy:index", "replace", "ejs" ]
             },
             fonts:
             {
@@ -264,7 +264,7 @@ module.exports = function( grunt )
         ngtemplates:
         {
             options: {
-                module: "nstitute",
+                module: "Nstitute",
                 htmlmin: {
                     collapseBooleanAttributes: true,
                     collapseWhitespace: false,

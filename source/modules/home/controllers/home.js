@@ -1,6 +1,6 @@
 /* Home controller */
 
-angular.module( "nstitute.home" )
+angular.module( "Home" )
 
 .controller( "Home", [
 

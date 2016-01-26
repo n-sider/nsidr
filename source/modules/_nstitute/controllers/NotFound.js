@@ -1,13 +1,12 @@
 /* Not Found controller */
 
-angular.module( "nstitute" )
+angular.module( "Nstitute" )
 
 .controller( "NotFound", [ "$rootScope",
 
-    function ( $rootScope )
+    function ()
     {
         "use strict";
-        var ctrl = this;
 
     }
 

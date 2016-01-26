@@ -1,6 +1,6 @@
 /* App Configuration */
 
-angular.module( "nstitute", [
+angular.module( "Nstitute", [
     "ngRoute",
     "ngTouch",
     "ngSanitize",

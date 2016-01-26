@@ -1,6 +1,6 @@
 /* Home Module Configuration */
 
-angular.module( "nstitute.home", [] )
+angular.module( "Home", [] )
 
 .config( [ "$routeProvider", "$locationProvider", "$sceDelegateProvider",
 
@@ -26,4 +26,4 @@ angular.module( "nstitute.home", [] )
 
 ] );
 
-angular.module( "nstitute" ).requires.push( "nstitute.home" );
+angular.module( "Nstitute" ).requires.push( "Home" );

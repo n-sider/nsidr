@@ -1,10 +1,10 @@
 /* Site controller */
 
-angular.module( "nstitute" )
+angular.module( "Nstitute" )
 
-.controller( "Site", [ "$rootScope",
+.controller( "Site", [
 
-    function ( $rootScope )
+    function ()
     {
         "use strict";
         var ctrl = this;
