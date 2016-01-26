@@ -134,10 +134,7 @@ module.exports = function( grunt )
                     compress: "<%= compress %>"
                 },
                 files: {
-                    "dist/build/app.css": [
-                        "source/components/css-reset/reset.css",
-                        "source/modules/*/styles/*.*"
-                    ]
+                    "dist/build/app.css": "source/modules/_nstitute/styles/main.less"
                 }
             }
         },

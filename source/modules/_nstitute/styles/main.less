@@ -1,4 +1,33 @@
-body {
-    transform: scale( 1 );
-    box-sizing: border-box;
+/* Application Styles */
+
+@import (less) "source/components/css-reset/reset.css";
+
+/* -- Variables */
+
+@white: #FFFFFF;
+@black: #000000;
+
+/* -- Mixins */
+
+.clearfix () {
+
+    &::after {
+        content: "";
+        clear: both;
+        display: block;
+        width: 0;
+        height: 0;
+        overflow: hidden;
+    }
+
 }
+
+/* -- General */
+
+
+/* -- Header/Footer */
+
+
+/* -- Modules */
+
+@import "source/modules/home/styles/home.less";
