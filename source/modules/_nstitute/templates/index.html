@@ -1,0 +1,40 @@
+<!doctype html>
+
+<html lang="en-US" data-ng-app="nstitute" data-ng-controller="Site as site">
+
+    <head>
+
+        <meta charset="utf-8">
+        <title>The Nstitute</title>
+        <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=0, width=device-width">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <link rel="stylesheet" href="/build/app.css?v={{ VERSION }}">
+
+        <base href="/">
+
+    </head>
+
+    <body>
+
+        <header>
+            The Nstitute
+        </header>
+
+        <main data-ng-view></main>
+
+        <footer>
+            &copy; <span data-ng-bind="site.currYear"></span> N-Sider Media
+        </footer>
+
+        <% if( compress ) { %>
+        <script src="/build/dist.js?v={{ VERSION }}" defer></script>
+        <% } else { %>
+        <script src="/build/angular.js?v={{ VERSION }}"></script>
+        <script src="/build/components.js?v={{ VERSION }}"></script>
+        <script src="/build/app.js?v={{ VERSION }}"></script>
+        <% } %>
+
+    </body>
+
+</html>

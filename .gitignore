@@ -1,0 +1,5 @@
+/node_modules
+/source/components
+/dist
+/coverage
+test-results.xml
