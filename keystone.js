@@ -5,7 +5,6 @@ const handlebars = require('express-handlebars');
 
 keystone.init({
   'name': 'nsidr',
-  'port': process.env.PORT || 3000,
 
   'less': 'public',
   'static': 'public',
@@ -21,7 +20,6 @@ keystone.init({
   }).engine,
 
   'auto update': true,
-  'mongo': process.env.NSIDR_MONGO_URI,
 
   'session': true,
   'auth': true,
