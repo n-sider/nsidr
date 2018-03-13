@@ -1,7 +1,7 @@
 {
   "name": "nsidr",
   "version": "1.0.0-alpha",
-  "description": "Nsidr.com website",
+  "description": "nsidr",
   "main": "keystone.js",
   "scripts": {
     "start": "node keystone.js",
