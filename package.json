@@ -20,7 +20,7 @@
     "dotenv": "^5.0.1",
     "express-handlebars": "^3.0.0",
     "handlebars": "^4.0.11",
-    "keystone": "github:Tathanen/keystone#36e6255",
+    "keystone": "github:Tathanen/keystone#nested-lists-modern",
     "keystone-email": "github:keystonejs/keystone-email#40284de",
     "keystone-storage-adapter-s3": "github:keystonejs/keystone-storage-adapter-s3#accea76"
   },
