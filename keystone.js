@@ -24,7 +24,9 @@ keystone.init({
   'session': true,
   'auth': true,
   'user model': 'User',
-  'cookie secret': process.env.COOKIE_SECRET
+  'cookie secret': process.env.COOKIE_SECRET,
+
+  "wysiwyg s3 images": true
 });
 
 const s3Settings = {
@@ -39,7 +41,8 @@ keystone.import('models');
 keystone.set('routes', require('./routes'));
 
 keystone.set('nav', {
-  'Old N-Sider': ['NSiderArticle', 'NSiderTag']
+  'nsidr': ['Post', 'Tag'],
+  'Archived N-Sider': ['NSiderArticle', 'NSiderTag']
 });
 
 keystone.start();
