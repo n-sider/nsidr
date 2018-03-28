@@ -22,7 +22,9 @@
     "handlebars": "^4.0.11",
     "keystone": "github:Tathanen/keystone#nested-lists-modern",
     "keystone-email": "github:keystonejs/keystone-email#40284de",
-    "keystone-storage-adapter-s3": "github:keystonejs/keystone-storage-adapter-s3#accea76"
+    "keystone-storage-adapter-s3": "github:keystonejs/keystone-storage-adapter-s3#accea76",
+    "keystone-utils": "^0.4.0",
+    "limax": "^1.6.0"
   },
   "engines": {
     "node": ">=8.0.0",

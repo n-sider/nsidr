@@ -13,15 +13,14 @@ NSiderArticle.add({
   url: { type: Types.Url, watch: true, noedit: true,
     value: function () { return "http://www.nsidr.com/archive/" + this.slug + "?id=" + this.id; }, label: "Preview URL" },
   publishedDate: { type: Types.Datetime },
-  blurb: { type: Types.Html, height: 50, wysiwyg: false },
-  spill: { type: Types.Html, height: 150, wysiwyg: false, label: "Spill Text" },
+  blurb: { type: Types.Html, height: 150, wysiwyg: false },
   image: { type: Types.Text, label: 'Thumbnail Image URL' },
   tags: { type: Types.Relationship, ref: 'NSiderTag', many: true },
   style: { type: Types.Textarea, height: 150, label: 'Style (CSS)' },
-  legacyId: { type: Types.Number, label: 'Legacy ID', note: "Corresponds to ID on old site, for redirects" },
+  legacyId: { type: Types.Number, index: true, hidden: true },
   pages: { type: Types.List, fields: {
     pageNumber: { type: Types.Number },
-    content: { type: Types.Html, height: 350, wysiwyg: false },
+    content: { type: Types.Html, height: 400, wysiwyg: false },
     sidebar: { type: Types.Html, height: 150, wysiwyg: false }
   } },
   authors: { type: Types.List, fields: {
