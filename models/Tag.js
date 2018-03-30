@@ -1,5 +1,6 @@
 const keystone = require('keystone');
-const Types = keystone.Field.Types;
+
+const { Types } = keystone.Field;
 
 const Tag = new keystone.List('Tag');
 

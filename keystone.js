@@ -4,12 +4,12 @@ const keystone = require('keystone');
 const handlebars = require('express-handlebars');
 
 keystone.init({
-  'name': 'nsidr',
+  name: 'nsidr',
 
-  'less': 'public',
-  'static': 'public',
+  less: 'public',
+  static: 'public',
 
-  'views': 'templates/views',
+  views: 'templates/views',
   'view engine': 'hbs',
   'custom engine': handlebars.create({
     layoutsDir: 'templates/views/layouts',
@@ -21,12 +21,12 @@ keystone.init({
 
   'auto update': true,
 
-  'session': true,
-  'auth': true,
+  session: true,
+  auth: true,
   'user model': 'User',
   'cookie secret': process.env.COOKIE_SECRET,
 
-  "wysiwyg s3 images": true
+  'wysiwyg s3 images': true
 });
 
 const s3Settings = {
@@ -41,7 +41,7 @@ keystone.import('models');
 keystone.set('routes', require('./routes'));
 
 keystone.set('nav', {
-  'nsidr': ['Post', 'Tag'],
+  nsidr: ['Post', 'Tag'],
   'Archived N-Sider': ['NSiderArticle', 'NSiderTag']
 });
 

@@ -1,5 +1,6 @@
 const keystone = require('keystone');
-const Types = keystone.Field.Types;
+
+const { Types } = keystone.Field;
 
 const User = new keystone.List('User');
 
@@ -11,9 +12,7 @@ User.add({
   isAdmin: { type: Types.Boolean, label: 'Admin Access' }
 });
 
-User.schema.virtual('canAccessKeystone').get(function () {
-  return this.isAdmin;
-});
+User.schema.virtual('canAccessKeystone').get(function needThis() { return this.isAdmin; });
 
 User.defaultColumns = 'name, email, isAdmin';
 

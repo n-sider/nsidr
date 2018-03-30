@@ -1,10 +1,14 @@
 const keystone = require('keystone');
-const importRoutes = keystone.importer(__dirname);
+const middleware = require('./middleware');
 
+keystone.pre('routes', middleware.initLocals);
+
+const importRoutes = keystone.importer(__dirname);
 const routes = {
   views: importRoutes('./views'),
 };
 
-exports = module.exports = (app) => {
-  app.get('/', routes.views.index)
+module.exports = (app) => {
+  app.get('/', routes.views.index);
+  app.get('/posts/:slug', routes.views.post);
 };
