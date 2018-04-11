@@ -14,7 +14,7 @@ Post.add({
     type: Types.Url,
     watch: true,
     noedit: true,
-    value: () => `http://www.nsidr.com/posts/${this.slug}?id=${this.id}`,
+    value() { return `http://www.nsidr.com/posts/${this.slug}?id=${this.id}`; },
     label: 'Preview URL'
   },
   content: { type: Types.Html, height: 550, wysiwyg: true },
