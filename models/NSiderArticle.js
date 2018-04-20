@@ -15,7 +15,7 @@ NSiderArticle.add({
     type: Types.Url,
     watch: true,
     noedit: true,
-    value() { return `http://www.nsidr.com/archive/${this.slug}?id=${this.id}`; },
+    value: function () { return `http://www.nsidr.com/archive/${this.slug}?id=${this.id}`; },
     label: 'Preview URL'
   },
   publishedDate: { type: Types.Datetime },
