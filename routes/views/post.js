@@ -30,8 +30,8 @@ module.exports = (req, res) => {
 
   view.render((err) => {
     if (err) {
-      return view.res.render('404', locals);
+      return view.render('404', locals);
     }
-    return view.res.render('post', locals); // TODO: figure out if this works without ".res"
+    return view.render('post', locals);
   });
 };
