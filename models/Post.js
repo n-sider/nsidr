@@ -14,7 +14,7 @@ Post.add({
     type: Types.Url,
     watch: true,
     noedit: true,
-    value: function () { return `http://www.nsidr.com/posts/${this.slug}?id=${this.id}`; },
+    value: function () { return `${keystone.get('root')}/posts/${this.slug}?id=${this.id}`; },
     label: 'Preview URL'
   },
   content: { type: Types.Html, height: 550, wysiwyg: true },

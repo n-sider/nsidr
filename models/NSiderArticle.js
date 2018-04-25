@@ -15,8 +15,8 @@ NSiderArticle.add({
     type: Types.Url,
     watch: true,
     noedit: true,
-    value: function () { return `http://www.nsidr.com/archive/${this.slug}?id=${this.id}`; },
-    label: 'Preview URL'
+    value: function () { return `${keystone.get('root')}/archive/${this.slug}`; },
+    label: 'Site URL'
   },
   publishedDate: { type: Types.Datetime },
   blurb: { type: Types.Html, height: 150, wysiwyg: false },

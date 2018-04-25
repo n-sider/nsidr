@@ -35,6 +35,7 @@ const s3Settings = {
   secret: process.env.S3FILE_SECRET
 };
 keystone.set('s3 config', s3Settings);
+keystone.set('root', 'https://www.nsidr.com');
 
 keystone.import('models');
 

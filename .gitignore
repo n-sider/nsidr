@@ -1,4 +1,5 @@
 /node_modules
+/conversion_scripts
 *.log
 .env
 

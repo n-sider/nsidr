@@ -15,7 +15,7 @@
   "bugs": {
     "url": "https://github.com/n-sider/nsidr/issues"
   },
-  "homepage": "http://www.nsidr.com",
+  "homepage": "https://www.nsidr.com",
   "dependencies": {
     "dotenv": "^5.0.1",
     "express-handlebars": "^3.0.0",
