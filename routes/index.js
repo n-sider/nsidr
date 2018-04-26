@@ -11,4 +11,5 @@ const routes = {
 module.exports = (app) => {
   app.get('/', routes.views.index);
   app.get('/posts/:slug', routes.views.post);
+  app.get('/archive/:slug/:page?', routes.views.article);
 };

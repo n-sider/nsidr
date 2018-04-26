@@ -22,9 +22,9 @@ module.exports = (req, res) => {
         locals.meta.title = `nsidr | ${result.title}`;
         locals.post = result;
       } else {
-        err = new Error('Post not found'); // TODO: figure out what gets done with this message
+        err = new Error('Post not found');
       }
-      next(err); // TODO: figure out why next is a thing here
+      next(err);
     });
   });
 
