@@ -1,0 +1,45 @@
+<section>
+
+  <h1>Posts</h1>
+
+  {{#if badFilter}}
+  <p>No posts found with these filters.</p>
+  {{else if posts}}
+  <ol>
+    {{#each posts}}
+    <li>
+      <article class="post-template">
+
+        <header class="post-header">
+          <h1>{{ title }}</h1>
+          <small>authors here</small>
+        </header>
+
+        <footer>
+          tags here
+        </footer>
+
+      </article>
+    </li>
+    {{/each}}
+  </ol>
+
+  <footer>
+    <a href="{{ pagination.prev }}">Prev</a>
+    <a href="{{ pagination.next }}">Next</a>
+  </footer>
+  {{else}}
+  <p>No posts found with these filters.</p>
+  {{/if}}
+
+  <aside id="tag-search">
+    <input type="text" data-starting-value="{{ currentTag }}" :value="searchTerm"
+      @input="autoComplete" @keydown.down="selectDown" @keydown.up="selectUp" @keyup.enter="selectFollow">
+    <ul v-if="matchedTags.length > 0">
+      <li v-for="(tag, index) in matchedTags" v-bind:class="{ selected: selectedClass(index) }">
+        <a :href="'/posts?tags=' + encodeURIComponent(tag.name)">${tag.name}</a>
+      </li>
+    </ul>
+  </aside>
+
+</section>

@@ -36,6 +36,7 @@ const s3Settings = {
 };
 keystone.set('s3 config', s3Settings);
 keystone.set('root', 'https://www.nsidr.com');
+keystone.set('vue path', keystone.get('env') === 'production' ? '/scripts/lib/vue.min.js' : '/scripts/lib/vue.js');
 
 keystone.import('models');
 

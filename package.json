@@ -24,7 +24,8 @@
     "keystone-email": "github:keystonejs/keystone-email#40284de",
     "keystone-storage-adapter-s3": "github:keystonejs/keystone-storage-adapter-s3#accea76",
     "keystone-utils": "^0.4.0",
-    "limax": "^1.6.0"
+    "limax": "^1.6.0",
+    "mongoose": "^5.0.17"
   },
   "engines": {
     "node": ">=8.0.0",
