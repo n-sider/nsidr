@@ -17,6 +17,17 @@ module.exports = (req, res) => {
         locals.article = result;
         locals.currentPage = locals.article.pages.find(page => page.pageNumber === (Number(req.params.page) || 1));
 
+        locals.article.authors.sort((a, b) => {
+          if (a.displayOrder < b.displayOrder) {
+            return -1;
+          } else if (a.displayOrder > b.displayOrder) {
+            return 1;
+          }
+          return 0;
+        });
+
+        locals.viewStyles = locals.article.style;
+
         if (!locals.currentPage) {
           err = new Error('Article page not found');
         }

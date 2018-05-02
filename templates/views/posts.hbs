@@ -12,11 +12,21 @@
 
         <header class="post-header">
           <h1>{{ title }}</h1>
-          <small>authors here</small>
+          <small>
+            <ul>
+              {{#each authors}}
+              <li><a href="/posts?author={{ name.full }}">{{ name.full }}</a></li>
+              {{/each}}
+            </ul>
+          </small>
         </header>
 
         <footer>
-          tags here
+          <ul>
+            {{#each tags}}
+            <li><a href="/posts?tags={{ name }}">{{ name }}</a></li>
+            {{/each}}
+          </ul>
         </footer>
 
       </article>

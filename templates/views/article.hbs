@@ -1,15 +1,35 @@
-<article class="article-template">
+<article class="article-template" id="page_{{currentPage.pageNumber}}">
 
   <header class="article-header">
     <h1>{{ article.title }}</h1>
-    <small>authors here</small>
+    {{#if article.authors}}
+    <ol>
+      {{#each article.authors}}
+      <li>{{ name.full }}</li>
+      {{/each}}
+    </ol>
+    {{/if}}
   </header>
 
-  <div>{{{ currentPage.content }}}</div>
-  <aside>{{{ currentPage.sidebar }}}</aside>
+  <div id="contentarea">
+    <div class="markup_main_standard">
+      {{{ currentPage.content }}}
+    </div>
+  </div>
+  <aside id="sidebar">
+    <div class="markup_sidebar_standard">
+      {{{ currentPage.sidebar }}}
+    </div>
+  </aside>
 
   <footer>
-    tags here, links to more pages here
+    {{#if article.tags}}
+    <ul>
+      {{#each article.tags}}
+      <li>{{ name }}</li>
+      {{/each}}
+    </ul>
+    {{/if}}
   </footer>
 
 </article>

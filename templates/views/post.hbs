@@ -2,13 +2,23 @@
 
   <header class="post-header">
     <h1>{{ post.title }}</h1>
-    <small>authors here</small>
+    <small>
+      <ul>
+        {{#each post.authors}}
+        <li><a href="/posts?author={{ name.full }}">{{ name.full }}</a></li>
+        {{/each}}
+      </ul>
+    </small>
   </header>
 
   {{{ post.content }}}
 
   <footer>
-    tags here
+    <ul>
+      {{#each post.tags}}
+      <li><a href="/posts?tags={{ name }}">{{ name }}</a></li>
+      {{/each}}
+    </ul>
   </footer>
 
 </article>
