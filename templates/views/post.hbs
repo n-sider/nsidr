@@ -1,17 +1,24 @@
 <article class="post-template">
 
   <header class="post-header">
-    <h1>{{ post.title }}</h1>
-    <small>
-      <ul>
-        {{#each post.authors}}
-        <li><a href="/posts?author={{ name.full }}">{{ name.full }}</a></li>
-        {{/each}}
-      </ul>
-    </small>
+    <img src="{{ post.authors.[0].avatarPath }}">
+    <div>
+      <h1>{{ post.title }}</h1>
+      <small>
+        by
+        <ul>
+          {{#each post.authors}}
+          <li><a href="/posts?authors={{ name.full }}">{{ name.full }}</a></li>
+          {{/each}}
+        </ul>
+        {{ post.displayDate }}
+      </small>
+    </div>
   </header>
 
-  {{{ post.content }}}
+  <div class="post-body">
+    {{{ post.content }}}
+  </div>
 
   <footer>
     <ul>

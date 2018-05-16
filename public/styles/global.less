@@ -1,3 +1,41 @@
 @import (less) "reset.css";
 
+@white: #FFFFFF;
+@black: #333333;
+@grayBg: #DDDDDD;
+@grayLineBg: #CCCCCC;
+@grayText: #AAAAAA;
+@background: #EEEEEE;
+@nsidr: #16A1FF;
+@hyrule: #00CD00;
+@fami: #FF3F3F;
+@disk: #FFD800;
+
+* {
+
+  box-sizing: border-box;
+
+  &::before,
+  &::after {
+    box-sizing: border-box;
+  }
+
+}
+
+body {
+
+  position: relative;
+  font-family: "Open Sans";
+  background-color: @background;
+  color: @black;
+
+  a {
+    color: @nsidr;
+  }
+
+}
+
+@import "views/template.less";
+@import "views/index.less";
 @import "views/posts.less";
+@import "views/post.less";

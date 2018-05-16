@@ -1,4 +1,5 @@
 const keystone = require('keystone');
+const moment = require('moment');
 
 const { Types } = keystone.Field;
 
@@ -22,6 +23,19 @@ Post.add({
   legacyId: { type: Types.Number },
   tags: { type: Types.Relationship, ref: 'Tag', many: true },
   authors: { type: Types.Relationship, ref: 'User', many: true }
+});
+
+Post.schema.virtual('featured').get(function () {
+  return (
+    this.publishedDate > moment().subtract(7, 'months').toDate() && // TODO: change to days
+      this.publishedDate < new Date()
+  );
+});
+Post.schema.virtual('cleanContent').get(function () {
+  return this.content.replace(/<[^>]*>/gi, '');
+});
+Post.schema.virtual('displayDate').get(function () {
+  return moment(this.publishedDate).format('MMMM D, YYYY');
 });
 
 Post.defaultColumns = 'title, publishedDate';

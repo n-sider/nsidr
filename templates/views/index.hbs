@@ -1,1 +1,96 @@
-hello nsidr
+<section id="index">
+
+  <div class="index-featured{{#if hasFeaturedPost}} has-post{{/if}}">
+
+    {{#if hasFeaturedPost}}
+    <article class="post-template">
+
+      <div class="featured"><i class="fas fa-rocket"></i>Featured</div>
+
+      <header class="post-header">
+        <img src="{{ leadingPost.authors.[0].avatarPath }}">
+        <div>
+          <h1>{{ leadingPost.title }}</h1>
+          <small>
+            by
+            <ul>
+              {{#each leadingPost.authors}}
+              <li><a href="/posts?authors={{ name.full }}">{{ name.full }}</a></li>
+              {{/each}}
+            </ul>
+            {{ leadingPost.displayDate }}
+          </small>
+        </div>
+      </header>
+
+      <div class="post-body">
+        {{{ leadingPost.content }}}
+      </div>
+
+      <footer>
+        <ul>
+          {{#each leadingPost.tags}}
+          <li><a href="/posts?tags={{ name }}">{{ name }}</a></li>
+          {{/each}}
+        </ul>
+      </footer>
+
+      <div class="continue-reading">
+        <a href="/posts/{{ leadingPost.slug }}">
+          <span>continue reading<i class="fas fa-arrow-alt-square-down"></i></span>
+        </a>
+      </div>
+
+    </article>
+    {{/if}}
+
+    <div class="index-exhibits">
+
+      <aside class="exhibit-one">
+        <h1>the hyrule fantasy</h1>
+      </aside>
+
+      <aside class="exhibit-two">
+        <h1>famiculture</h1>
+      </aside>
+
+      <aside class="follow">
+        rss / facebook / twitter
+      </aside>
+
+    </div>
+
+  </div>
+
+  <ol class="posts">
+    {{#each posts}}
+    <li>
+      <a href="/posts/{{ slug }}">
+        <article class="post-preview">
+
+          <header class="preview-header">
+            <img src="{{ authors.[0].avatarPath }}">
+            <div>
+              <h1>{{ title }}</h1>
+            </div>
+          </header>
+
+          <div class="preview-body">
+            {{{ cleanContent }}}
+          </div>
+
+          <footer>
+            <span class="read-more">
+              <span>read more<i class="fas fa-arrow-alt-square-right"></i></span>
+            </span>
+          </footer>
+
+        </article>
+      </a>
+    </li>
+    {{/each}}
+  </ol>
+
+  <a class="view-all" href="/posts"><span>view all posts<i class="fas fa-arrow-alt-square-right"></i></span></a>
+
+</section>

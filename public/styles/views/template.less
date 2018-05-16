@@ -1,0 +1,104 @@
+@keyframes shake {
+  0% { transform: rotate(0); }
+  4% { transform: rotate(-4deg); }
+  8% { transform: rotate(0); }
+  12% { transform: rotate(4deg); }
+  16% { transform: rotate(0); }
+  20% { transform: rotate(-4deg); }
+  24% { transform: rotate(0); }
+  28% { transform: rotate(4deg); }
+  32% { transform: rotate(0); }
+}
+@keyframes bounce {
+  0% { transform: translateY(0); }
+  15% { transform: translateY(-7px); }
+  30% { transform: translateY(0); }
+}
+
+#site-header {
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  h1 {
+
+    max-width: 1340px;
+    margin: 40px auto 0;
+
+    a {
+
+      display: inline-block;
+      margin-left: 20px;
+      font-family: proxima-soft, sans-serif;
+      font-size: 80px;
+      font-weight: 700;
+      color: @black;
+      transition: all ease-in-out .2s;
+
+      &::before {
+        content: '';
+        display: block;
+        float: left;
+        width: 70px;
+        height: 60px;
+        margin: 13px 10px 0 0;
+        background: url('/logo.png') left top no-repeat;
+        background-size: contain;
+      }
+
+      span {
+        display: inline-block;
+      }
+
+      &:hover {
+
+        transform: scale(1.05);
+
+        &::before {
+          animation: 1.5s linear 0s infinite shake;
+        }
+
+        span {
+
+          &:nth-of-type(1) {
+            animation: 1.5s ease-in-out 0s infinite bounce;
+          }
+          &:nth-of-type(2) {
+            animation: 1.5s ease-in-out .05s infinite bounce;
+          }
+          &:nth-of-type(3) {
+            animation: 1.5s ease-in-out .1s infinite bounce;
+          }
+          &:nth-of-type(4) {
+            animation: 1.5s ease-in-out .15s infinite bounce;
+          }
+          &:nth-of-type(5) {
+            animation: 1.5s ease-in-out .2s infinite bounce;
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+#site-footer {
+
+  background-color: @nsidr;
+
+  & > div {
+    max-width: 1380px;
+    margin: 0 auto;
+    padding: 20px;
+    font-weight: 700;
+    font-family: proxima-soft;
+    color: @white;
+  }
+
+}

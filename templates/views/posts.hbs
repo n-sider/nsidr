@@ -11,14 +11,17 @@
       <article class="post-template">
 
         <header class="post-header">
-          <h1>{{ title }}</h1>
-          <small>
-            <ul>
-              {{#each authors}}
-              <li><a href="/posts?author={{ name.full }}">{{ name.full }}</a></li>
-              {{/each}}
-            </ul>
-          </small>
+          <div>
+            <h1><a href="/posts/{{ slug }}">{{ title }}</a></h1>
+            <small>
+              <ul>
+                {{#each authors}}
+                <li><a href="/posts?authors={{ name.full }}">{{ name.full }}</a></li>
+                {{/each}}
+              </ul>
+              {{ displayDate }}
+            </small>
+          </div>
         </header>
 
         <footer>

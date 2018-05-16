@@ -4,6 +4,10 @@
 <head>
   <meta charset="utf-8">
   <title>{{ meta.title }}</title>
+  <script defer src="https://pro.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-CucLC75yxFXtBjA/DCHWMS14abAUhf5HmFRdHyKURqqLqi3OrLsyhCyqp83qjiOR" crossorigin="anonymous"></script>
+  <script defer src="https://pro.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-BUkEHIKZJ0ussRY3zYfFL7R0LpqWmucr9K38zMTJWdGQywTjmzbejVSNIHuNEhug" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700">
+  <link rel="stylesheet" href="https://use.typekit.net/msk6hap.css">
   <link href="/styles/global.min.css" rel="stylesheet">
   {{#if viewStyles}}
   <style>
@@ -13,7 +17,17 @@
 </head>
 
 <body>
+  <header id="site-header">
+    <h1>
+      <a href="/"><span>n</span><span>s</span><span>i</span><span>d</span><span>r</span></a>
+    </h1>
+  </header>
   {{{body}}}
+  <footer id="site-footer">
+    <div>
+      &copy; {{ year }} N-Sider Media
+    </div>
+  </footer>
   {{#each scripts}}
   <script src="{{this}}"></script>
   {{/each}}
