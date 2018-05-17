@@ -118,6 +118,16 @@
         border-radius: 5px;
         overflow: hidden;
 
+        h1 {
+          background-color: rgba(0,0,0,.5);
+          line-height: 60px;
+          text-align: center;
+          font-family: proxima-soft;
+          font-weight: 700;
+          font-size: 28px;
+          color: @white;
+        }
+
         &.exhibit-one {
           border-top: 5px solid @hyrule;
           background: url('/the-hyrule-fantasy.jpg') center center no-repeat @hyrule;
@@ -136,18 +146,61 @@
           border-top: 5px solid @disk;
           background-color: @white;
           box-shadow: 0 0 0 1px rgba(0,0,0,.1);
-          padding: 20px;
+          padding: 0 20px 20px;
 
-        }
+          h1 {
+            background: none;
+            color: @black;
+          }
 
-        h1 {
-          background-color: rgba(0,0,0,.5);
-          line-height: 60px;
-          text-align: center;
-          font-family: proxima-soft;
-          font-weight: 700;
-          font-size: 28px;
-          color: @white;
+          p {
+            margin: -3px 0 13px;
+            text-align: center;
+            line-height: 22px;
+            font-size: 16px;
+          }
+
+          ul {
+
+            display: flex;
+            justify-content: space-around;
+
+            li {
+
+              font-size: 70px;
+
+              a {
+
+                display: inline-block;
+                transition: all ease-in-out .2s;
+                color: @grayText;
+
+                &:hover {
+
+                  transform: scale(1.05);
+
+                  &.rss {
+                    color: #F26522;
+                  }
+                  &.twitter {
+                    color: #1DA1F2;
+                  }
+                  &.facebook {
+                    color: #3B5998;
+                  }
+
+                  svg {
+                    animation: 1.5s linear 0s infinite shake;
+                  }
+
+                }
+
+              }
+
+            }
+
+          }
+
         }
 
       }
