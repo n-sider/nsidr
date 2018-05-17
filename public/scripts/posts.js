@@ -32,7 +32,8 @@ new Vue({
     selectedClass: function (index) {
       return index === this.selectedIndex;
     },
-    selectDown: function () {
+    selectDown: function (e) {
+      e.preventDefault();
       if (this.selectedIndex >= 0) {
         if (this.selectedIndex === this.matchedTags.length - 1) {
           this.selectedIndex = 0;
@@ -41,7 +42,8 @@ new Vue({
         }
       }
     },
-    selectUp: function () {
+    selectUp: function (e) {
+      e.preventDefault();
       if (this.selectedIndex >= 0) {
         if (this.selectedIndex === 0) {
           this.selectedIndex = this.matchedTags.length - 1;

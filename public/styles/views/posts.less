@@ -1,123 +1,123 @@
 #tag-search {
 
-	background-color: rgba(0,0,150,.1);
+  background-color: rgba(0,0,150,.1);
 
-	li.selected {
-		background-color: #DDDDDD;
-	}
+  li.selected {
+    background-color: #DDDDDD;
+  }
 
 }
 
 .post-preview {
 
-	border-top: 5px solid @nsidr;
+  border-top: 5px solid @nsidr;
 
-	& > header {
+  & > header {
 
-		display: flex;
-		flex-direction: row;
-		justify-content: flex-start;
-		padding: 20px 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 20px 25px;
 
-		img {
-			flex: 0 0 55px;
-			height: 55px;
-			margin-right: 15px;
-			border-radius: 5px;
-		}
+    img {
+      flex: 0 0 55px;
+      height: 55px;
+      margin-right: 15px;
+      border-radius: 5px;
+    }
 
-		div {
+    div {
 
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			min-height: 55px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 55px;
 
-			h1 {
-				line-height: 27px;
-				font-size: 24px;
-				font-weight: 700;
-				font-family: proxima-soft, sans-serif;
-			}
+      h1 {
+        line-height: 27px;
+        font-size: 24px;
+        font-weight: 700;
+        font-family: proxima-soft, sans-serif;
+      }
 
-			small {
-				display: block;
-				margin-top: 5px;
-				font-size: 14px;
+      small {
+        display: block;
+        margin-top: 5px;
+        font-size: 14px;
 
-				ul {
+        ul {
 
-					display: inline-block;
+          display: inline-block;
 
-					li::after {
-						content: ", ";
-					}
+          li::after {
+            content: ", ";
+          }
 
-				}
+        }
 
-			}
+      }
 
-		}
+    }
 
-	}
+  }
 
-	.preview-body {
-		padding: 0 20px;
-		line-height: 32px;
-		text-align: justify;
-		font-size: 18px;
-	}
+  .preview-body {
+    padding: 0 20px;
+    line-height: 28px;
+    text-align: justify;
+    font-size: 16px;
+  }
 
-	& > footer {
+  & > footer {
 
-		position: absolute;
-		left: 0;
-		bottom: 0;
-		width: 100%;
-		height: 40px;
-		text-align: center;
-		background: url('https://static.nsidr.com/nsidr/line-gate.png') -1px -1px @grayLineBg;
-		background-size: 6px 6px;
-		transition: all 1s ease-in-out;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    text-align: center;
+    background: url('https://static.nsidr.com/nsidr/line-gate.png') -1px -1px @grayLineBg;
+    background-size: 6px 6px;
+    transition: all 1s ease-in-out;
 
-		.read-more {
+    .read-more {
 
-			display: block;
-			background-color: @grayLineBg;
-			border-bottom-left-radius: 5px;
-			border-bottom-right-radius: 5px;
-			background-color: transparent;
-			transition: all .2s ease-in-out;
+      display: block;
+      background-color: @grayLineBg;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+      background-color: transparent;
+      transition: all .2s ease-in-out;
 
-			span {
+      span {
 
-				display: inline-block;
-				font-size: 18px;
-				font-weight: 700;
-				font-family: proxima-soft;
-				line-height: 40px;
-				color: @grayText;
-				transition: all .2s ease-in-out;
+        display: inline-block;
+        font-size: 18px;
+        font-weight: 700;
+        font-family: proxima-soft;
+        line-height: 40px;
+        color: @grayText;
+        transition: all .2s ease-in-out;
 
-				svg {
-					margin-left: 10px;
-				}
+        svg {
+          margin-left: 10px;
+        }
 
-			}
+      }
 
-		}
+    }
 
-		&::before {
-			content: '';
-			position: absolute;
-			left: 0;
-			top: -100px;
-			display: block;
-			width: 100%;
-			height: 100px;
-			background: linear-gradient(transparent,@white 70%);
-		}
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: -100px;
+      display: block;
+      width: 100%;
+      height: 100px;
+      background: linear-gradient(transparent,@white 70%);
+    }
 
-	}
+  }
 
 }

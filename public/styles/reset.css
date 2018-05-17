@@ -15,21 +15,21 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
 main, menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	background: none;
-	font-size: 100%;
-	font-weight: normal;
-	font-style: normal;
-	font: inherit;
-	vertical-align: baseline;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-size: 100%;
+  font-weight: normal;
+  font-style: normal;
+  font: inherit;
+  vertical-align: baseline;
 }
 article, aside, details, figcaption, figure,
 footer, header, hgroup, main, menu, nav, section, summary { display: block; }
 body { line-height: 1; }
 ol, ul { list-style: none; }
-blockquote, q {	quotes: none; }
+blockquote, q {  quotes: none; }
 blockquote:before, blockquote:after,
 q:before, q:after { content: ''; content: none; }
 table { border-collapse: collapse; border-spacing: 0; }
@@ -65,10 +65,10 @@ input[type="checkbox"], input[type="radio"] { box-sizing: border-box; }
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button { height: auto; }
 input[type="search"] {
-	-webkit-appearance: textfield;
-	-moz-box-sizing: content-box;
-	-webkit-box-sizing: content-box;
-	box-sizing: content-box;
+  -webkit-appearance: textfield;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
 }
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-decoration { -webkit-appearance: none; }
