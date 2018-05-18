@@ -81,6 +81,12 @@
             </div>
           </header>
 
+          {{#if featureImage}}
+          <div class="preview-image">
+            <span style="background-image: url('{{ featureImage }}')"></span>
+          </div>
+          {{/if}}
+
           <div class="preview-body">
             {{{ cleanContent }}}
           </div>

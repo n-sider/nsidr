@@ -31,6 +31,10 @@ Post.schema.virtual('featured').get(function () {
       this.publishedDate < new Date()
   );
 });
+Post.schema.virtual('featureImage').get(function () {
+  const matched = this.content.match(/<img src="([^"]*)/i);
+  return matched ? matched[1] : null;
+});
 Post.schema.virtual('cleanContent').get(function () {
   return this.content.replace(/<[^>]*>/gi, '');
 });

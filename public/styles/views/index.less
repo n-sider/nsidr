@@ -1,28 +1,12 @@
-@keyframes continue {
-  0% { transform: translateY(0); }
-  15% { transform: translateY(3px); }
-  45% { transform: translateY(-1px); }
-  60% { transform: translateY(0); }
-}
-@keyframes more {
-  0% { transform: translateX(0); }
-  15% { transform: translateX(3px); }
-  45% { transform: translateX(-1px); }
-  60% { transform: translateX(0); }
-}
-
 #index {
-
   padding: 40px 0;
 
   .index-featured {
-
     display: flex;
     flex-direction: row-reverse;
     justify-content: center;
 
     .post-template {
-
       position: relative;
       flex: 0 1 1000px;
       max-height: 1000px;
@@ -31,7 +15,6 @@
       transition: max-height 2s ease-in;
 
       .continue-reading {
-
         opacity: 1;
         position: absolute;
         left: 0;
@@ -44,7 +27,6 @@
         transition: all 1s ease-in-out;
 
         a {
-
           display: block;
           background: transparent;
           border-bottom-left-radius: 5px;
@@ -52,7 +34,6 @@
           transition: all .2s ease-in-out;
 
           span {
-
             display: inline-block;
             font-size: 26px;
             font-weight: 700;
@@ -64,9 +45,7 @@
             svg {
               margin-left: 10px;
             }
-
           }
-
         }
 
         &::before {
@@ -81,28 +60,21 @@
         }
 
         a:hover {
-
           background: @nsidr;
 
           span {
-
             transform: scale(1.05);
             color: @white;
 
             svg {
               animation: 1s ease-in-out 0s infinite continue;
             }
-
           }
-
         }
-
       }
-
     }
 
     .index-exhibits {
-
       opacity: 1;
       display: flex;
       flex-direction: column;
@@ -111,13 +83,11 @@
       transition: all 1s ease-in-out;
 
       aside {
-
         width: 100%;
         height: 300px;
         margin-bottom: 40px;
         border-radius: 5px;
         overflow: hidden;
-
         h1 {
           background-color: rgba(0,0,0,.5);
           line-height: 60px;
@@ -141,7 +111,6 @@
         }
 
         &.follow {
-
           height: 210px;
           border-top: 5px solid @disk;
           background-color: @white;
@@ -161,60 +130,47 @@
           }
 
           ul {
-
             display: flex;
             justify-content: space-around;
 
             li {
-
               font-size: 70px;
 
               a {
-
                 display: inline-block;
                 transition: all ease-in-out .2s;
                 color: @grayText;
 
                 &:hover {
-
                   transform: scale(1.05);
 
                   &.rss {
-                    color: #F26522;
+                    color: @rss;
                   }
                   &.twitter {
-                    color: #1DA1F2;
+                    color: @twitter;
                   }
                   &.facebook {
-                    color: #3B5998;
+                    color: @facebook;
                   }
 
                   svg {
                     animation: 1.5s linear 0s infinite shake;
                   }
-
                 }
-
               }
-
             }
-
           }
-
         }
-
       }
-
     }
 
     &:not(.has-post) {
       float: right;
     }
-
   }
 
   .posts {
-
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -222,12 +178,11 @@
     margin: 0 auto;
 
     & > li {
-
       display: flex;
       position: relative;
       width: ~'calc(33.3% - 27px)';
       max-width: none;
-      max-height: 420px;
+      max-height: 500px;
       margin-bottom: 40px;
       overflow: hidden;
       background: @white;
@@ -242,46 +197,157 @@
       }
 
       & > a {
-
         display: block;
         color: @black;
+
+        .post-preview {
+          border-top: 5px solid @nsidr;
+
+          & > header {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            padding: 20px;
+
+            img {
+              flex: 0 0 55px;
+              height: 55px;
+              margin-right: 15px;
+              border-radius: 5px;
+            }
+
+            div {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              min-height: 55px;
+
+              h1 {
+                line-height: 27px;
+                font-size: 24px;
+                font-weight: 700;
+                font-family: proxima-soft, sans-serif;
+              }
+
+              small {
+                display: block;
+                margin-top: 5px;
+                font-size: 14px;
+
+                ul {
+                  display: inline-block;
+
+                  li::after {
+                    content: ", ";
+                  }
+                }
+              }
+            }
+          }
+
+          .preview-image {
+            margin-bottom: 20px;
+            height: 150px;
+            overflow: hidden;
+
+            span {
+              display: block;
+              width: ~"calc(100% + 10px)";
+              height: ~"calc(100% + 10px)";
+              margin: -5px 0 0 -5px;
+              background-position: center center;
+              background-repeat: no-repeat;
+              background-size: cover;
+              transition: all .2s ease-in-out;
+            }
+          }
+
+          .preview-body {
+            padding: 0 20px;
+            line-height: 28px;
+            text-align: justify;
+            font-size: 16px;
+          }
+
+          & > footer {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 40px;
+            text-align: center;
+            background: url('https://static.nsidr.com/nsidr/line-gate.png') -1px -1px @grayLineBg;
+            background-size: 6px 6px;
+            transition: all 1s ease-in-out;
+
+            .read-more {
+              display: block;
+              background-color: @grayLineBg;
+              border-bottom-left-radius: 5px;
+              border-bottom-right-radius: 5px;
+              background-color: transparent;
+              transition: all .2s ease-in-out;
+
+              span {
+                display: inline-block;
+                font-size: 18px;
+                font-weight: 700;
+                font-family: proxima-soft;
+                line-height: 40px;
+                color: @grayText;
+                transition: all .2s ease-in-out;
+
+                svg {
+                  margin-left: 10px;
+                }
+              }
+            }
+
+            &::before {
+              content: '';
+              position: absolute;
+              left: 0;
+              top: -100px;
+              display: block;
+              width: 100%;
+              height: 100px;
+              background: linear-gradient(transparent,@white 70%);
+            }
+          }
+        }
 
         &:hover {
 
           .post-preview {
 
+            .preview-image {
+
+              span {
+                transform: scale(.98);
+              }
+            }
+
             footer {
 
               .read-more {
-
                 background-color: @nsidr;
 
                 span {
-
                   color: @white;
 
                   svg {
                     animation: 1s ease-in-out 0s infinite more;
                   }
-
                 }
-
               }
-
             }
-
           }
-
         }
-
       }
-
     }
-
   }
 
   .view-all {
-
     display: block;
     max-width: 1340px;
     margin: 0 auto;
@@ -291,7 +357,6 @@
     text-align: center;
 
     span {
-
       display: inline-block;
       font-size: 26px;
       font-weight: 700;
@@ -303,28 +368,21 @@
       svg {
         margin-left: 10px;
       }
-
     }
 
     &:hover {
-
       background-color: @nsidr;
 
       span {
-
         transform: scale(1.05);
         color: @white;
 
         svg {
           animation: 1s ease-in-out 0s infinite more;
         }
-
       }
-
     }
-
   }
-
 }
 
 body.expand-feature {
@@ -334,13 +392,11 @@ body.expand-feature {
     .index-featured {
 
       .post-template {
-
         max-height: 10000px;
 
         .continue-reading {
           opacity: 0;
         }
-
       }
 
       .index-exhibits {
@@ -348,9 +404,6 @@ body.expand-feature {
         flex: 0 0 0;
         margin-right: 0;
       }
-
     }
-
   }
-
 }

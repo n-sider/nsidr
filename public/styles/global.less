@@ -6,24 +6,26 @@
 @grayLineBg: #CCCCCC;
 @grayText: #AAAAAA;
 @background: #EEEEEE;
+
 @nsidr: #16A1FF;
 @hyrule: #00CD00;
 @fami: #FF3F3F;
 @disk: #FFD800;
 
-* {
+@rss: #F26522;
+@twitter: #1DA1F2;
+@facebook: #3B5998;
 
+* {
   box-sizing: border-box;
 
   &::before,
   &::after {
     box-sizing: border-box;
   }
-
 }
 
 body {
-
   display: flex;
   flex-direction: column;
   position: relative;
@@ -35,9 +37,9 @@ body {
   a {
     color: @nsidr;
   }
-
 }
 
+@import "animations.less";
 @import "views/template.less";
 @import "views/index.less";
 @import "views/posts.less";
