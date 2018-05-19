@@ -32,7 +32,7 @@ Post.schema.virtual('featured').get(function () {
   );
 });
 Post.schema.virtual('featureImage').get(function () {
-  const matched = this.content.match(/<img src="([^"]*)/i);
+  const matched = this.content.match(/<img.*?src="([^"]*)/i);
   return matched ? matched[1] : null;
 });
 Post.schema.virtual('cleanContent').get(function () {

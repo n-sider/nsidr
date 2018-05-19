@@ -1,0 +1,36 @@
+<ol class="post-previews">
+  {{#each posts}}
+  <li>
+    <a href="/posts/{{ slug }}">
+      <article>
+
+        <header class="preview-header">
+          <img src="{{ authors.[0].avatarPath }}">
+          <div>
+            <h1>{{ title }}</h1>
+          </div>
+        </header>
+
+        {{#if featureImage}}
+        <div class="preview-image">
+          <span style="background-image: url('{{ featureImage }}')"></span>
+        </div>
+        {{/if}}
+
+        <div class="preview-body">
+          {{{ cleanContent }}}
+        </div>
+
+        <footer>
+          <span class="read-more">
+            <span>read more<i class="fas fa-arrow-alt-square-right"></i></span>
+          </span>
+        </footer>
+
+      </article>
+    </a>
+  </li>
+  {{/each}}
+</ol>
+
+<a class="view-all-posts" href="/posts"><span>view all posts<i class="fas fa-arrow-alt-square-right"></i></span></a>

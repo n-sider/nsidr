@@ -7,12 +7,12 @@ module.exports = (req, res) => {
   view.on('init', (next) => {
     locals.year = new Date().getFullYear();
 
-    const post = keystone.list('Post').model.find()
+    const posts = keystone.list('Post').model.find()
       .where('publishedDate').lt(new Date())
       .sort('-publishedDate')
       .limit(4);
 
-    post.populate('authors tags').exec((err, result) => {
+    posts.populate('authors tags').exec((err, result) => {
       if (result) {
         [locals.leadingPost, ...locals.posts] = result;
         locals.hasFeaturedPost = locals.leadingPost.featured;

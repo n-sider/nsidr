@@ -1,0 +1,43 @@
+<article class="post-template">
+
+  {{#if isFeatured}}
+  <div class="featured"><i class="fas fa-rocket"></i>Featured</div>
+  {{/if}}
+
+  <header class="post-header">
+    <img src="{{ post.authors.[0].avatarPath }}">
+    <div>
+      <h1>{{ post.title }}</h1>
+      <small>
+        by
+        <ul>
+          {{#each post.authors}}
+          <li><a href="/posts?authors={{ name.full }}">{{ name.full }}</a></li>
+          {{/each}}
+        </ul>
+        {{ post.displayDate }}
+      </small>
+    </div>
+  </header>
+
+  <div class="post-body">
+    {{{ post.content }}}
+  </div>
+
+  <footer>
+    <ul>
+      {{#each post.tags}}
+      <li><a href="/posts?tags={{ name }}">{{ name }}</a></li>
+      {{/each}}
+    </ul>
+  </footer>
+
+  {{#if isFeatured}}
+  <div class="continue-reading">
+    <a href="/posts/{{ post.slug }}">
+      <span>continue reading<i class="fas fa-arrow-alt-square-down"></i></span>
+    </a>
+  </div>
+  {{/if}}
+
+</article>
