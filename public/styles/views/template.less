@@ -66,11 +66,42 @@
   background-color: @nsidr;
 
   & > div {
+    display: flex;
+    justify-content: space-between;
     max-width: 1380px;
     margin: 0 auto;
     padding: 20px;
-    font-weight: 700;
-    font-family: proxima-soft;
     color: @white;
+
+    small {
+      flex: 1 0 210px;
+      line-height: 32px;
+      font-size: 20px;
+      font-weight: 700;
+      font-family: proxima-soft;
+    }
+
+    a {
+      display: inline-block;
+      opacity: .5;
+      font-size: 32px;
+      color: @white;
+      transition: all ease-in-out .2s;
+
+      &:hover {
+        transform: scale(1.1);
+        opacity: 1;
+      }
+    }
+
+    ul {
+      display: flex;
+      justify-content: flex-end;
+      flex: 1 0 210px;
+
+      li {
+        margin-left: 15px;
+      }
+    }
   }
 }

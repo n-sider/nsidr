@@ -10,7 +10,7 @@ module.exports = (req, res) => {
     const post = keystone.list('Post').model.find()
       .where('publishedDate').lt(new Date())
       .sort('-publishedDate')
-      .limit(7);
+      .limit(4);
 
     post.populate('authors tags').exec((err, result) => {
       if (result) {

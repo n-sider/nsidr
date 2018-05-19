@@ -88,6 +88,7 @@
         margin-bottom: 40px;
         border-radius: 5px;
         overflow: hidden;
+
         h1 {
           background-color: rgba(0,0,0,.5);
           line-height: 60px;
@@ -114,7 +115,6 @@
           height: 210px;
           border-top: 5px solid @disk;
           background-color: @white;
-          box-shadow: 0 0 0 1px rgba(0,0,0,.1);
           padding: 0 20px 20px;
 
           h1 {
@@ -182,13 +182,13 @@
       position: relative;
       width: ~'calc(33.3% - 27px)';
       max-width: none;
-      max-height: 500px;
+      max-height: 490px;
       margin-bottom: 40px;
       overflow: hidden;
       background: @white;
       background-size: 6px 6px;
       border-radius: 5px;
-      box-shadow: 0 0 0 1px rgba(0,0,0,.1);
+      box-shadow: 0 0 0 1px rgba(0,0,0,0);
       transition: .2s ease-in-out all;
 
       &:hover {
@@ -207,7 +207,7 @@
             display: flex;
             flex-direction: row;
             justify-content: flex-start;
-            padding: 20px;
+            padding: 15px 20px;
 
             img {
               flex: 0 0 55px;
