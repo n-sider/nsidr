@@ -20,9 +20,21 @@ Post.add({
   },
   content: { type: Types.Html, height: 550, wysiwyg: true },
   publishedDate: { type: Types.Datetime, note: 'Set to present/past value to publish' },
-  legacyId: { type: Types.Number },
+  legacyId: { type: Types.Number, hidden: true },
   tags: { type: Types.Relationship, ref: 'Tag', many: true },
-  authors: { type: Types.Relationship, ref: 'User', many: true }
+  authors: { type: Types.Relationship, ref: 'User', many: true },
+  topic: {
+    type: Types.Select,
+    options: [
+      { value: 'nsidr', label: 'nsidr' },
+      { value: 'hyrule', label: 'The Hyrule Fantasy' },
+      { value: 'fami', label: 'Famiculture' }
+    ],
+    default: 'nsidr',
+    emptyOption: false
+  },
+  twitterLink: { type: Types.Text },
+  facebookLink: { type: Types.Text }
 });
 
 Post.schema.virtual('featured').get(function () {
@@ -40,6 +52,12 @@ Post.schema.virtual('cleanContent').get(function () {
 });
 Post.schema.virtual('displayDate').get(function () {
   return moment(this.publishedDate).format('MMMM D, YYYY');
+});
+Post.schema.virtual('twitter').get(function () {
+  return this.twitterLink || 'https://twitter.com/nsider';
+});
+Post.schema.virtual('facebook').get(function () {
+  return this.facebookLink || 'https://www.facebook.com/N-Sider-141311642565331';
 });
 
 Post.defaultColumns = 'title, publishedDate';

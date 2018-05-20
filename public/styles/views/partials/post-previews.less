@@ -16,7 +16,6 @@
     background: @white;
     background-size: 6px 6px;
     border-radius: 5px;
-    box-shadow: 0 0 0 1px rgba(0,0,0,0);
     transition: .2s ease-in-out all;
 
     & > a {
@@ -25,6 +24,13 @@
 
       article {
         border-top: 5px solid @nsidr;
+
+        &.hyrule {
+          border-color: @hyrule;
+        }
+        &.fami {
+          border-color: @fami;
+        }
 
         & > header {
           display: flex;
@@ -142,10 +148,9 @@
 
     &:hover {
       transform: scale(1.02);
-      box-shadow: 0 0 30px 0 rgba(0,0,0,.3);
+      box-shadow: @focusShadow;
 
       a article {
-
         .preview-image span {
           transform: scale(.98);
         }
@@ -160,6 +165,13 @@
               animation: 1s ease-in-out 0s infinite more;
             }
           }
+        }
+
+        &.hyrule footer .read-more {
+          background-color: @hyrule;
+        }
+        &.fami footer .read-more {
+          background-color: @fami;
         }
       }
     }

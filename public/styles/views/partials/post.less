@@ -3,7 +3,7 @@
   margin: 0 auto;
   background-color: @white;
   border-radius: 5px;
-  box-shadow: 0 0 25px rgba(0,0,0,.2);
+  box-shadow: @focusShadow;
 
   .featured {
     height: 30px;
@@ -95,6 +95,29 @@
         width: 100%;
         height: auto;
       }
+    }
+  }
+
+  &.hyrule {
+    .featured {
+      background-color: @hyrule;
+    }
+    .post-header::before {
+      background-color: @hyrule;
+    }
+    .post-body img {
+      background-color: @hyrule;
+    }
+  }
+  &.fami {
+    .featured {
+      background-color: @fami;
+    }
+    .post-header::before {
+      background-color: @fami;
+    }
+    .post-body img {
+      background-color: @fami;
     }
   }
 }
