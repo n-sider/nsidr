@@ -40,8 +40,10 @@ module.exports = (req, res) => {
 
   view.render((err) => {
     if (err) {
+      locals.layoutClass = 'not-found';
       return view.res.render('404', locals);
     }
+    locals.layoutClass = 'content-view';
     return view.res.render('article', locals);
   });
 };

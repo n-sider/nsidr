@@ -17,16 +17,22 @@
   {{/if}}
 </head>
 
-<body>
+<body class="{{ layoutClass }}">
   <header id="site-header">
     <h1>
       <a href="/"><span>n</span><span>s</span><span>i</span><span>d</span><span>r</span></a>
     </h1>
+    <nav>
+      <ul>
+        <li><i class="fas fa-seedling"></i></li>
+        <li><i class="fas fa-seedling"></i></li>
+      </ul>
+    </nav>
   </header>
   {{{body}}}
   <footer id="site-footer">
     <div>
-      <small>&copy; {{ year }} N-Sider Media</small>
+      <small><a href="/">&copy; {{ year }} N-Sider Media</a></small>
       <a href="https://github.com/n-sider"><i class="fab fa-github"></i></a>
       <ul>
         <li><a href="/rss"><i class="fas fa-rss-square"></i></a></li>
