@@ -3,7 +3,6 @@
   margin: 0 auto;
   background-color: @white;
   border-radius: 5px;
-  box-shadow: @focusShadow;
 
   .featured {
     height: 30px;
@@ -75,7 +74,7 @@
   }
 
   .post-body {
-    padding: 0 40px;
+    padding: 0 40px 40px;
     line-height: 34px;
     text-align: justify;
     font-size: 20px;
@@ -94,6 +93,51 @@
       &.image_styled {
         width: 100%;
         height: auto;
+      }
+    }
+  }
+
+  .post-footer {
+    display: flex;
+    overflow: hidden;
+    background-color: @grayBg;
+    line-height: 40px;
+    flex-direction: row-reverse;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+
+    .icon {
+      display: flex;
+      flex: 0 0 40px;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      border-left: 2px solid @white;
+      font-size: 16px;
+      color: @nsidr;
+    }
+
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      margin-bottom: -2px;
+
+      li {
+        border-left: 2px solid @white;
+        border-bottom: 2px solid @white;
+
+        a {
+          display: inline-block;
+          padding: 0 15px;
+          color: @grayText;
+          transition: all ease-in-out .2s;
+
+          &:hover {
+            background-color: @nsidr;
+            color: @white;
+          }
+        }
       }
     }
   }
