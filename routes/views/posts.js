@@ -54,7 +54,7 @@ module.exports = (req, res) => {
       const posts = keystone.list('Post').model.find()
         .where('publishedDate').lt(new Date())
         .sort('-publishedDate')
-        .skip(params.page ? params.page * perPage : 0)
+        .skip(params.page ? (params.page - 1) * perPage : 0)
         .limit(perPage);
 
       const countPosts = keystone.list('Post').model.find()
@@ -67,14 +67,15 @@ module.exports = (req, res) => {
         filterQuerystring += `&${filter.field}=${filter.value}`;
       });
 
-      posts.populate('authors tags').exec((err, result) => {
+      posts.populate('authors').exec((err, result) => {
         if (result) {
           countPosts.count().exec((countErr, totalCount) => {
             locals.posts = result;
             locals.pagination = {
               prev: page > 1 ? `/posts?page=${page - 1}${filterQuerystring}` : undefined,
               current: page,
-              next: (totalCount - ((page + 1) * perPage)) > 0 ?
+              total: Math.ceil(totalCount / perPage),
+              next: (totalCount - (page * perPage)) > 0 ?
                 `/posts?page=${page + 1}${filterQuerystring}` : undefined
             };
             next();

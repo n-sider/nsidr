@@ -1,49 +1,27 @@
-<section>
+<section id="posts">
 
-  <h1>Posts</h1>
-
-  {{#if badFilter}}
-  <p>No posts found with these filters.</p>
-  {{else if posts}}
-  <ol>
-    {{#each posts}}
-    <li>
-      <article class="post-template">
-
-        <header class="post-header">
-          <div>
-            <h1><a href="/posts/{{ slug }}">{{ title }}</a></h1>
-            <small>
-              <ul>
-                {{#each authors}}
-                <li><a href="/posts?authors={{ name.full }}">{{ name.full }}</a></li>
-                {{/each}}
-              </ul>
-              {{ displayDate }}
-            </small>
-          </div>
-        </header>
-
-        <footer>
-          <ul>
-            {{#each tags}}
-            <li><a href="/posts?tags={{ name }}">{{ name }}</a></li>
-            {{/each}}
-          </ul>
-        </footer>
-
-      </article>
-    </li>
-    {{/each}}
-  </ol>
-
-  <footer>
-    <a href="{{ pagination.prev }}">Prev</a>
-    <a href="{{ pagination.next }}">Next</a>
-  </footer>
-  {{else}}
-  <p>No posts found with these filters.</p>
-  {{/if}}
+  <div class="post-list">
+    {{#if badFilter}}
+    <p>No posts found with these filters.</p>
+    {{else if posts}}
+    {{> post-previews }}
+    <footer class="pagination">
+      {{#if pagination.prev}}
+      <a href="{{ pagination.prev }}"><span><i class="fas fa-arrow-alt-square-left"></i>prev</span></a>
+      {{else}}
+      <div></div>
+      {{/if}}
+      <span>page {{ pagination.current }} of {{ pagination.total }}</span>
+      {{#if pagination.next}}
+      <a href="{{ pagination.next }}"><span>next<i class="fas fa-arrow-alt-square-right"></i></span></a>
+      {{else}}
+      <div></div>
+      {{/if}}
+    </footer>
+    {{else}}
+    <p>No posts found with these filters.</p>
+    {{/if}}
+  </div>
 
   <aside id="tag-search">
     <input type="text" data-starting-value="{{ currentTag }}" :value="searchTerm"

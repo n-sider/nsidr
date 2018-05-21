@@ -57,7 +57,7 @@ Post.schema.virtual('twitter').get(function () {
   return this.twitterLink || 'https://twitter.com/nsider';
 });
 Post.schema.virtual('facebook').get(function () {
-  return this.facebookLink || 'https://www.facebook.com/N-Sider-141311642565331';
+  return this.facebookLink || 'https://www.facebook.com/nsidr/';
 });
 
 Post.defaultColumns = 'title, publishedDate';
