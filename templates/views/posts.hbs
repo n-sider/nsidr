@@ -24,13 +24,16 @@
   </div>
 
   <aside id="tag-search">
-    <input type="text" data-starting-value="{{ currentTag }}" :value="searchTerm"
-      @input="autoComplete" @keydown.down="selectDown" @keydown.up="selectUp" @keyup.enter="selectFollow">
-    <ul v-if="matchedTags.length > 0">
-      <li v-for="(tag, index) in matchedTags" v-bind:class="{ selected: selectedClass(index) }">
-        <a :href="'/posts?tags=' + encodeURIComponent(tag.name)">${tag.name}</a>
-      </li>
-    </ul>
+    <div class="search-posts">
+      <h1>search posts by keyword</h1>
+      <input type="text" data-starting-value="{{ currentTag }}" :value="searchTerm"
+        @input="autoComplete" @keydown.down="selectDown" @keydown.up="selectUp" @keyup.enter="selectFollow">
+      <ul v-if="matchedTags.length > 0">
+        <li v-for="(tag, index) in matchedTags" v-bind:class="{ selected: selectedClass(index) }">
+          <a :href="'/posts?tags=' + encodeURIComponent(tag.name)" v-html="tag.name"></a>
+        </li>
+      </ul>
+    </div>
   </aside>
 
 </section>

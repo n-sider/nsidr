@@ -21,6 +21,7 @@
       & > a {
         display: block;
         flex: 0 0 200px;
+        transition: all .2s ease-in-out;
 
         span {
           display: block;
@@ -93,10 +94,55 @@
   #tag-search {
     flex: 0 0 300px;
     margin-right: 40px;
-    background-color: rgba(0,0,150,.1);
 
-    li.selected {
-      background-color: #DDDDDD;
+    .search-posts {
+      position: fixed;
+      top: 150px;
+      width: 300px;
+      margin-bottom: 40px;
+      padding: 20px;
+      border-radius: 5px;
+      border-top: 5px solid @disk;
+      background-color: @white;
+      overflow: hidden;
+
+      h1 {
+        margin-bottom: 10px;
+        line-height: 26px;
+        text-align: center;
+        font-family: proxima-soft;
+        font-weight: 700;
+        font-size: 20px;
+      }
+
+      input {
+        width: 100%;
+        padding: 5px 10px;
+        background-color: @background;
+        border: 1px solid @grayBg;
+        border-radius: 5px;
+        transition: all .2s ease-in-out;
+
+        &:focus {
+          border-color: @nsidr;
+          outline: none;
+        }
+      }
+
+      li {
+        margin-top: 3px;
+        padding: 7px 11px;
+        border-radius: 5px;
+        background-color: @background;
+
+        &.selected {
+          background-color: @nsidr;
+
+          a {
+            color: @white;
+          }
+        }
+      }
     }
   }
 }

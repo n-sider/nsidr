@@ -99,6 +99,7 @@ module.exports = (req, res) => {
       '/scripts/lib/vue-resource.min.js',
       '/scripts/posts.js'
     ];
+    locals.layoutClass = 'list-view';
     return view.res.render('posts', locals);
   });
 };
