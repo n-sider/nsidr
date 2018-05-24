@@ -9,13 +9,13 @@
     <div>
       <h1>{{ post.title }}</h1>
       <small>
-        by
+        <i class="fas fa-user{{#if post.multipleAuthors}}-friends{{/if}}"></i>
         <ul>
           {{#each post.authors}}
           <li><a href="/posts?authors={{ name.full }}">{{ name.full }}</a></li>
           {{/each}}
         </ul>
-        {{ post.displayDate }}
+        <i class="fas fa-calendar"></i> {{ post.displayDate }}
       </small>
     </div>
   </header>

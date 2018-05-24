@@ -58,15 +58,22 @@
       }
 
       small {
-        display: block;
+        display: flex;
         margin-top: 10px;
         font-size: 14px;
 
-        ul {
-          display: inline-block;
+        svg {
+          margin-right: 8px;
+          color: @grayText;
+        }
 
-          li::after {
-            content: ", ";
+        ul {
+          display: flex;
+          margin-right: 15px;
+
+          li:not(:first-child)::before {
+            margin-right: 5px;
+            content: ",";
           }
         }
       }
@@ -204,22 +211,42 @@
     .featured {
       background-color: @hyrule;
     }
-    .post-header::before {
-      background-color: @hyrule;
+    .post-header {
+      &::before {
+        background-color: @hyrule;
+      }
+      a {
+        color: @hyrule;
+      }
     }
-    .post-body img {
-      background-color: @hyrule;
+    .post-body {
+      a {
+        color: @hyrule;
+      }
+      img {
+        background-color: @hyrule;
+      }
     }
   }
   &.fami {
     .featured {
       background-color: @fami;
     }
-    .post-header::before {
-      background-color: @fami;
+    .post-header {
+      &::before {
+        background-color: @fami;
+      }
+      a {
+        color: @fami;
+      }
     }
-    .post-body img {
-      background-color: @fami;
+    .post-body {
+      a {
+        color: @fami;
+      }
+      img {
+        background-color: @fami;
+      }
     }
   }
 }

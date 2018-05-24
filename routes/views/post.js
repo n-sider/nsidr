@@ -21,6 +21,7 @@ module.exports = (req, res) => {
       if (result) {
         locals.meta.title = `nsidr | ${result.title}`;
         locals.post = result;
+        locals.post.multipleAuthors = locals.post.authors.length > 1;
       } else {
         err = new Error('Post not found');
       }
