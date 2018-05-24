@@ -5,7 +5,8 @@ new Vue({
     searchTerm: document.querySelector('#tag-search input').getAttribute('data-starting-value'),
     tags: [],
     matchedTags: [],
-    selectedIndex: null
+    selectedIndex: null,
+    searchPerformed: false
   },
   created: function () {
     this.$http.get('/api/tags').then((response) => {
@@ -13,8 +14,9 @@ new Vue({
     });
   },
   methods: {
-    autoComplete: function (e) {
-      this.searchTerm = e.target.value;
+    autoComplete: function (event) {
+      this.searchPerformed = true;
+      this.searchTerm = event.target.value;
       if (this.searchTerm.length > 1) {
         const workingTags = [];
         this.tags.forEach((tag) => {
@@ -32,8 +34,8 @@ new Vue({
     selectedClass: function (index) {
       return index === this.selectedIndex;
     },
-    selectDown: function (e) {
-      e.preventDefault();
+    selectDown: function (event) {
+      event.preventDefault();
       if (this.selectedIndex >= 0) {
         if (this.selectedIndex === this.matchedTags.length - 1) {
           this.selectedIndex = 0;
@@ -42,8 +44,8 @@ new Vue({
         }
       }
     },
-    selectUp: function (e) {
-      e.preventDefault();
+    selectUp: function (event) {
+      event.preventDefault();
       if (this.selectedIndex >= 0) {
         if (this.selectedIndex === 0) {
           this.selectedIndex = this.matchedTags.length - 1;
@@ -53,9 +55,14 @@ new Vue({
       }
     },
     selectFollow: function () {
-      if (this.selectedIndex >= 0) {
+      if (this.selectedIndex !== null && this.selectedIndex >= 0) {
         window.location.href = `/posts?tags=${encodeURIComponent(this.matchedTags[this.selectedIndex].name)}`;
+      } else if (!this.searchTerm) {
+        window.location.href = '/posts';
       }
+    },
+    selectTag: function (index) {
+      this.selectedIndex = index;
     }
   }
 });

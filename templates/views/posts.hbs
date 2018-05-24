@@ -2,7 +2,10 @@
 
   <div class="post-list">
     {{#if badFilter}}
-    <p>No posts found with these filters.</p>
+    <p class="no-posts">
+      <span>No posts found with these filters.</span>
+      <i class="fas fa-ban"></i>
+    </p>
     {{else if posts}}
     {{> post-previews }}
     <footer class="pagination">
@@ -19,20 +22,25 @@
       {{/if}}
     </footer>
     {{else}}
-    <p>No posts found with these filters.</p>
+    <p class="no-posts">
+      <span>No posts found with these filters.</span>
+      <i class="fas fa-ban"></i>
+    </p>
     {{/if}}
   </div>
 
   <aside id="tag-search">
     <div class="search-posts">
-      <h1>search posts by keyword</h1>
+      <h1>search posts by tag</h1>
       <input type="text" data-starting-value="{{ currentTag }}" :value="searchTerm"
         @input="autoComplete" @keydown.down="selectDown" @keydown.up="selectUp" @keyup.enter="selectFollow">
       <ul v-if="matchedTags.length > 0">
-        <li v-for="(tag, index) in matchedTags" v-bind:class="{ selected: selectedClass(index) }">
+        <li v-for="(tag, index) in matchedTags" v-bind:class="{ selected: selectedClass(index) }"
+          v-on:mouseOver="selectTag(index)">
           <a :href="'/posts?tags=' + encodeURIComponent(tag.name)" v-html="tag.name"></a>
         </li>
       </ul>
+      <p v-if="searchPerformed && matchedTags.length === 0 && searchTerm.length > 1" v-html="'no tags found'"></p>
     </div>
   </aside>
 

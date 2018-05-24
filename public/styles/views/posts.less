@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: row-reverse;
   max-width: 1340px;
+  width: 100%;
   margin: 0 auto 40px;
 
   .post-list {
@@ -10,6 +11,26 @@
 
     ol li {
       width: ~"calc(50% - 20px)";
+    }
+
+    .no-posts {
+      padding: 20px;
+      border-top: 5px solid @nsidr;
+      border-radius: 5px;
+      background-color: @white;
+      text-align: center;
+
+      span {
+        display: block;
+        margin-top: 20px;
+        color: @grayText;
+      }
+
+      .fa-ban {
+        margin: 50px auto;
+        font-size: 200px;
+        color: @background;
+      }
     }
 
     .pagination {
@@ -129,19 +150,31 @@
         }
       }
 
-      li {
-        margin-top: 3px;
-        padding: 7px 11px;
-        border-radius: 5px;
-        background-color: @background;
+      ul {
+        display: flex;
+        flex-wrap: wrap;
 
-        &.selected {
-          background-color: @nsidr;
+        li {
+          margin: 5px 5px 0 0;
+          padding: 7px 11px;
+          border-radius: 5px;
+          background-color: @background;
 
-          a {
-            color: @white;
+          &.selected {
+            background-color: @nsidr;
+
+            a {
+              color: @white;
+            }
           }
         }
+      }
+
+      p {
+        font-size: 14px;
+        margin-top: 10px;
+        text-align: center;
+        color: @grayText;
       }
     }
   }
