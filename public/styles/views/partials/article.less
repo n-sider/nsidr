@@ -82,6 +82,14 @@
       font-size: 11px;
     }
 
+    acronym,
+    abbr {
+      border: none;
+      background: url('https://static.nsidr.com/layout/underline_dots.gif') bottom left repeat-x;
+      text-decoration: none;
+      cursor: help;
+    }
+
     ul li {
       list-style-type: disc;
       margin: 0px 30px;
@@ -110,8 +118,8 @@
 
     /* Legacy NML styles */
     .align_center { margin: 0 auto; text-align: center; }
-    .align_left { float: left; margin: 5px 20px 0px 0px; }
-    .align_right { float: right; margin: 5px 0px 0px 20px; }
+    .align_left { float: left; padding-right: 10px; padding-top: 3px; }
+    .align_right { float: right; padding-left: 10px; padding-top: 3px; }
 
     .size_1 { font-size: 70%; }
     .size_2 { font-size: 80%; }
@@ -121,19 +129,64 @@
     .size_6 { font-size: 185%; }
 
     .header { border-bottom: 1px solid #808080; font-size: 17px; font-weight: 700; line-height: normal; }
+    .subheader { border-bottom: 0px; font-size: 14px; font-weight: bold; color: @grayText; line-height: normal; }
 
     .image_styled { padding: 3px; border: 1px solid @grayBg; }
+    .image_nostyle { border: none; }
     .image_caption_styled { padding-top: 2px; text-align: center; font-size: 10px; }
-    .align_center .image_caption_styled { margin: 0 auto; }
+    .image_caption_nostyle { padding-top: 2px; text-align: center; font-size: 10px; }
+    .align_center .image_caption_styled,
+    .align_center .image_caption_nostyle { margin: 0 auto; }
 
-    .indent { padding-left: 30px; }
+    .indent { padding: 0px 40px; }
     .box { padding: 20px; border-radius: 5px; border: 1px solid @grayBg; }
+    .strike { text-decoration: line-through; color: @grayText; }
 
-    blockquote { margin: 0 30px; }
-    blockquote .quote_author { margin-bottom: 5px; font-weight: 700; font-family: proxima-soft; }
-    blockquote .quote_body { line-height: 26px; font-size: 85%; }
+    .quote {
+      margin-left: 29px;
+      padding: 0px 40px 0px 10px;
+      border-left: 1px solid @grayBg;
+    }
+    .quote_sourced {
+      display: inline;
+      float: left;
+      position: relative;
+      margin-left: 29px;
+      padding: 0px 40px 22px 10px;
+      border-left: 1px solid @grayBg;
+    }
+    .quote_sourced .source {
+      display: block;
+      position: absolute;
+      bottom: 0px;
+      font-weight: 700;
+    }
 
-    .divider { height: 1px; overflow: hidden; background-color: @grayBg; }
+    .pullquote {
+      margin: 0px 40px;
+      padding: 10px 0px;
+      border-top: 1px solid @grayBg;
+      border-bottom: 1px solid @grayBg;
+      line-height: 24px;
+      font-size: 18px;
+      line-height: 24px;
+    }
+
+    .dropcap {
+      float: left;
+      height: 43px;
+      margin: 2px 8px 3px 0;
+      padding: 0 3px;
+      border: 1px solid #1F4168;
+      background-color: #446485;
+      line-height: 40px;
+      font-size: 38px;
+      font-weight: bold;
+      text-align: center;
+      color: @white;
+    }
+
+    .divider { height: 1px; border-top: 1px solid #000000; background-color: @grayBg; text-align: center; }
   }
 
   .pagination {
