@@ -12,6 +12,14 @@
       </ol>
       {{/if}}
       <i class="fas fa-calendar"></i> {{ article.displayDate }}
+      {{#if article.tags}}
+      <i class="fas fa-tag{{#if article.multipleTags}}s{{/if}}"></i>
+      <ul>
+        {{#each article.tags}}
+        <li><a href="/archive?tags={{ name }}">{{ name }}</a></li>
+        {{/each}}
+      </ul>
+      {{/if}}
     </small>
   </header>
 
@@ -31,7 +39,7 @@
   </div>
 
   {{#if pagination}}
-  <div class="pagination">
+  <footer class="pagination">
     {{#if pagination.prev}}
     <a href="{{ pagination.prev }}"><span><i class="fas fa-arrow-alt-square-left"></i>prev</span></a>
     {{else}}
@@ -43,17 +51,6 @@
     {{else}}
     <div></div>
     {{/if}}
-  </div>
-  {{/if}}
-
-  {{#if article.tags}}
-  <footer class="article-footer">
-    <span class="icon"><i class="fas fa-tag"></i></span>
-    <ul>
-      {{#each article.tags}}
-      <li><a href="/archive?tags={{ name }}">{{ name }}</a></li>
-      {{/each}}
-    </ul>
   </footer>
   {{/if}}
 

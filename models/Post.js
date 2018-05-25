@@ -53,6 +53,12 @@ Post.schema.virtual('cleanContent').get(function () {
 Post.schema.virtual('displayDate').get(function () {
   return moment(this.publishedDate).format('MMMM D, YYYY');
 });
+Post.schema.virtual('multipleTags').get(function () {
+  return this.tags && this.tags.length > 1;
+});
+Post.schema.virtual('multipleAuthors').get(function () {
+  return this.authors && this.authors.length > 1;
+});
 Post.schema.virtual('twitter').get(function () {
   return this.twitterLink || 'https://twitter.com/nsidr';
 });

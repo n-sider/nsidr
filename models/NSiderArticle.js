@@ -46,6 +46,12 @@ NSiderArticle.add({
 NSiderArticle.schema.virtual('displayDate').get(function () {
   return moment(this.publishedDate).format('MMMM D, YYYY');
 });
+NSiderArticle.schema.virtual('multipleTags').get(function () {
+  return this.tags && this.tags.length > 1;
+});
+NSiderArticle.schema.virtual('multipleAuthors').get(function () {
+  return this.authors && this.authors.length > 1;
+});
 
 NSiderArticle.defaultColumns = 'title, publishedDate';
 

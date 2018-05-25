@@ -59,17 +59,21 @@
 
       small {
         display: flex;
+        flex-wrap: wrap;
         margin-top: 10px;
         font-size: 14px;
 
         svg {
           margin-right: 8px;
           color: @grayText;
+
+          &:not(:first-child) {
+            margin-left: 15px;
+          }
         }
 
         ul {
           display: flex;
-          margin-right: 15px;
 
           li:not(:first-child)::before {
             margin-right: 5px;
