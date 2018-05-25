@@ -16,7 +16,7 @@
       <i class="fas fa-tag{{#if article.multipleTags}}s{{/if}}"></i>
       <ul>
         {{#each article.tags}}
-        <li><a href="/archive?tags={{ name }}">{{ name }}</a></li>
+        <li><a href="/archive?tags={{ encodedName }}">{{ name }}</a></li>
         {{/each}}
       </ul>
       {{/if}}

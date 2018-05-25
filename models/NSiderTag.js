@@ -12,6 +12,10 @@ NSiderTag.add({
   legacyId: { type: Types.Number, hidden: true }
 });
 
+NSiderTag.schema.virtual('encodedName').get(function () {
+  return encodeURIComponent(this.name);
+});
+
 NSiderTag.defaultColumns = 'name';
 
 NSiderTag.register();

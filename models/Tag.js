@@ -9,6 +9,10 @@ Tag.add({
   legacyId: { type: Types.Number, hidden: true }
 });
 
+Tag.schema.virtual('encodedName').get(function () {
+  return encodeURIComponent(this.name);
+});
+
 Tag.defaultColumns = 'name';
 
 Tag.register();
