@@ -1,4 +1,5 @@
 const keystone = require('keystone');
+const moment = require('moment');
 
 const { Types } = keystone.Field;
 
@@ -40,6 +41,10 @@ NSiderArticle.add({
       isMinor: { type: Types.Boolean, label: 'Minor Contributor?' }
     }
   }
+});
+
+NSiderArticle.schema.virtual('displayDate').get(function () {
+  return moment(this.publishedDate).format('MMMM D, YYYY');
 });
 
 NSiderArticle.defaultColumns = 'title, publishedDate';

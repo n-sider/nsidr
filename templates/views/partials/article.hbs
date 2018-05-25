@@ -1,0 +1,44 @@
+<article class="article-template">
+
+  <header class="article-header">
+    <h1>{{ article.title }}</h1>
+    <small>
+      {{#if article.authors}}
+      <i class="fas fa-user{{#if article.multipleAuthors}}-friends{{/if}}"></i>
+      <ol>
+        {{#each article.authors}}
+        <li>{{ name.full }}</li>
+        {{/each}}
+      </ol>
+      {{/if}}
+      <i class="fas fa-calendar"></i> {{ article.displayDate }}
+    </small>
+  </header>
+
+  <div class="article-body">
+    <div id="contentarea">
+      <div class="markup_main_standard">
+        {{{ currentPage.content }}}
+      </div>
+    </div>
+    {{#if currentPage.sidebar}}
+    <aside id="sidebar">
+      <div class="markup_sidebar_standard">
+        {{{ currentPage.sidebar }}}
+      </div>
+    </aside>
+    {{/if}}
+  </div>
+
+  {{#if article.tags}}
+  <footer class="article-footer">
+    <span class="icon"><i class="fas fa-tag"></i></span>
+    <ul>
+      {{#each article.tags}}
+      <li><a href="/articles?tags={{ name }}">{{ name }}</a></li>
+      {{/each}}
+    </ul>
+  </footer>
+  {{/if}}
+
+</article>

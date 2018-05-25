@@ -15,6 +15,7 @@ module.exports = (req, res) => {
       if (result) {
         locals.meta.title = `nsidr | ${result.title}`;
         locals.article = result;
+        locals.article.multipleAuthors = locals.article.authors.length > 1;
         locals.currentPage = locals.article.pages.find(page => page.pageNumber === (Number(req.params.page) || 1));
 
         locals.article.authors.sort((a, b) => {
@@ -43,7 +44,8 @@ module.exports = (req, res) => {
       locals.layoutClass = 'not-found';
       return view.res.render('404', locals);
     }
-    locals.layoutClass = 'content-view';
+    locals.layoutClass = 'article-view';
+    locals.fullViewport = true;
     return view.res.render('article', locals);
   });
 };
