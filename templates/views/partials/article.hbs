@@ -15,7 +15,7 @@
     </small>
   </header>
 
-  <div class="article-body">
+  <div class="article-body" id="page_{{ currentPage.pageNumber }}">
     <div id="contentarea">
       <div class="markup_main_standard">
         {{{ currentPage.content }}}
@@ -30,12 +30,28 @@
     {{/if}}
   </div>
 
+  {{#if pagination}}
+  <div class="pagination">
+    {{#if pagination.prev}}
+    <a href="{{ pagination.prev }}"><span><i class="fas fa-arrow-alt-square-left"></i>prev</span></a>
+    {{else}}
+    <div></div>
+    {{/if}}
+    <span>page {{ pagination.current }} of {{ pagination.total }}</span>
+    {{#if pagination.next}}
+    <a href="{{ pagination.next }}"><span>next<i class="fas fa-arrow-alt-square-right"></i></span></a>
+    {{else}}
+    <div></div>
+    {{/if}}
+  </div>
+  {{/if}}
+
   {{#if article.tags}}
   <footer class="article-footer">
     <span class="icon"><i class="fas fa-tag"></i></span>
     <ul>
       {{#each article.tags}}
-      <li><a href="/articles?tags={{ name }}">{{ name }}</a></li>
+      <li><a href="/archive?tags={{ name }}">{{ name }}</a></li>
       {{/each}}
     </ul>
   </footer>

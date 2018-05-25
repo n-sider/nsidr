@@ -54,7 +54,7 @@ Post.schema.virtual('displayDate').get(function () {
   return moment(this.publishedDate).format('MMMM D, YYYY');
 });
 Post.schema.virtual('twitter').get(function () {
-  return this.twitterLink || 'https://twitter.com/nsider';
+  return this.twitterLink || 'https://twitter.com/nsidr';
 });
 Post.schema.virtual('facebook').get(function () {
   return this.facebookLink || 'https://www.facebook.com/nsidr/';

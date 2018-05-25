@@ -27,6 +27,15 @@ module.exports = (req, res) => {
           return 0;
         });
 
+        locals.pagination = {
+          prev: locals.currentPage.pageNumber > 1 ?
+            `/archive/${locals.article.slug}/${locals.currentPage.pageNumber - 1}` : undefined,
+          current: locals.currentPage.pageNumber,
+          total: locals.article.pages.length,
+          next: (locals.article.pages.length - locals.currentPage.pageNumber) > 0 ?
+            `/archive/${locals.article.slug}/${locals.currentPage.pageNumber + 1}` : undefined
+        };
+
         locals.viewStyles = locals.article.style;
 
         if (!locals.currentPage) {

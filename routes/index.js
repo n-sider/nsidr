@@ -19,8 +19,15 @@ module.exports = (app) => {
       routes.views.posts(req, res);
     }
   });
-  app.get('/archive/:slug/:page?', routes.views.article);
+  app.get('/archive/:slug?/:page?', (req, res) => {
+    if (req.params.slug) {
+      routes.views.article(req, res);
+    } else {
+      routes.views.articles(req, res);
+    }
+  });
 
   // API
   app.get('/api/tags', keystone.middleware.api, routes.api.tags.get);
+  app.get('/api/nsider-tags', keystone.middleware.api, routes.api.nsiderTags.get);
 };

@@ -1,0 +1,47 @@
+<section id="articles">
+
+  <div class="article-list">
+    {{#if badFilter}}
+    <p class="no-articles">
+      <span>No articles found with these filters.</span>
+      <i class="fas fa-ban"></i>
+    </p>
+    {{else if articles}}
+    {{> article-previews }}
+    <footer class="pagination">
+      {{#if pagination.prev}}
+      <a href="{{ pagination.prev }}"><span><i class="fas fa-arrow-alt-square-left"></i>prev</span></a>
+      {{else}}
+      <div></div>
+      {{/if}}
+      <span>page {{ pagination.current }} of {{ pagination.total }}</span>
+      {{#if pagination.next}}
+      <a href="{{ pagination.next }}"><span>next<i class="fas fa-arrow-alt-square-right"></i></span></a>
+      {{else}}
+      <div></div>
+      {{/if}}
+    </footer>
+    {{else}}
+    <p class="no-articles">
+      <span>No articles found with these filters.</span>
+      <i class="fas fa-ban"></i>
+    </p>
+    {{/if}}
+  </div>
+
+  <aside id="tag-search">
+    <div class="search-articles">
+      <h1>search articles by tag</h1>
+      <input type="text" data-starting-value="{{ currentTag }}" :value="searchTerm"
+        @input="autoComplete" @keydown.down="selectDown" @keydown.up="selectUp" @keyup.enter="selectFollow">
+      <ul v-if="matchedTags.length > 0">
+        <li v-for="(tag, index) in matchedTags" v-bind:class="{ selected: selectedClass(index) }"
+          v-on:mouseOver="selectTag(index)">
+          <a :href="'/archive?tags=' + encodeURIComponent(tag.name)" v-html="tag.name"></a>
+        </li>
+      </ul>
+      <p v-if="searchPerformed && matchedTags.length === 0 && searchTerm.length > 1" v-html="'no tags found'"></p>
+    </div>
+  </aside>
+
+</section>

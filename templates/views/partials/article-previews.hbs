@@ -1,0 +1,37 @@
+<ol class="article-previews">
+  {{#each articles}}
+  <li>
+    <a href="/archive/{{ slug }}">
+      <article>
+
+        <header class="preview-header">
+          {{#if image}}
+          <img src="{{ image }}">
+          {{/if}}
+          <div>
+            <h1>{{ title }}</h1>
+            <small>
+              {{#if authors}}
+              <i class="fas fa-user{{#if multipleAuthors}}-friends{{/if}}"></i>
+              <ol>
+                {{#each authors}}
+                <li>{{ name.full }}</li>
+                {{/each}}
+              </ol>
+              {{/if}}
+              <i class="fas fa-calendar"></i> {{ displayDate }}
+            </small>
+          </div>
+        </header>
+
+        {{#if blurb}}
+        <div class="preview-body">
+          {{{ blurb }}}
+        </div>
+        {{/if}}
+
+      </article>
+    </a>
+  </li>
+  {{/each}}
+</ol>
