@@ -121,7 +121,6 @@
       border-radius: 5px;
       border-top: 5px solid @disk;
       background-color: @white;
-      overflow: hidden;
 
       h1 {
         margin-bottom: 10px;
@@ -171,6 +170,49 @@
         margin-top: 10px;
         text-align: center;
         color: @grayText;
+      }
+
+      .posts-link {
+        position: absolute;
+        left: 0;
+        bottom: -70px;
+        width: 100%;
+        text-align: center;
+
+        a {
+          opacity: 1;
+          display: inline-block;
+          min-width: 40px;
+          max-width: 40px;
+          height: 40px;
+          padding: 0 20px 0 11px;
+          overflow: hidden;
+          background-color: @grayBg;
+          border-radius: 40px;
+          line-height: 40px;
+          font-weight: 700;
+          font-family: proxima-soft;
+          font-size: 18px;
+          color: @grayText;
+          white-space: nowrap;
+          transition: all .2s ease-in-out;
+
+          svg {
+            margin-right: 15px;
+          }
+
+          &:hover {
+            opacity: 1;
+            max-width: 240px;
+            padding-left: 20px;
+            background-color: @nsidr;
+            color: @white;
+
+            svg {
+              animation: 1s ease-in-out .2s infinite less;
+            }
+          }
+        }
       }
     }
   }

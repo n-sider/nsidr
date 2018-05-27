@@ -41,6 +41,9 @@
         </li>
       </ul>
       <p v-if="searchPerformed && matchedTags.length === 0 && searchTerm.length > 1" v-html="'no tags found'"></p>
+      <div class="archive-link">
+        <a href="/archive"><i class="fas fa-archive"></i>view n-sider archive</a>
+      </div>
     </div>
   </aside>
 

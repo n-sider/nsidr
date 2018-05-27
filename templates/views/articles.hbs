@@ -31,7 +31,7 @@
 
   <aside id="tag-search">
     <div class="search-articles">
-      <h1>search articles by tag</h1>
+      <h1>search archive by tag</h1>
       <input type="text" data-starting-value="{{ currentTag }}" :value="searchTerm"
         @input="autoComplete" @keydown.down="selectDown" @keydown.up="selectUp" @keyup.enter="selectFollow">
       <ul v-if="matchedTags.length > 0">
@@ -41,6 +41,9 @@
         </li>
       </ul>
       <p v-if="searchPerformed && matchedTags.length === 0 && searchTerm.length > 1" v-html="'no tags found'"></p>
+      <div class="posts-link">
+        <a href="/posts"><i class="fas fa-arrow-circle-left"></i>return to nsidr posts</a>
+      </div>
     </div>
   </aside>
 
