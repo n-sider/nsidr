@@ -83,7 +83,6 @@
     }
 
     .index-exhibits {
-      opacity: 1;
       display: flex;
       flex-direction: column;
       flex: 0 0 300px;
@@ -91,6 +90,7 @@
       transition: all 1s ease-in-out;
 
       aside {
+        position: relative;
         width: 100%;
         height: 300px;
         margin-bottom: 40px;
@@ -107,16 +107,44 @@
           color: @white;
         }
 
-        &.exhibit-one {
-          border-top: 5px solid @hyrule;
-          background: url('/the-hyrule-fantasy.jpg') center center no-repeat @hyrule;
-          background-size: cover;
-        }
+        &.exhibit {
+          opacity: .6;
+          cursor: help;
 
-        &.exhibit-two {
-          border-top: 5px solid @fami;
-          background: url('/famiculture.jpg') center center no-repeat @fami;
-          background-size: cover;
+          p {
+            position: absolute;
+            bottom: 34px;
+            right: -94px;
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            font-family: proxima-soft;
+            font-weight: 700;
+            font-size: 20px;
+            color: @white;
+            transform: rotate(-45deg);
+          }
+
+          &.exhibit-one {
+            border-top: 5px solid @hyrule;
+            background: url('/the-hyrule-fantasy.jpg') center center no-repeat @hyrule;
+            background-size: cover;
+
+            p {
+              background-color: @hyrule;
+            }
+          }
+
+          &.exhibit-two {
+            border-top: 5px solid @fami;
+            background: url('/famiculture.jpg') center center no-repeat @fami;
+            background-size: cover;
+
+            p {
+              background-color: @fami;
+            }
+          }
         }
 
         &.follow {
