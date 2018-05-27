@@ -50,6 +50,9 @@ module.exports = (req, res) => {
       locals.layoutClass = 'not-found';
       return view.res.render('404', locals);
     }
+    locals.scripts = [
+      '/scripts/post.js'
+    ];
     locals.layoutClass = 'content-view';
     return view.res.render('post', locals);
   });

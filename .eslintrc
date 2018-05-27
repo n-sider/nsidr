@@ -22,6 +22,7 @@
   "globals": {
     "Vue": false,
     "window": false,
-    "document": false
+    "document": false,
+    "sessionStorage": false,
   }
 }
