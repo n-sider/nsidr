@@ -175,7 +175,7 @@
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
 
-    .icon {
+    .tag-icon {
       display: flex;
       flex: 0 0 40px;
       justify-content: center;
@@ -206,6 +206,29 @@
             background-color: @nsidr;
             color: @white;
           }
+        }
+      }
+    }
+
+    .top-icon {
+      display: flex;
+      flex: 0 0 40px;
+      margin-right: auto;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      border-right: 2px solid @white;
+      font-size: 16px;
+      color: @grayText;
+      cursor: pointer;
+      transition: all ease-in-out .2s;
+
+      &:hover {
+        background-color: @nsidr;
+        color: @white;
+
+        svg {
+          animation: 1s ease-in-out 0s infinite up;
         }
       }
     }

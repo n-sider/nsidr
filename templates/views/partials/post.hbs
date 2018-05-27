@@ -25,12 +25,13 @@
   </div>
 
   <footer class="post-footer">
-    <span class="icon"><i class="fas fa-tag{{#if post.multipleTags}}s{{/if}}"></i></span>
+    <span class="tag-icon"><i class="fas fa-tag{{#if post.multipleTags}}s{{/if}}"></i></span>
     <ul>
       {{#each post.tags}}
       <li><a href="/posts?tags={{ encodedName }}">{{ name }}</a></li>
       {{/each}}
     </ul>
+    <span class="top-icon"><i class="fas fa-arrow-alt-up"></i></span>
   </footer>
 
   {{#if isFeatured}}
