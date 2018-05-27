@@ -19,7 +19,7 @@ module.exports = (req, res) => {
 
     post.populate('authors tags').exec((err, result) => {
       if (result) {
-        locals.meta.title = `nsidr | ${result.title}`;
+        locals.meta.title = `nsidr / ${result.title}`;
         locals.post = result;
       } else {
         err = new Error('Post not found');

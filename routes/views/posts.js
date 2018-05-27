@@ -46,9 +46,16 @@ module.exports = (req, res) => {
   });
 
   view.on('init', (next) => {
-    locals.meta.title = 'nsidr | Posts';
     const page = Number(params.page || 1);
     let filterQuerystring = '';
+
+    locals.meta.title = 'nsidr / posts';
+    if (params.tags) {
+      locals.meta.title += ` / ${params.tags}`;
+    }
+    if (page > 1) {
+      locals.meta.title += ` / page ${page}`;
+    }
 
     if (!locals.badFilter) {
       const posts = keystone.list('Post').model.find()

@@ -13,9 +13,13 @@ module.exports = (req, res) => {
 
     article.populate('tags').exec((err, result) => {
       if (result) {
-        locals.meta.title = `nsidr | ${result.title}`;
         locals.article = result;
         locals.currentPage = locals.article.pages.find(page => page.pageNumber === (Number(req.params.page) || 1));
+
+        locals.meta.title = `nsidr / ${result.title}`;
+        if (locals.currentPage.pageNumber > 1) {
+          locals.meta.title += ` / page ${locals.currentPage.pageNumber}`;
+        }
 
         locals.article.authors.sort((a, b) => {
           if (a.displayOrder < b.displayOrder) {

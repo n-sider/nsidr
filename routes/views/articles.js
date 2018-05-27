@@ -26,9 +26,16 @@ module.exports = (req, res) => {
   });
 
   view.on('init', (next) => {
-    locals.meta.title = 'nsidr | Articles';
     const page = Number(params.page || 1);
     let filterQuerystring = '';
+
+    locals.meta.title = 'nsidr / archive';
+    if (params.tags) {
+      locals.meta.title += ` / ${params.tags}`;
+    }
+    if (page > 1) {
+      locals.meta.title += ` / page ${page}`;
+    }
 
     if (!locals.badFilter) {
       const articles = keystone.list('NSiderArticle').model.find()
