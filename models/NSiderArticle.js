@@ -20,6 +20,16 @@ NSiderArticle.add({
     label: 'Site URL'
   },
   publishedDate: { type: Types.Datetime },
+  isVisible: {
+    type: Types.Select,
+    options: [
+      { value: 'visible', label: 'Visible' },
+      { value: 'recalled', label: 'Recalled' }
+    ],
+    default: 'visible',
+    emptyOption: false,
+    label: 'Visibility'
+  },
   blurb: { type: Types.Html, height: 150, wysiwyg: false },
   image: { type: Types.Text, label: 'Thumbnail Image URL' },
   tags: { type: Types.Relationship, ref: 'NSiderTag', many: true },

@@ -19,7 +19,7 @@ Post.add({
     label: 'Preview URL'
   },
   content: { type: Types.Html, height: 550, wysiwyg: true },
-  publishedDate: { type: Types.Datetime, note: 'Set to present/past value to publish' },
+  publishedDate: { type: Types.Datetime },
   legacyId: { type: Types.Number, hidden: true },
   tags: { type: Types.Relationship, ref: 'Tag', many: true },
   authors: { type: Types.Relationship, ref: 'User', many: true },

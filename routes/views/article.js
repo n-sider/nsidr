@@ -5,11 +5,9 @@ module.exports = (req, res) => {
   const { locals } = res;
 
   view.on('init', (next) => {
-    const query = {
-      slug: req.params.slug
-    };
-
-    const article = keystone.list('NSiderArticle').model.findOne(query);
+    const article = keystone.list('NSiderArticle').model.findOne()
+      .where('slug').equals(req.params.slug)
+      .where('isVisible').ne('recalled');
 
     article.populate('tags').exec((err, result) => {
       if (result) {

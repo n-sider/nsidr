@@ -39,13 +39,13 @@ module.exports = (req, res) => {
 
     if (!locals.badFilter) {
       const articles = keystone.list('NSiderArticle').model.find()
-        .where('publishedDate').lt(new Date())
+        .where('isVisible').ne('recalled')
         .sort('-publishedDate')
         .skip(params.page ? (params.page - 1) * perPage : 0)
         .limit(perPage);
 
       const countArticles = keystone.list('NSiderArticle').model.find()
-        .where('publishedDate').lt(new Date())
+        .where('isVisible').ne('recalled')
         .sort('-publishedDate');
 
       locals.filters.forEach((filter) => {
