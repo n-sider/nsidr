@@ -56,6 +56,9 @@ module.exports = (req, res) => {
     if (page > 1) {
       locals.meta.title += ` / page ${page}`;
     }
+    locals.meta.og.title = 'nsidr / posts';
+    locals.meta.og.imageAlt = 'nsidr / posts';
+    locals.meta.og.url = `${keystone.get('root')}/posts`;
 
     if (!locals.badFilter) {
       const posts = keystone.list('Post').model.find()

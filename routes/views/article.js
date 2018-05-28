@@ -14,10 +14,15 @@ module.exports = (req, res) => {
         locals.article = result;
         locals.currentPage = locals.article.pages.find(page => page.pageNumber === (Number(req.params.page) || 1));
 
-        locals.meta.title = `nsidr / ${result.title}`;
+        locals.meta.title = `nsidr / ${locals.article.title}`;
         if (locals.currentPage.pageNumber > 1) {
           locals.meta.title += ` / page ${locals.currentPage.pageNumber}`;
         }
+        locals.meta.description = locals.article.blurb || locals.meta.description;
+        locals.meta.og.title = locals.article.title;
+        locals.meta.og.description = locals.meta.description;
+        locals.meta.og.imageAlt = locals.article.title;
+        locals.meta.og.url = `${keystone.get('root')}/archive/${locals.article.slug}`;
 
         locals.article.authors.sort((a, b) => {
           if (a.displayOrder < b.displayOrder) {

@@ -26,7 +26,7 @@ module.exports = (req, res) => {
         result.forEach((post) => {
           feed.item({
             title: post.title,
-            description: post.content,
+            description: `${post.brief}<br><br><a href="${keystone.get('root')}/posts/${post.slug}">read more</a>`,
             url: `${keystone.get('root')}/posts/${post.slug}`,
             guid: post.slug,
             author: (() => {

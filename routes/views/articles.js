@@ -36,6 +36,9 @@ module.exports = (req, res) => {
     if (page > 1) {
       locals.meta.title += ` / page ${page}`;
     }
+    locals.meta.og.title = 'nsidr / archive';
+    locals.meta.og.imageAlt = 'nsidr / archive';
+    locals.meta.og.url = `${keystone.get('root')}/archive`;
 
     if (!locals.badFilter) {
       const articles = keystone.list('NSiderArticle').model.find()

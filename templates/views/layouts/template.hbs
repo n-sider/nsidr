@@ -7,6 +7,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   {{/unless}}
   <title>{{ meta.title }}</title>
+
+  <meta name="description" content="{{ meta.description }}">
+  <meta property="og:site_name" content="{{ meta.og.siteName }}">
+  <meta property="og:title" content="{{ meta.og.title }}">
+  <meta property="og:description" content="{{ meta.og.description }}">
+  <meta property="og:image" content="{{ meta.og.image }}">
+  <meta property="og:url" content="{{ meta.og.url }}">
+  <meta property="fb:app_id" content="{{ meta.og.facebook }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image:alt" content="{{ meta.og.imageAlt }}">
+  <meta name="twitter:site" content="@{{ meta.og.twitter }}">
+
   <script defer src="https://pro.fontawesome.com/releases/v5.0.13/js/solid.js" crossorigin="anonymous"
     integrity="sha384-CucLC75yxFXtBjA/DCHWMS14abAUhf5HmFRdHyKURqqLqi3OrLsyhCyqp83qjiOR"></script>
   <script defer src="https://pro.fontawesome.com/releases/v5.0.13/js/brands.js" crossorigin="anonymous"

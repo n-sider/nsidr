@@ -50,6 +50,11 @@ Post.schema.virtual('featureImage').get(function () {
 Post.schema.virtual('cleanContent').get(function () {
   return this.content.replace(/<[^>]*>/gi, '');
 });
+Post.schema.virtual('brief').get(function () {
+  const matches = this.cleanContent.match(/(.|\r|\n){600}[^ ]*/);
+  const brief = matches ? `${matches[0]}...` : this.cleanContent;
+  return brief;
+});
 Post.schema.virtual('displayDate').get(function () {
   return moment(this.publishedDate).format('MMMM D, YYYY');
 });

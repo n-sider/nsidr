@@ -19,8 +19,15 @@ module.exports = (req, res) => {
 
     post.populate('authors tags').exec((err, result) => {
       if (result) {
-        locals.meta.title = `nsidr / ${result.title}`;
         locals.post = result;
+
+        locals.meta.title = `nsidr / ${locals.post.title}`;
+        locals.meta.description = locals.post.brief || locals.meta.description;
+        locals.meta.og.title = locals.post.title;
+        locals.meta.og.description = locals.meta.description;
+        locals.meta.og.image = locals.post.featureImage || locals.meta.og.image;
+        locals.meta.og.imageAlt = locals.post.title;
+        locals.meta.og.url = `${keystone.get('root')}/posts/${locals.post.slug}`;
       } else {
         err = new Error('Post not found');
       }
