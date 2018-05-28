@@ -51,8 +51,12 @@ module.exports = (req, res) => {
 
   view.render((err) => {
     if (err) {
-      locals.layoutClass = 'not-found';
-      return view.res.render('404', locals);
+      return view.res.render('404', {
+        meta: {
+          title: 'nsidr / 404'
+        },
+        layoutClass: 'not-found-view'
+      });
     }
     locals.layoutClass = 'article-view';
     locals.fullViewport = true;

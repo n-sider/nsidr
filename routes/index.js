@@ -9,6 +9,15 @@ const routes = {
   api: importRoutes('./api')
 };
 
+keystone.set('404', (req, res) => {
+  res.status(404).render('404', {
+    meta: {
+      title: 'nsidr / 404'
+    },
+    layoutClass: 'not-found-view'
+  });
+});
+
 module.exports = (app) => {
   // Views
   app.get('/', routes.views.index);

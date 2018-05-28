@@ -19,7 +19,7 @@
         font-size: 80px;
         font-weight: 700;
         color: @black;
-        transition: all ease-in-out .2s;
+        transition: transform ease-in-out .2s;
 
         &::before {
           content: '';
@@ -96,6 +96,33 @@
         }
       }
     }
+  }
+}
+
+section.not-found {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
+  height: 100vh;
+  z-index: -1;
+
+  h1 {
+    padding-top: 140px;
+    background: url('/dead-link.png') center top no-repeat;
+    background-size: auto 120px;
+    text-align: center;
+    color: @grayText;
+    font-family: proxima-soft;
+    font-weight: 700;
+    font-size: 30px;
+  }
+  p {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 16px;
+    color: @grayText;
   }
 }
 
@@ -208,5 +235,27 @@ body.article-view {
 body.list-view {
   #site-header div h1 {
     position: fixed;
+  }
+}
+
+body.not-found-view {
+  #site-header {
+    position: static;
+
+    div {
+      justify-content: center;
+
+      h1 {
+        transform-origin: center top;
+        transform: scale(.5);
+        margin-left: 0;
+      }
+      nav {
+        display: none;
+      }
+    }
+  }
+  #site-footer {
+    display: none;
   }
 }
