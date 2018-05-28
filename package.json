@@ -26,7 +26,8 @@
     "keystone-utils": "^0.4.0",
     "limax": "^1.6.0",
     "moment": "^2.22.1",
-    "mongoose": "^5.0.17"
+    "mongoose": "^5.0.17",
+    "rss": "^1.2.2"
   },
   "engines": {
     "node": ">=8.0.0",

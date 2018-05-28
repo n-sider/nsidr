@@ -26,6 +26,7 @@ module.exports = (app) => {
       routes.views.articles(req, res);
     }
   });
+  app.get('/rss', routes.views.rss);
 
   // API
   app.get('/api/tags', keystone.middleware.api, routes.api.tags.get);
