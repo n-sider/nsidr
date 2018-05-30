@@ -6,6 +6,7 @@ keystone.pre('routes', middleware.initLocals);
 const importRoutes = keystone.importer(__dirname);
 const routes = {
   views: importRoutes('./views'),
+  redirects: importRoutes('./redirects'),
   api: importRoutes('./api')
 };
 
@@ -36,6 +37,10 @@ module.exports = (app) => {
     }
   });
   app.get('/rss', routes.views.rss);
+
+  // Legacy redirects
+  app.get('/contentview.php', routes.redirects.contentview);
+  app.get('/blog/:year/:month/:slug', routes.redirects.blog);
 
   // API
   app.get('/api/tags', keystone.middleware.api, routes.api.tags.get);
