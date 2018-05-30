@@ -68,6 +68,7 @@ module.exports = (req, res) => {
         .limit(perPage);
 
       const countPosts = keystone.list('Post').model.find()
+        .select('publishedDate')
         .where('publishedDate').lt(new Date())
         .sort('-publishedDate');
 
