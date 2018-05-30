@@ -15,11 +15,11 @@ keystone.init({
     layoutsDir: 'templates/views/layouts',
     partialsDir: 'templates/views/partials',
     defaultLayout: 'template',
-    // helpers: new require( './templates/views/helpers' )(),
     extname: '.hbs'
   }).engine,
 
   'auto update': true,
+  compress: true,
 
   session: true,
   auth: true,
