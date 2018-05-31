@@ -33,6 +33,14 @@ Post.add({
     default: 'nsidr',
     emptyOption: false
   },
+  mood: {
+    type: Types.Select,
+    options: [
+      'Default', 'Hey', 'Bashful', 'Irate', 'Shocked', 'Null', 'Goofball', 'Face'
+    ],
+    default: 'Default',
+    emptyOption: false
+  },
   twitterLink: { type: Types.Text },
   facebookLink: { type: Types.Text }
 });

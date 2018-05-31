@@ -2,6 +2,7 @@ require('dotenv').config();
 
 const keystone = require('keystone');
 const handlebars = require('express-handlebars');
+const helpers = require('./templates/helpers.js');
 
 keystone.init({
   name: 'nsidr',
@@ -15,6 +16,7 @@ keystone.init({
     layoutsDir: 'templates/views/layouts',
     partialsDir: 'templates/views/partials',
     defaultLayout: 'template',
+    helpers: helpers,
     extname: '.hbs'
   }).engine,
 
@@ -33,7 +35,7 @@ const s3Settings = {
   bucket: process.env.S3FILE_BUCKET,
   key: process.env.S3FILE_KEY,
   secret: process.env.S3FILE_SECRET,
-  root: 'https://static.nsidr.com'
+  root: `https://${process.env.S3FILE_BUCKET}`
 };
 keystone.set('s3 config', s3Settings);
 keystone.set('root', 'https://www.nsidr.com');

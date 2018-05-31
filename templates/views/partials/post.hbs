@@ -5,7 +5,7 @@
   {{/if}}
 
   <header class="post-header">
-    <img src="{{ post.authors.[0].avatarPath }}">
+    <img src="{{ getMood post.authors.[0] post.mood }}">
     <div>
       <h1>{{ post.title }}</h1>
       <small>
