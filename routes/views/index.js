@@ -14,8 +14,13 @@ module.exports = (req, res) => {
 
     posts.populate('authors tags').exec((err, result) => {
       if (result) {
-        [locals.leadingPost, ...locals.posts] = result;
-        locals.hasFeaturedPost = locals.leadingPost.featured;
+        if (result[0].featured) {
+          [locals.leadingPost, ...locals.posts] = result;
+          locals.hasFeaturedPost = true;
+        } else {
+          locals.posts = result;
+          locals.hasFeaturedPost = false;
+        }
       } else {
         err = new Error('Posts not found');
       }

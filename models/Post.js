@@ -47,7 +47,7 @@ Post.add({
 
 Post.schema.virtual('featured').get(function () {
   return (
-    this.publishedDate > moment().subtract(7, 'months').toDate() && // TODO: change to 14 days
+    this.publishedDate > moment().subtract(14, 'days').toDate() &&
       this.publishedDate < new Date()
   );
 });

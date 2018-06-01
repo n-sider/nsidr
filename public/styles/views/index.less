@@ -199,9 +199,29 @@
         }
       }
     }
+  }
 
-    &:not(.has-post) {
-      float: right;
+  &:not(.has-featured-post) {
+    display: flex;
+    max-width: 1340px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+
+    .index-featured {
+      flex: 0 0 340px;
+    }
+
+    .post-previews {
+      flex: 0 1 1000px;
+
+      & > li {
+        width: ~"calc(50% - 20px)";
+        max-height: 480px;
+      }
+    }
+
+    .view-all-posts {
+      width: 100%;
     }
   }
 }

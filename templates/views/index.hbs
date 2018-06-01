@@ -1,6 +1,6 @@
-<section id="index">
+<section id="index"{{#if hasFeaturedPost}} class="has-featured-post"{{/if}}>
 
-  <div class="index-featured{{#if hasFeaturedPost}} has-post{{/if}}">
+  <div class="index-featured">
 
     {{#if hasFeaturedPost}}
     {{> post post=leadingPost isFeatured=true }}
