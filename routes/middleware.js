@@ -16,7 +16,8 @@ exports.initLocals = (req, res, next) => {
       url: keystone.get('root'),
       facebook: process.env.FB_APP_ID,
       twitter: process.env.TWITTER_USERNAME
-    }
+    },
+    analytics: process.env.GOOGLE_ANALYTICS
   };
 
   if (keystone.get('env') === 'production' && req.protocol === 'http') {
