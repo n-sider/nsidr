@@ -235,8 +235,16 @@ body.article-view {
 }
 
 body.list-view {
-  #site-header div h1 {
-    position: fixed;
+  #site-header {
+    z-index: 2;
+
+    div {
+      height: 0;
+
+      h1 {
+        position: fixed;
+      }
+    }
   }
 }
 
