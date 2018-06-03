@@ -37,7 +37,9 @@
       }
 
       a {
-        display: block;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
         padding-right: 10px;
         font-size: 20px;
         border-radius: 5px;
@@ -57,8 +59,6 @@
         }
 
         span {
-          position: relative;
-          top: -2px;
           font-size: 16px;
           color: @black;
         }
@@ -86,4 +86,67 @@
     background: url('https://static.nsidr.com/nsidr/line-gate.png') -1px -1px @grayLineBg;
     background-size: 6px 6px;
   }
+}
+
+@media (max-width: 800px) {
+
+  .post-feedback {
+    margin: 20px auto;
+  }
+
+}
+
+@media (max-width: 680px) {
+
+  .post-feedback {
+    & > svg {
+      margin-right: 10px;
+    }
+    div {
+      flex: 0 0 385px;
+
+      h1 {
+        margin-top: -15px;
+        font-size: 30px;
+      }
+      p {
+        flex-wrap: wrap;
+
+        span:first-child {
+          flex: 0 1 100%;
+          margin-bottom: 15px;
+        }
+      }
+    }
+  }
+
+}
+
+@media (max-width: 550px) {
+
+  .post-feedback {
+    & > svg {
+      font-size: 70px;
+    }
+    div {
+      flex: 0 0 285px;
+
+      h1 {
+        font-size: 22px;
+      }
+    }
+  }
+
+}
+
+@media (max-width: 450px) {
+
+  .post-feedback {
+    height: 175px;
+
+    & > svg {
+      display: none;
+    }
+  }
+
 }

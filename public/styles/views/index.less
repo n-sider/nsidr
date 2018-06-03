@@ -35,7 +35,9 @@
           transition: all .2s ease-in-out;
 
           span {
-            display: inline-block;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             font-size: 26px;
             font-weight: 700;
             font-family: proxima-soft;
@@ -114,7 +116,7 @@
             position: absolute;
             bottom: 34px;
             right: -94px;
-            width: 100%;
+            width: 300px;
             height: 40px;
             line-height: 40px;
             text-align: center;
@@ -224,4 +226,307 @@
       width: 100%;
     }
   }
+}
+
+@media (max-width: 1420px) {
+
+  #index {
+    padding-top: 30px;
+
+    .index-featured {
+      flex-direction: column;
+      max-width: 1000px;
+      margin: 0 auto;
+
+      .post-template {
+        margin-bottom: 40px;
+      }
+
+      .index-exhibits {
+        flex: 0 0 auto;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 0;
+
+        aside {
+          height: 210px;
+          width: ~"calc(33.33% - 26.67px)";
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    .post-previews {
+      max-width: 1080px;
+      height: 570px;
+      padding: 40px;
+      overflow: hidden;
+
+      li {
+        width: ~"calc(50% - 20px)";
+      }
+    }
+
+    &:not(.has-featured-post) {
+      .index-featured {
+        flex: 0 1 1000px;
+      }
+
+      .post-previews {
+        height: auto;
+        padding: 40px 0 0;
+        overflow: visible;
+      }
+    }
+  }
+
+}
+
+@media (max-width: 1080px) {
+
+  #index:not(.has-featured-post) {
+    .index-featured {
+      flex: 0 1 100%;
+      max-width: none;
+    }
+
+    .post-template {
+      margin: 0 40px 40px;
+    }
+
+    .index-exhibits {
+      margin: 0 40px;
+    }
+
+    .post-previews {
+      margin: 0 40px;
+    }
+  }
+
+}
+
+@media (max-width: 920px) {
+
+  #index .index-featured {
+    .index-exhibits aside {
+      h1 {
+        font-size: 22px;
+      }
+      &.follow {
+        h1 {
+          font-size: 22px;
+        }
+        p {
+          margin-bottom: 17px;
+          font-size: 14px;
+        }
+        ul {
+          justify-content: space-between;
+
+          li {
+            font-size: 55px;
+          }
+        }
+      }
+    }
+  }
+
+}
+
+@media (max-width: 800px) {
+
+  #index {
+    .index-featured {
+      .post-template {
+        margin: 0 20px 20px
+      }
+      .index-exhibits {
+        flex-wrap: wrap;
+        margin: 0 20px;
+
+        aside {
+          width: ~"calc(50% - 10px)";
+          margin-bottom: 20px;
+
+          h1 {
+            font-size: 28px;
+          }
+          &.follow {
+            display: flex;
+            width: 100%;
+            height: auto;
+            padding: 20px;
+
+            div {
+              display: flex;
+              flex: 0 1 60%;
+
+              h1 {
+                flex: 0 1 50%;
+                line-height: 65px;
+                font-size: 28px;
+              }
+              p {
+                flex: 0 1 50%;
+                margin: 0;
+                padding-top: 13px;
+                font-size: 16px;
+              }
+            }
+
+            ul {
+              justify-content: space-around;
+              flex: 0 1 40%;
+
+              li {
+                font-size: 70px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .post-previews {
+      height: 510px;
+      padding: 0 20px 20px;
+
+      li {
+        width: ~"calc(50% - 10px)";
+      }
+    }
+
+    &:not(.has-featured-post) {
+      .post-previews {
+        margin: 0 20px;
+        padding-top: 0;
+
+        li {
+          width: ~"calc(50% - 10px)";
+          margin-bottom: 20px;
+        }
+      }
+    }
+  }
+
+}
+
+@media (max-width: 730px) {
+
+  #index {
+    .index-featured {
+      .index-exhibits {
+        aside {
+          &.follow {
+            div {
+              flex-direction: column;
+              flex: 0 1 50%;
+
+              h1 {
+                flex: 0 1 auto;
+                line-height: 30px;
+              }
+              p {
+                flex: 0 1 auto;
+              }
+            }
+
+            ul {
+              padding-top: 5px;
+              flex: 0 1 50%;
+            }
+          }
+        }
+      }
+    }
+    .post-previews {
+      height: auto;
+      padding-bottom: 0;
+
+      li {
+        width: 100%;
+      }
+    }
+
+    &:not(.has-featured-post) {
+      .post-previews li {
+        width: 100%;
+      }
+    }
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  #index .index-featured {
+    .post-template {
+      margin: 0 0 20px;
+      border-radius: 0;
+
+      .continue-reading a {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+    }
+  }
+
+}
+
+@media (max-width: 570px) {
+
+  #index .index-featured {
+    .index-exhibits {
+      aside {
+        &:not(.follow) {
+          h1 {
+             font-size: 22px;
+          }
+        }
+      }
+    }
+  }
+
+}
+
+
+@media (max-width: 500px) {
+
+  #index .index-featured {
+    .index-exhibits {
+      aside {
+        width: 100%;
+
+        &:not(.follow) {
+          h1 {
+             font-size: 28px;
+          }
+        }
+        &.follow {
+          display: block;
+          height: 210px;
+          padding: 0 20px 20px;
+
+          div {
+            h1 {
+              line-height: 60px;
+            }
+            p {
+              margin: -3px 0 13px;
+              padding: 0;
+            }
+          }
+          ul {
+            justify-content: center;
+            padding-top: 0;
+
+            li:nth-child(2) {
+              margin: 0 25px;
+            }
+          }
+        }
+      }
+    }
+  }
+
 }

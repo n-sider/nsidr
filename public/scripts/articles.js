@@ -2,6 +2,7 @@ new Vue({
   el: '#tag-search',
   delimiters: ['${', '}'],
   data: {
+    showSearch: false,
     searchTerm: document.querySelector('#tag-search input').getAttribute('data-starting-value'),
     tags: [],
     matchedTags: [],
@@ -14,6 +15,10 @@ new Vue({
     });
   },
   methods: {
+    toggleSearch: function (event) {
+      event.preventDefault();
+      this.showSearch = !this.showSearch;
+    },
     autoComplete: function (event) {
       this.searchPerformed = true;
       this.searchTerm = event.target.value;

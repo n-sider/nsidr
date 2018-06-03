@@ -70,7 +70,7 @@
       text-decoration: underline;
     }
     p {
-      margin: 0px 0px 12px 0px;
+      margin: 0 0 12px 0;
     }
 
     sub {
@@ -92,11 +92,11 @@
 
     ul li {
       list-style-type: disc;
-      margin: 0px 30px;
+      margin: 0 30px;
     }
     ol li {
       list-style-type: decimal;
-      margin: 0px 30px;
+      margin: 0 30px;
 
     }
 
@@ -129,7 +129,7 @@
     .size_6 { font-size: 185%; }
 
     .header { border-bottom: 1px solid #808080; font-size: 17px; font-weight: 700; line-height: normal; }
-    .subheader { border-bottom: 0px; font-size: 14px; font-weight: bold; color: @grayText; line-height: normal; }
+    .subheader { border-bottom: 0; font-size: 14px; font-weight: bold; color: @grayText; line-height: normal; }
 
     .image_styled { padding: 3px; border: 1px solid @grayBg; }
     .image_nostyle { border: none; }
@@ -138,13 +138,13 @@
     .align_center .image_caption_styled,
     .align_center .image_caption_nostyle { margin: 0 auto; }
 
-    .indent { padding: 0px 40px; }
+    .indent { padding: 0 40px; }
     .box { padding: 20px; border-radius: 5px; border: 1px solid @grayBg; }
     .strike { text-decoration: line-through; color: @grayText; }
 
     .quote {
       margin-left: 29px;
-      padding: 0px 40px 0px 10px;
+      padding: 0 40px 0 10px;
       border-left: 1px solid @grayBg;
     }
     .quote_sourced {
@@ -152,19 +152,19 @@
       float: left;
       position: relative;
       margin-left: 29px;
-      padding: 0px 40px 22px 10px;
+      padding: 0 40px 22px 10px;
       border-left: 1px solid @grayBg;
     }
     .quote_sourced .source {
       display: block;
       position: absolute;
-      bottom: 0px;
+      bottom: 0;
       font-weight: 700;
     }
 
     .pullquote {
-      margin: 0px 40px;
-      padding: 10px 0px;
+      margin: 0 40px;
+      padding: 10px 0;
       border-top: 1px solid @grayBg;
       border-bottom: 1px solid @grayBg;
       line-height: 24px;
@@ -202,7 +202,9 @@
       transition: all .2s ease-in-out;
 
       span {
-        display: block;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         text-align: center;
         font-size: 18px;
         font-weight: 700;

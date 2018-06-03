@@ -8,7 +8,9 @@
   text-align: center;
 
   span {
-    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 26px;
     font-weight: 700;
     font-family: proxima-soft;
@@ -33,4 +35,28 @@
       }
     }
   }
+}
+
+@media (max-width: 1420px) {
+
+  .view-all-posts {
+    max-width: 1000px;
+  }
+
+}
+
+@media (max-width: 1080px) {
+
+  .view-all-posts {
+    margin: 0 40px;
+  }
+
+}
+
+@media (max-width: 800px) {
+
+  .view-all-posts {
+    margin: 0 20px;
+  }
+
 }

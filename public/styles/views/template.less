@@ -73,11 +73,13 @@
       ul {
         display: flex;
         justify-content: flex-end;
-        margin: 20px auto 0;
+        margin: 17px auto 0;
         padding-right: 15px;
 
         li {
-          display: inline-block;
+          display: flex;
+          justify-content: center;
+          align-items: center;
           width: 26px;
           height: 26px;
           margin-left: 15px;
@@ -100,15 +102,15 @@
 }
 
 section.not-found {
-  position: fixed;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-self: center;
-  height: 100vh;
+  flex: 1 0 auto;
   z-index: -1;
 
   h1 {
+    margin-top: -120px;
     padding-top: 140px;
     background: url('https://static.nsidr.com/nsidr/dead-link.png') center top no-repeat;
     background-size: auto 120px;
@@ -258,4 +260,235 @@ body.not-found-view {
   #site-footer {
     display: none;
   }
+}
+
+@media (max-width: 1420px) {
+
+  #site-header {
+    position: static;
+    top: auto;
+    left: auto;
+    width: auto;
+
+    div {
+      justify-content: center;
+      max-width: none;
+      margin: 20px 0 0;
+
+      h1 {
+        margin-left: 0;
+      }
+      nav {
+        display: none;
+      }
+    }
+  }
+
+  body.content-view {
+    #site-header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+
+      div {
+        justify-content: space-between;
+        max-width: 1000px;
+        margin: 0 auto;
+
+        h1 {
+          margin-left: -7px;
+        }
+
+        nav {
+          display: flex;
+        }
+      }
+    }
+  }
+
+  body.article-view {
+    #site-header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+
+      div {
+        justify-content: space-between;
+        max-width: 1000px;
+        margin: 0 auto;
+
+        h1 {
+          margin-left: -7px;
+        }
+
+        nav {
+          display: flex;
+        }
+      }
+    }
+  }
+
+  body.list-view {
+    #site-header {
+      position: absolute;
+      z-index: 2;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 0;
+
+      div {
+        position: relative;
+        justify-content: flex-start;
+        left: -150px;
+        max-width: 700px;
+        margin: 0 auto;
+
+        h1 {
+          position: static;
+          margin-top: -10px;
+          margin-left: -7px;
+
+          a {
+            transform: scale(.36);
+            transform-origin: 35px center;
+
+            &:hover {
+              transform: scale(.4);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  body.not-found-view {
+    section.not-found {
+      h1 {
+        margin-top: -100px;
+      }
+    }
+  }
+
+}
+
+@media (max-width: 1080px) {
+
+  body.content-view {
+    #site-header {
+      div {
+        margin: 0 40px;
+      }
+    }
+  }
+
+  body.list-view {
+    #site-header {
+      div {
+        left: 0;
+        max-width: ~"calc(100% - 320px)";
+        margin: 0 40px;
+      }
+    }
+  }
+
+}
+
+@media (max-width: 800px) {
+
+  body.content-view {
+    #site-header {
+      div {
+        margin: 0 20px;
+      }
+    }
+  }
+
+  body.list-view {
+    #site-header {
+      div {
+        margin: 0 20px;
+      }
+    }
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  #site-header {
+    div {
+      margin: 15px 0 -45px;
+
+      h1 {
+        transform: scale(.6);
+        transform-origin: center top;
+      }
+    }
+  }
+
+  body.content-view #site-header {
+    div {
+      margin: 0 auto;
+
+      h1 {
+        transform: scale(1);
+      }
+    }
+  }
+
+  body.list-view #site-header {
+    div {
+      max-width: ~"calc(100% - 100px)";
+      margin: 0 5px;
+
+      h1 {
+        transform: scale(1);
+      }
+    }
+  }
+  #site-footer {
+    height: 54px;
+
+    & > div {
+      padding: 10px 20px;
+
+      small {
+        flex: 0 1 auto;
+        margin-right: auto;
+
+        a {
+          font-size: 14px;
+        }
+      }
+
+      ul {
+        flex: 0 1 auto;
+      }
+    }
+  }
+
+}
+
+@media (max-width: 370px) {
+
+  #site-footer {
+    & > div {
+      & > a {
+        margin-top: 5px;
+        font-size: 24px;
+      }
+      ul li {
+        margin-left: 10px;
+
+        a {
+          margin-top: 5px;
+          font-size: 24px;
+        }
+      }
+    }
+  }
+
 }

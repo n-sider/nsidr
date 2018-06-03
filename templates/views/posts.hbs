@@ -30,17 +30,22 @@
   </div>
 
   <aside id="tag-search">
-    <div class="search-posts">
-      <h1>search posts by tag</h1>
-      <input type="text" data-starting-value="{{ currentTag }}" :value="searchTerm"
-        @input="autoComplete" @keydown.down="selectDown" @keydown.up="selectUp" @keyup.enter="selectFollow">
-      <ul v-if="matchedTags.length > 0">
-        <li v-for="(tag, index) in matchedTags" v-bind:class="{ selected: selectedClass(index) }"
-          v-on:mouseOver="selectTag(index)">
-          <a :href="'/posts?tags=' + encodeURIComponent(tag.name)" v-html="tag.name"></a>
-        </li>
-      </ul>
-      <p v-if="searchPerformed && matchedTags.length === 0 && searchTerm.length > 1" v-html="'no tags found'"></p>
+    <div class="search-container" v-bind:class="{ 'show-search': showSearch }">
+      <div class="search-posts">
+        <h1>search posts by tag</h1>
+        <input type="text" data-starting-value="{{ currentTag }}" :value="searchTerm"
+          @input="autoComplete" @keydown.down="selectDown" @keydown.up="selectUp" @keyup.enter="selectFollow">
+        <ul v-if="matchedTags.length > 0">
+          <li v-for="(tag, index) in matchedTags" v-bind:class="{ selected: selectedClass(index) }"
+            v-on:mouseOver="selectTag(index)">
+            <a :href="'/posts?tags=' + encodeURIComponent(tag.name)" v-html="tag.name"></a>
+          </li>
+        </ul>
+        <p v-if="searchPerformed && matchedTags.length === 0 && searchTerm.length > 1" v-html="'no tags found'"></p>
+      </div>
+      <div class="search-link">
+        <a href="#" v-on:click="toggleSearch"><i class="fas fa-search"></i>search</a>
+      </div>
       <div class="archive-link">
         <a href="/archive"><i class="fas fa-archive"></i>view n-sider archive</a>
       </div>
