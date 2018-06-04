@@ -21,6 +21,7 @@ exports.initLocals = (req, res, next) => {
   };
 
   if (keystone.get('env') === 'production' && req.protocol === 'http') {
+    console.log(`${req.protocol} request - redirect to ${keystone.get('root')}${req.originalUrl}`);
     return res.redirect(keystone.get('root') + req.originalUrl);
   }
 
