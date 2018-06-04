@@ -25,7 +25,9 @@
   </div>
 
   <footer class="post-footer">
+    {{#if post.tags}}
     <span class="tag-icon"><i class="fas fa-tag{{#if post.multipleTags}}s{{/if}}"></i></span>
+    {{/if}}
     <ul>
       {{#each post.tags}}
       <li><a href="/posts?tags={{ encodedName }}">{{ name }}</a></li>
