@@ -28,7 +28,8 @@ keystone.init({
   'user model': 'User',
   'cookie secret': process.env.COOKIE_SECRET,
 
-  'wysiwyg s3 images': true
+  'wysiwyg s3 images': true,
+  'trust proxy': true
 });
 
 const s3Settings = {

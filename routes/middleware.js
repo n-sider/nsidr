@@ -20,7 +20,7 @@ exports.initLocals = (req, res, next) => {
     analytics: process.env.GOOGLE_ANALYTICS
   };
 
-  if (keystone.get('env') === 'production' && !req.connection.encrypted) {
+  if (keystone.get('env') === 'production' && req.protocol === 'http') {
     return res.redirect(keystone.get('root') + req.originalUrl);
   }
 
