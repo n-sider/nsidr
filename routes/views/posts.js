@@ -27,6 +27,7 @@ module.exports = (req, res) => {
 
   view.on('init', (next) => {
     if (params.authors) {
+      locals.currentAuthors = params.authors;
       keystone.list('User').model
         .findOne({
           'name.first': params.authors.split(' ')[0],

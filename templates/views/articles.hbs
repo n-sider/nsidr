@@ -7,6 +7,15 @@
       <i class="fas fa-ban"></i>
     </p>
     {{else if articles}}
+    <div class="filter-status">
+      <i class="fas fa-th-large"></i>
+      {{#if currentTag}}
+      Viewing by tag: {{ currentTag }}
+      <a href="/archive"><i class="fas fa-times"></i></a>
+      {{else}}
+      Viewing all articles
+      {{/if}}
+    </div>
     {{> article-previews }}
     <footer class="pagination">
       {{#if pagination.prev}}

@@ -7,6 +7,20 @@
       <i class="fas fa-ban"></i>
     </p>
     {{else if posts}}
+    <div class="filter-status">
+      <i class="fas fa-th-large"></i>
+      {{#if currentTag}}
+      Viewing by tag: {{ currentTag }}
+      <a href="/posts"><i class="fas fa-times"></i></a>
+      {{else}}
+        {{#if currentAuthors}}
+        Viewing by author: {{ currentAuthors }}
+        <a href="/posts"><i class="fas fa-times"></i></a>
+        {{else}}
+        Viewing all posts
+        {{/if}}
+      {{/if}}
+    </div>
     {{> post-previews }}
     <footer class="pagination">
       {{#if pagination.prev}}
