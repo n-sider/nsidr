@@ -3,7 +3,14 @@
   <div class="index-featured">
 
     {{#if hasFeaturedPost}}
-    {{> post post=leadingPost isFeatured=true }}
+    <div class="featured-post">
+      {{> post post=leadingPost isFeatured=true }}
+      <div class="continue-reading">
+        <a href="/posts/{{ leadingPost.slug }}">
+          <span>continue reading<i class="fas fa-arrow-alt-square-right"></i></span>
+        </a>
+      </div>
+    </div>
     {{/if}}
 
     <div class="index-exhibits">

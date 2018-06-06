@@ -6,24 +6,43 @@
     flex-direction: row-reverse;
     justify-content: center;
 
-    .post-template {
-      position: relative;
-      flex: 0 1 1000px;
-      max-height: 1000px;
-      margin: 0;
-      overflow: hidden;
-      transition: max-height 2s ease-in;
+    .featured-post {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 40px;
+      border-radius: 5px;
       box-shadow: @focusShadow;
 
+      .post-template {
+        position: relative;
+        flex: 0 1 940px;
+        margin: 0;
+        overflow: hidden;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+
+        .post-body {
+          img {
+            width: 100%;
+            margin-left: 0;
+            box-shadow: none;
+          }
+          iframe {
+            width: 100%;
+            margin-left: 0;
+            box-shadow: none;
+          }
+        }
+      }
+
       .continue-reading {
-        opacity: 1;
-        position: absolute;
-        left: 0;
+        position: sticky;
         bottom: 0;
-        width: 100%;
         height: 60px;
         background: url('https://static.nsidr.com/nsidr/line-gate.png') -1px -1px @grayLineBg;
         background-size: 6px 6px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
         text-align: center;
         transition: all 1s ease-in-out;
 
@@ -59,7 +78,7 @@
           display: block;
           width: 100%;
           height: 100px;
-          background: linear-gradient(transparent,@white 70%);
+          background: linear-gradient(transparent,@white 95%);
         }
 
         a:hover {
@@ -76,11 +95,13 @@
         }
       }
 
-      &.hyrule .continue-reading a:hover {
-        background-color: @hyrule;
-      }
-      &.fami .continue-reading a:hover {
-        background-color: @fami;
+      .post-template {
+        &.hyrule + .continue-reading a:hover {
+          background-color: @hyrule;
+        }
+        &.fami + .continue-reading a:hover {
+          background-color: @fami;
+        }
       }
     }
 
@@ -238,8 +259,10 @@
       max-width: 1000px;
       margin: 0 auto;
 
-      .post-template {
-        margin-bottom: 40px;
+      .featured-post {
+        .post-template {
+          margin-bottom: 40px;
+        }
       }
 
       .index-exhibits {
@@ -284,22 +307,26 @@
 
 @media (max-width: 1080px) {
 
-  #index:not(.has-featured-post) {
-    .index-featured {
-      flex: 0 1 100%;
-      max-width: none;
+  #index {
+    &.has-featured-post {
+      .index-featured {
+        margin: 0 40px;
+      }
     }
 
-    .post-template {
-      margin: 0 40px 40px;
-    }
+    &:not(.has-featured-post) {
+      .index-featured {
+        flex: 0 1 100%;
+        max-width: none;
+      }
 
-    .index-exhibits {
-      margin: 0 40px;
-    }
+      .index-exhibits {
+        margin: 0 40px;
+      }
 
-    .post-previews {
-      margin: 0 40px;
+      .post-previews {
+        margin: 0 40px;
+      }
     }
   }
 
@@ -337,8 +364,20 @@
 
   #index {
     .index-featured {
-      .post-template {
-        margin: 0 20px 20px
+      .featured-post {
+        .post-template {
+          flex: 0 1 600px;
+          margin: 0 20px 20px
+        }
+        .continue-reading {
+          border-bottom-left-radius: 0;
+          border-bottom-right-radius: 0;
+
+          a {
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+          }
+        }
       }
       .index-exhibits {
         flex-wrap: wrap;
@@ -393,6 +432,12 @@
 
       li {
         width: ~"calc(50% - 10px)";
+      }
+    }
+
+    &.has-featured-post {
+      .index-featured {
+        margin: 0;
       }
     }
 
@@ -460,10 +505,22 @@
 @media (max-width: 600px) {
 
   #index .index-featured {
-    .post-template {
-      margin: 0 0 20px;
-      border-radius: 0;
+    .featured-post {
+      .post-template {
+        margin: 0 0 20px;
+        border-radius: 0;
 
+        .post-body {
+          img {
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+          }
+          iframe {
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+          }
+        }
+      }
       .continue-reading a {
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;

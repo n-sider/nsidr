@@ -7,7 +7,7 @@
   <header class="post-header">
     <img src="{{ getMood post.authors.[0] post.mood }}">
     <div>
-      <h1>{{ post.title }}</h1>
+      <h1><a href="/posts/{{ post.slug }}">{{ post.title }}</a></h1>
       <small>
         <i class="fas fa-user{{#if post.multipleAuthors}}-friends{{/if}}"></i>
         <ul>
@@ -35,13 +35,5 @@
     </ul>
     <span class="top-icon"><i class="fas fa-arrow-alt-up"></i></span>
   </footer>
-
-  {{#if isFeatured}}
-  <div class="continue-reading">
-    <a href="/posts/{{ post.slug }}">
-      <span>continue reading<i class="fas fa-arrow-alt-square-right"></i></span>
-    </a>
-  </div>
-  {{/if}}
 
 </article>

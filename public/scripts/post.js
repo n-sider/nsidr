@@ -1,7 +1,7 @@
 const scrollTarget = sessionStorage.getItem('scrollFeature');
 
-if (scrollTarget !== null && scrollTarget - 10 > 0) {
-  window.scroll({ top: scrollTarget - 10, behavior: 'smooth' });
+if (scrollTarget !== null && scrollTarget > 0) {
+  window.scroll({ top: scrollTarget, behavior: 'smooth' });
 }
 sessionStorage.removeItem('scrollFeature');
 
