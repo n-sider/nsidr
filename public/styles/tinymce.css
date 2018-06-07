@@ -421,5 +421,5 @@ body .align_right img {
   border-width: 10px;
 }
 body .image_styled {
-  width: calc(100% + 60px);
+  width: calc(100% + 40px);
 }
