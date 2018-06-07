@@ -20,6 +20,7 @@
 
     & > a {
       display: block;
+      flex: 1; /* IE11 */
       color: @black;
 
       article {
@@ -50,6 +51,7 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
+            flex: 1; /* IE11 */
             min-height: 55px;
 
             h1 {

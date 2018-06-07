@@ -1,0 +1,425 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700");
+@charset "utf-8";
+/* Reset Styles */
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-size: 100%;
+  font-weight: normal;
+  font-style: normal;
+  font: inherit;
+  vertical-align: baseline;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+a {
+  text-decoration: none;
+}
+/* Normalize Styles */
+html {
+  min-height: 100%;
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+audio,
+canvas,
+progress,
+video {
+  display: inline-block;
+  vertical-align: baseline;
+}
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+[hidden],
+template {
+  display: none;
+}
+a {
+  background: transparent;
+}
+a:active,
+a:hover {
+  outline: 0;
+}
+b,
+strong {
+  font-weight: bold;
+}
+i,
+em {
+  font-style: italic;
+}
+small {
+  font-size: 80%;
+}
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sup {
+  top: -0.5em;
+}
+sub {
+  bottom: -0.25em;
+}
+svg:not(:root) {
+  overflow: hidden;
+}
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+pre {
+  overflow: auto;
+}
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit;
+  font: inherit;
+}
+button {
+  overflow: visible;
+}
+button,
+select {
+  text-transform: none;
+}
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+input {
+  line-height: normal;
+}
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+input[type="search"] {
+  -webkit-appearance: textfield;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+textarea {
+  overflow: auto;
+}
+optgroup {
+  font-weight: bold;
+}
+* {
+  box-sizing: border-box;
+}
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+body {
+  padding: 15px 20px 20px;
+  line-height: 30px;
+  font-size: 18px;
+  font-family: "Open Sans";
+  color: #333333;
+  /* Legacy NML styles */
+}
+body a {
+  color: #16a1ff;
+}
+body p:not(:last-child),
+body ul:not(:last-child),
+body ol:not(:last-child) {
+  margin-bottom: 25px;
+}
+ {
+  margin-bottom: 25px;
+}
+body img {
+  width: calc(100% + 120px);
+  height: auto;
+  margin-left: -60px;
+  border: 20px solid transparent;
+  background: url('https://static.nsidr.com/nsidr/line-gate.png') -1px -1px #16a1ff;
+  background-size: 6px 6px;
+  box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.2);
+}
+body iframe {
+  display: block;
+  width: calc(100% + 120px);
+  height: 50vw;
+  max-height: 535px;
+  /* Includes borders */
+  margin-left: -60px;
+  border: 20px solid transparent;
+  background: url('https://static.nsidr.com/nsidr/line-gate.png') -1px -1px #16a1ff;
+  background-size: 6px 6px;
+  box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.2);
+}
+body sub {
+  vertical-align: sub;
+  font-size: 11px;
+}
+body sup {
+  vertical-align: super;
+  font-size: 11px;
+}
+body ul li {
+  list-style-type: disc;
+  margin: 0 30px;
+}
+body ol li {
+  list-style-type: decimal;
+  margin: 0 30px;
+}
+body h2 {
+  font-size: 32px;
+  font-weight: 700;
+  font-family: proxima-soft;
+}
+body h3 {
+  font-size: 26px;
+  font-weight: 700;
+  font-family: proxima-soft;
+}
+body .align_center {
+  text-align: center;
+}
+body .align_left {
+  float: left;
+  margin: 5px 20px 0 0;
+}
+body .align_right {
+  float: right;
+  margin: 5px 0 0 20px;
+}
+body .align_left img,
+body .align_right img {
+  width: 100%;
+  margin-left: 0;
+  border: 20px solid transparent;
+}
+body .size_1 {
+  font-size: 70%;
+}
+body .size_2 {
+  font-size: 80%;
+}
+body .size_3 {
+  font-size: 100%;
+}
+body .size_4 {
+  font-size: 120%;
+}
+body .size_5 {
+  font-size: 150%;
+}
+body .size_6 {
+  font-size: 185%;
+}
+body .image_styled {
+  width: calc(100% + 120px);
+  height: auto;
+}
+body .indent {
+  padding-left: 30px;
+}
+body .box {
+  padding: 20px;
+  border-radius: 5px;
+  border: 1px solid #dddddd;
+}
+body blockquote {
+  margin: 0 30px;
+}
+body blockquote .quote_author {
+  margin-bottom: 5px;
+  font-weight: 700;
+  font-family: proxima-soft;
+}
+body blockquote .quote_body {
+  line-height: 26px;
+  font-size: 85%;
+}
+body .divider {
+  height: 1px;
+  overflow: hidden;
+  background-color: #dddddd;
+}
+/* Responsive style */
+body h2 {
+  font-size: 28px;
+}
+body h3 {
+  font-size: 22px;
+}
+body img,
+body iframe {
+  width: calc(100% + 40px);
+  margin-left: -20px;
+  border-width: 10px;
+  border-left: none;
+  border-right: none;
+}
+body .align_left img,
+body .align_right img {
+  width: 100%;
+  margin-left: 0;
+  border-width: 10px;
+}
+body .image_styled {
+  width: calc(100% + 60px);
+}

@@ -29,6 +29,8 @@ keystone.init({
   'cookie secret': process.env.COOKIE_SECRET,
 
   'wysiwyg s3 images': true,
+  'wysiwyg importcss': '/styles/tinymce.css',
+  'wysiwyg additional options': { entity_encoding: 'raw' },
   'trust proxy': true
 });
 
