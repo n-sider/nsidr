@@ -2,6 +2,7 @@
 /conversion_scripts
 *.log
 .env
+.git
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
