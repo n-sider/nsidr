@@ -1,8 +1,11 @@
 branch-defaults:
   master:
-    environment: nsidr
+    environment: nsidr-ssl
 environment-defaults:
   nsidr:
+    branch: null
+    repository: null
+  nsidr-ssl:
     branch: null
     repository: null
 global:
