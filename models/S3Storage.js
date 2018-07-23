@@ -9,8 +9,9 @@ module.exports = new keystone.Storage({
     key: S3Config.key,
     secret: S3Config.secret,
     bucket: S3Config.bucket,
-    headers: {
-      'x-amz-acl': 'public-read',
+    publicUrl: `https://s3.amazonaws.com/${process.env.S3FILE_BUCKET}`,
+    uploadParams: {
+      ACL: 'public-read',
     }
   },
   schema: {
