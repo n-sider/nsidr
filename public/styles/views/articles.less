@@ -52,8 +52,16 @@
   }
 
   .article-list {
+    display: flex;
+    flex-direction: column;
     flex: 0 1 1000px;
+    min-height: ~"calc(100vh - 172px)";
     margin-top: 40px;
+
+    .article-previews {
+      width: 100%;
+      align-self: center;
+    }
 
     .no-articles {
       padding: 20px;
@@ -78,6 +86,7 @@
     .pagination {
       display: flex;
       height: 60px;
+      margin-top: auto;
       background-color: @grayBg;
       border-radius: 5px;
 
@@ -407,6 +416,7 @@
 
     .article-list {
       .article-previews {
+        width: ~"calc(100% - 80px)";
         margin: 0 40px;
       }
     }
@@ -434,12 +444,13 @@
 
     .article-list {
       .article-previews {
+        width: ~"calc(100% - 40px)";
         margin: 0 20px;
       }
 
       .pagination {
         width: auto;
-        margin: 0 20px;
+        margin: auto 20px 0;
 
         & > div {
           flex: 0 0 100px;

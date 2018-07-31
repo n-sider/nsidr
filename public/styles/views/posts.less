@@ -54,9 +54,8 @@
   .post-list {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     flex: 0 1 1000px;
-    min-height: ~"calc(100vh - 152px)";
+    min-height: ~"calc(100vh - 172px)";
     margin-top: 40px;
 
     .post-previews li {
@@ -86,6 +85,7 @@
     .pagination {
       display: flex;
       height: 60px;
+      margin-top: auto;
       background-color: @grayBg;
       border-radius: 5px;
 
@@ -442,7 +442,7 @@
 
       .pagination {
         width: auto;
-        margin: 0 20px;
+        margin: auto 20px 0;
 
         & > div {
           flex: 0 0 100px;
