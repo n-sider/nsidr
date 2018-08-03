@@ -104,24 +104,24 @@
     }
 
     img {
-      width: ~"calc(100% + 120px)";
+      width: ~"calc(100% + 80px)";
       height: auto;
-      margin-left: -60px;
-      border: 20px solid transparent;
-      background: url('https://static.nsidr.com/nsidr/line-gate.png') -1px -1px @nsidr;
+      margin-left: -40px;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+      background: url('https://static.nsidr.com/nsidr/line-gate.png') 0 0 @nsidr;
       background-size: 6px 6px;
-      box-shadow: @focusShadow;
     }
     iframe {
       display: block;
-      width: ~"calc(100% + 120px)";
+      width: ~"calc(100% + 80px)";
       height: 50vw;
       max-height: 535px; /* Includes borders */
-      margin-left: -60px;
-      border: 20px solid transparent;
-      background: url('https://static.nsidr.com/nsidr/line-gate.png') -1px -1px @nsidr;
+      margin-left: -40px;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+      background: url('https://static.nsidr.com/nsidr/line-gate.png') 0 0 @nsidr;
       background-size: 6px 6px;
-      box-shadow: @focusShadow;
     }
 
     sub {
@@ -162,7 +162,7 @@
     .align_right img {
       width: 100%;
       margin-left: 0;
-      border: 20px solid transparent;
+      border: 10px solid transparent;
     }
 
     .size_1 { font-size: 70%; }
@@ -172,7 +172,7 @@
     .size_5 { font-size: 150%; }
     .size_6 { font-size: 185%; }
 
-    .image_styled { width: ~"calc(100% + 120px)"; height: auto; }
+    .image_styled { width: ~"calc(100% + 80px)"; height: auto; }
 
     .indent { padding-left: 30px; }
     .box { padding: 20px; border-radius: 5px; border: 1px solid @grayBg; }
@@ -375,8 +375,8 @@
 
       img,
       iframe {
-        width: ~"calc(100% + 60px)";
-        margin-left: -30px;
+        width: ~"calc(100% + 40px)";
+        margin-left: -20px;
         border-width: 10px;
       }
 
@@ -384,11 +384,10 @@
       .align_right img {
         width: 100%;
         margin-left: 0;
-        border-width: 10px;
       }
 
       .image_styled {
-        width: ~"calc(100% + 60px)";
+        width: ~"calc(100% + 40px)";
       }
     }
   }
@@ -443,15 +442,6 @@
       }
       h3 {
         font-size: 20px;
-      }
-
-      img,
-      .image_styled,
-      iframe {
-        width: ~"calc(100% + 40px)";
-        margin-left: -20px;
-        border-left: none;
-        border-right: none;
       }
 
       ul li,
