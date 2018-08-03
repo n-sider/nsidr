@@ -18,8 +18,8 @@ module.exports = (req, res) => {
           [locals.leadingPost, ...locals.posts] = result;
           locals.hasFeaturedPost = true;
         } else {
-          [locals.leadingPost, ...locals.posts] = result;
-          locals.hasFeaturedPost = true;
+          locals.posts = result;
+          locals.hasFeaturedPost = false;
         }
       } else {
         err = new Error('Posts not found');
