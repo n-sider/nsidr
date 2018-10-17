@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700");
-@charset "utf-8";
 /* Reset Styles */
 html,
 body,
@@ -285,9 +284,6 @@ body ul:not(:last-child),
 body ol:not(:last-child) {
   margin-bottom: 25px;
 }
- {
-  margin-bottom: 25px;
-}
 body img {
   width: calc(100% + 120px);
   height: auto;
@@ -295,7 +291,6 @@ body img {
   border: 20px solid transparent;
   background: url('https://static.nsidr.com/nsidr/line-gate.png') -1px -1px #16a1ff;
   background-size: 6px 6px;
-  box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.2);
 }
 body iframe {
   display: block;
@@ -307,7 +302,6 @@ body iframe {
   border: 20px solid transparent;
   background: url('https://static.nsidr.com/nsidr/line-gate.png') -1px -1px #16a1ff;
   background-size: 6px 6px;
-  box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.2);
 }
 body sub {
   vertical-align: sub;

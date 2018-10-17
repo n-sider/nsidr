@@ -19,6 +19,16 @@ Post.add({
     label: 'Preview URL'
   },
   content: { type: Types.Html, height: 550, wysiwyg: true },
+  featureImagePlacement: {
+    type: Types.Select,
+    options: [
+      { value: 'pull', label: 'Use first inline image and move to top of post' },
+      { value: 'leave', label: 'Use first inline image but leave in place' },
+    ],
+    default: 'pull',
+    emptyOption: false,
+    label: 'Feature Image'
+  },
   publishedDate: { type: Types.Datetime },
   legacyId: { type: Types.Number, hidden: true },
   tags: { type: Types.Relationship, ref: 'Tag', many: true },
@@ -41,22 +51,38 @@ Post.add({
     default: 'Default',
     emptyOption: false
   },
+  reactions: {
+    type: Types.Relationship,
+    ref: 'Reaction',
+    many: true,
+    hidden: true
+  },
   twitterLink: { type: Types.Text },
   facebookLink: { type: Types.Text }
 });
 
 Post.schema.virtual('featured').get(function () {
   return (
-    this.publishedDate > moment().subtract(14, 'days').toDate() &&
-      this.publishedDate < new Date()
+    this.publishedDate > moment().subtract(14, 'days').toDate()
+      && this.publishedDate < new Date()
   );
 });
 Post.schema.virtual('featureImage').get(function () {
   const matched = this.content.match(/<img.*?src="([^"]*)/i);
   return matched ? matched[1] : null;
 });
+Post.schema.virtual('shouldMoveFeatureImage').get(function () {
+  return this.featureImage && this.featureImagePlacement !== 'leave';
+});
 Post.schema.virtual('cleanContent').get(function () {
   return this.content.replace(/<[^>]*>/gi, '');
+});
+Post.schema.virtual('contentMinusFeatureImage').get(function () {
+  const regex = new RegExp(
+    '(<(p|div)[^>]*?>)?\\s*?(<a[^>]*?>)?\\s*?<img[^>]*?>\\s*?(</a>)?\\s*?(</(?:p|div)>)?((<br[^>]*?>)?\\s*?)*',
+    'i'
+  );
+  return this.shouldMoveFeatureImage ? this.content.replace(regex, '') : this.content;
 });
 Post.schema.virtual('brief').get(function () {
   const matches = this.cleanContent.match(/(.|\r|\n){600}[^ ]*/);
@@ -64,7 +90,21 @@ Post.schema.virtual('brief').get(function () {
   return brief;
 });
 Post.schema.virtual('displayDate').get(function () {
-  return moment(this.publishedDate).format('MMMM D, YYYY');
+  return moment(this.publishedDate).format('MMM D, YYYY');
+});
+Post.schema.virtual('reactionSummary').get(function () {
+  const summary = {
+    total: 0,
+    thumbsUp: 0,
+    laugh: 0,
+    wow: 0,
+    sad: 0
+  };
+  this.reactions.forEach((reaction) => {
+    summary.total++;
+    summary[reaction.type === 'thumbs-up' ? 'thumbsUp' : reaction.type]++;
+  });
+  return summary;
 });
 Post.schema.virtual('multipleTags').get(function () {
   return this.tags && this.tags.length > 1;
@@ -80,5 +120,7 @@ Post.schema.virtual('facebook').get(function () {
 });
 
 Post.defaultColumns = 'title, publishedDate';
+
+Post.schema.plugin((schema) => { schema.options.usePushEach = true; });
 
 Post.register();

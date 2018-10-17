@@ -120,7 +120,7 @@
         overflow: hidden;
 
         h1 {
-          background-color: rgba(0,0,0,.5);
+          background-color: fade(@trueBlack, 50%);
           line-height: 60px;
           text-align: center;
           font-family: proxima-soft;
@@ -239,7 +239,6 @@
 
       & > li {
         width: ~"calc(50% - 20px)";
-        max-height: 480px;
       }
     }
 
@@ -359,7 +358,7 @@
   #index {
     .index-featured {
       .featured-post {
-        flex: 0 1 600px;
+        flex: 0 1 700px;
         margin: 0 20px 20px;
       }
       .index-exhibits {

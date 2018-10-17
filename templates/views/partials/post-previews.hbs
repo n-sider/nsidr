@@ -5,17 +5,18 @@
       <article class="{{ topic }}">
 
         <header class="preview-header">
-          <img src="{{ getMood authors.[0] mood }}">
-          <div>
-            <h1>{{ title }}</h1>
+          {{#if featureImage}}
+          <div class="feature-image">
+            <span style="background-image: url('{{ featureImage }}')"></span>
+          </div>
+          {{/if}}
+          <div class="title-byline">
+            <img src="{{ getMood authors.[0] mood }}">
+            <div>
+              <h1>{{ title }}</h1>
+            </div>
           </div>
         </header>
-
-        {{#if featureImage}}
-        <div class="preview-image">
-          <span style="background-image: url('{{ featureImage }}')"></span>
-        </div>
-        {{/if}}
 
         <div class="preview-body">
           {{{ brief }}}

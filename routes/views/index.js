@@ -12,7 +12,7 @@ module.exports = (req, res) => {
       .sort('-publishedDate')
       .limit(4);
 
-    posts.populate('authors tags').exec((err, result) => {
+    posts.populate('authors reactions').exec((err, result) => {
       if (result) {
         if (result[0].featured) {
           [locals.leadingPost, ...locals.posts] = result;

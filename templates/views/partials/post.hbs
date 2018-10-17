@@ -5,23 +5,63 @@
   {{/if}}
 
   <header class="post-header">
-    <img src="{{ getMood post.authors.[0] post.mood }}">
-    <div>
-      <h1><a href="/posts/{{ post.slug }}">{{ post.title }}</a></h1>
-      <small>
-        <i class="fas fa-user{{#if post.multipleAuthors}}-friends{{/if}}"></i>
-        <ul>
-          {{#each post.authors}}
-          <li><a href="/posts?authors={{ name.full }}">{{ name.full }}</a></li>
-          {{/each}}
-        </ul>
-        <i class="fas fa-calendar"></i> {{ post.displayDate }}
-      </small>
+    {{#if post.shouldMoveFeatureImage}}
+    <div class="feature-image">
+      <img src="{{ post.featureImage }}" alt="{{ post.title }}">
+    </div>
+    {{/if}}
+    <div class="title-byline">
+      <img src="{{ getMood post.authors.[0] post.mood }}">
+      <div>
+        <h1><a href="/posts/{{ post.slug }}">{{ post.title }}</a></h1>
+        <small>
+          <i class="fas fa-user{{#if post.multipleAuthors}}-friends{{/if}}"></i>
+          <ul>
+            {{#each post.authors}}
+            <li><a href="/posts?authors={{ name.full }}">{{ name.full }}</a></li>
+            {{/each}}
+          </ul>
+          <i class="fas fa-calendar"></i> {{ post.displayDate }}
+          {{#if post.reactionSummary.total}}
+          {{#if isFeatured}}
+          <span class="reactions">
+            <i class="fas fa-grin"></i>
+            <span class="total">{{ post.reactionSummary.total }}</span>
+            <ul class="tooltip">
+              {{#if post.reactionSummary.thumbsUp}}
+              <li class="thumbs-up"><i class="fas fas fa-thumbs-up"></i>{{ post.reactionSummary.thumbsUp }}</li>
+              {{/if}}
+              {{#if post.reactionSummary.laugh}}
+              <li class="laugh"><i class="fas fas fa-laugh-squint"></i>{{ post.reactionSummary.laugh }}</li>
+              {{/if}}
+              {{#if post.reactionSummary.wow}}
+              <li class="wow"><i class="fas fas fa-surprise"></i>{{ post.reactionSummary.wow }}</li>
+              {{/if}}
+              {{#if post.reactionSummary.sad}}
+              <li class="sad"><i class="fas fas fa-sad-tear"></i>{{ post.reactionSummary.sad }}</li>
+              {{/if}}
+            </ul>
+          </span>
+          {{else}}
+          <span class="reactions on-post" v-if="postTotals.total" v-on:click="scrollToReact()">
+            <i class="fas fa-grin"></i>
+            <span class="total" v-html="postTotals.total"></span>
+            <ul class="tooltip">
+              <li class="thumbs-up" v-if="postTotals.thumbsUp"><i class="fas fas fa-thumbs-up"></i>${postTotals.thumbsUp}</li>
+              <li class="laugh" v-if="postTotals.laugh"><i class="fas fas fa-laugh-squint"></i>${postTotals.laugh}</li>
+              <li class="wow" v-if="postTotals.wow"><i class="fas fas fa-surprise"></i>${postTotals.wow}</li>
+              <li class="sad" v-if="postTotals.sad"><i class="fas fas fa-sad-tear"></i>${postTotals.sad}</li>
+            </ul>
+          </span>
+          {{/if}}
+          {{/if}}
+        </small>
+      </div>
     </div>
   </header>
 
   <div class="post-body">
-    {{{ post.content }}}
+    {{{ post.contentMinusFeatureImage }}}
   </div>
 
   <footer class="post-footer">

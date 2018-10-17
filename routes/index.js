@@ -45,4 +45,7 @@ module.exports = (app) => {
   // API
   app.get('/api/tags', keystone.middleware.api, routes.api.tags.get);
   app.get('/api/nsider-tags', keystone.middleware.api, routes.api.nsiderTags.get);
+  app.get('/api/posts/:slug/reactions', keystone.middleware.api, routes.api.posts.getReactions);
+  app.post('/api/reactions', keystone.middleware.api, routes.api.reactions.post);
+  app.delete('/api/reactions/:slug/:id', keystone.middleware.api, routes.api.reactions.delete);
 };

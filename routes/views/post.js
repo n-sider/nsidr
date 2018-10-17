@@ -62,6 +62,8 @@ module.exports = (req, res) => {
       });
     }
     locals.scripts = [
+      keystone.get('vue path'),
+      '/scripts/lib/vue-resource.min.js',
       '/scripts/post.js'
     ];
     locals.layoutClass = 'content-view';

@@ -54,7 +54,7 @@ NSiderArticle.add({
 });
 
 NSiderArticle.schema.virtual('displayDate').get(function () {
-  return moment(this.publishedDate).format('MMMM D, YYYY');
+  return moment(this.publishedDate).format('MMM D, YYYY');
 });
 NSiderArticle.schema.virtual('multipleTags').get(function () {
   return this.tags && this.tags.length > 1;

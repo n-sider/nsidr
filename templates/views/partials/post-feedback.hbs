@@ -1,16 +1,24 @@
-<aside class="post-feedback">
-
-  <i class="fas fa-comments-alt"></i>
-
-  <div>
-    <h1>we'd love to hear from you!</h1>
-
-    <p>
-      <span>leave us a comment on</span>
-      <a href="{{ post.twitter }}" class="twitter"><i class="fab fa-twitter fa-fw"></i><span>twitter</span></a>
-      <span>or</span>
-      <a href="{{ post.facebook }}" class="facebook"><i class="fab fa-facebook-f fa-fw"></i><span>facebook</span></a>
-    </p>
+<aside v-bind:class="['post-feedback', feedbackFocused ? 'focused' : '' ]">
+  <div v-if="selectedReaction === null" key="default" class="react-icon">
+    <i class="fas fa-comment-alt-smile"></i>
   </div>
-
+  <div v-else v-bind:class="['react-icon', 'reacted', selectedReaction.name]" key="reaction" v-on:click="react(null)">
+    <i v-bind:class="selectedReaction.fa"></i>
+  </div>
+  <div class="thanks" v-if="selectedReaction === null" key="thanks">
+    <h1>thanks for reading!</h1>
+    <p>what'd ya think?</p>
+    <ul>
+      <li v-for="reaction in reactionOptions" v-bind:class="reaction.name">
+        <a v-on:click="react(reaction)"><i v-bind:class="reaction.fa"></i></a>
+      </li>
+    </ul>
+  </div>
+  <div class="respond" v-else key="respond">
+    <h1>have more to say?</h1>
+    <span>comment on</span>
+    <a href="{{ post.twitter }}" class="twitter"><i class="fab fa-twitter fa-fw"></i><span>twitter</span></a>
+    <span>or</span>
+    <a href="{{ post.facebook }}" class="facebook"><i class="fab fa-facebook-f fa-fw"></i><span>facebook</span></a>
+  </div>
 </aside>

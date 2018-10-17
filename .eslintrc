@@ -9,12 +9,13 @@
     "object-shorthand": 0,
     "consistent-return": 0,
     "newline-per-chained-call": 0,
+    "new-cap": 0,
     "max-len": ["error", 120, 2, {
-      ignoreUrls: true,
-      ignoreComments: false,
-      ignoreRegExpLiterals: true,
-      ignoreStrings: true,
-      ignoreTemplateLiterals: true,
+      "ignoreUrls": true,
+      "ignoreComments": false,
+      "ignoreRegExpLiterals": true,
+      "ignoreStrings": true,
+      "ignoreTemplateLiterals": true
     }],
     "no-new": 0,
     "no-plusplus": 0
@@ -23,6 +24,6 @@
     "Vue": false,
     "window": false,
     "document": false,
-    "sessionStorage": false,
+    "sessionStorage": false
   }
 }
