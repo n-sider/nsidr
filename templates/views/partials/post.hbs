@@ -22,8 +22,8 @@
             {{/each}}
           </ul>
           <i class="fas fa-calendar"></i> {{ post.displayDate }}
-          {{#if post.reactionSummary.total}}
           {{#if isFeatured}}
+          {{#if post.reactionSummary.total}}
           <span class="reactions">
             <i class="fas fa-grin"></i>
             <span class="total">{{ post.reactionSummary.total }}</span>
@@ -42,6 +42,7 @@
               {{/if}}
             </ul>
           </span>
+          {{/if}}
           {{else}}
           <span class="reactions on-post" v-if="postTotals.total" v-on:click="scrollToReact()">
             <i class="fas fa-grin"></i>
@@ -53,7 +54,6 @@
               <li class="sad" v-if="postTotals.sad"><i class="fas fas fa-sad-tear"></i>${postTotals.sad}</li>
             </ul>
           </span>
-          {{/if}}
           {{/if}}
         </small>
       </div>
