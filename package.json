@@ -23,7 +23,6 @@
     "keystone": "github:Tathanen/keystone#nested-lists-modern",
     "keystone-storage-adapter-s3": "^2.0.0",
     "keystone-utils": "^0.4.0",
-    "limax": "^1.7.0",
     "moment": "^2.22.2",
     "mongoose": "^5.3.4",
     "rss": "^1.2.2"
