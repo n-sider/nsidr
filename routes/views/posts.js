@@ -58,6 +58,7 @@ module.exports = (req, res) => {
       locals.meta.title += ` / page ${page}`;
     }
     locals.meta.og.title = 'nsidr / posts';
+    locals.meta.og.type = 'website';
     locals.meta.og.imageAlt = 'nsidr / posts';
     locals.meta.og.url = `${keystone.get('root')}/posts`;
 

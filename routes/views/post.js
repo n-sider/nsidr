@@ -24,6 +24,7 @@ module.exports = (req, res) => {
         locals.meta.title = `nsidr / ${locals.post.title}`;
         locals.meta.description = locals.post.brief || locals.meta.description;
         locals.meta.og.title = locals.post.title;
+        locals.meta.og.type = 'article';
         locals.meta.og.description = locals.meta.description;
         locals.meta.og.image = locals.post.featureImage || locals.meta.og.image;
         locals.meta.og.imageAlt = locals.post.title;

@@ -20,6 +20,7 @@ module.exports = (req, res) => {
         }
         locals.meta.description = locals.article.blurb || locals.meta.description;
         locals.meta.og.title = locals.article.title;
+        locals.meta.og.type = 'article';
         locals.meta.og.description = locals.meta.description;
         locals.meta.og.imageAlt = locals.article.title;
         locals.meta.og.url = `${keystone.get('root')}/archive/${locals.article.slug}`;
@@ -27,7 +28,8 @@ module.exports = (req, res) => {
         locals.article.authors.sort((a, b) => {
           if (a.displayOrder < b.displayOrder) {
             return -1;
-          } else if (a.displayOrder > b.displayOrder) {
+          }
+          if (a.displayOrder > b.displayOrder) {
             return 1;
           }
           return 0;

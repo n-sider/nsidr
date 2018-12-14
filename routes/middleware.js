@@ -10,6 +10,7 @@ exports.initLocals = (req, res, next) => {
     og: {
       siteName: 'nsidr',
       title: 'nsidr',
+      type: 'website',
       description: 'nsidr.com, a fansite from a bygone era for Nintendo fans who still need to write.',
       image: 'https://www.nsidr.com/logo-full.png',
       imageAlt: 'nsidr',
