@@ -68,8 +68,8 @@ module.exports = (req, res) => {
               prev: page > 1 ? `/archive?page=${page - 1}${filterQuerystring}` : undefined,
               current: page,
               total: Math.ceil(totalCount / perPage),
-              next: (totalCount - (page * perPage)) > 0 ?
-                `/archive?page=${page + 1}${filterQuerystring}` : undefined
+              next: (totalCount - (page * perPage)) > 0
+                ? `/archive?page=${page + 1}${filterQuerystring}` : undefined
             };
             next();
           });
