@@ -5,6 +5,7 @@ module.exports = (req, res) => {
   const { locals } = res;
 
   view.on('init', (next) => {
+    locals.layoutClass = 'index-view';
     locals.year = new Date().getFullYear();
 
     const posts = keystone.list('Post').model.find()
