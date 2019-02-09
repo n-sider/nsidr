@@ -23,7 +23,8 @@ keystone.init({
   'auto update': true,
   compress: true,
 
-  session: true,
+  mongo: process.env.MONGO_URI,
+  'session store': 'mongo',
   auth: true,
   'user model': 'User',
   'cookie secret': process.env.COOKIE_SECRET,

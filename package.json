@@ -1,6 +1,6 @@
 {
   "name": "nsidr",
-  "version": "1.3.0",
+  "version": "1.3.5",
   "description": "nsidr",
   "main": "keystone.js",
   "scripts": {
@@ -17,6 +17,7 @@
   },
   "homepage": "https://www.nsidr.com",
   "dependencies": {
+    "connect-mongo": "^2.0.3",
     "dotenv": "^6.0.0",
     "express-handlebars": "^3.0.0",
     "handlebars": "^4.0.12",
