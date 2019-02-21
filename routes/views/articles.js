@@ -60,6 +60,19 @@ module.exports = (req, res) => {
         filterQuerystring += `&${filter.field}=${filter.value}`;
       });
 
+      if (params.authors) {
+        locals.currentAuthors = params.authors;
+        articles.elemMatch('authors', {
+          'name.first': params.authors.split(' ')[0],
+          'name.last': params.authors.split(' ').slice(1).join(' ')
+        });
+        countArticles.elemMatch('authors', {
+          'name.first': params.authors.split(' ')[0],
+          'name.last': params.authors.split(' ').slice(1).join(' ')
+        });
+        filterQuerystring += `&authors=${params.authors}`;
+      }
+
       articles.exec((err, result) => {
         if (result) {
           countArticles.count().exec((countErr, totalCount) => {

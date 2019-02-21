@@ -91,6 +91,9 @@ module.exports = (req, res) => {
               next: (totalCount - (page * perPage)) > 0
                 ? `/posts?page=${page + 1}${filterQuerystring}` : undefined
             };
+            if (!locals.currentTag && !locals.pagination.next) {
+              locals.pagination.olderLink = `/archive${locals.currentAuthors ? `?authors=${locals.currentAuthors}` : ''}`;
+            }
             next();
           });
         } else {

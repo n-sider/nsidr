@@ -13,7 +13,12 @@
       Viewing by tag: {{ currentTag }}
       <a href="/archive"><i class="fas fa-times"></i></a>
       {{else}}
-      Viewing all articles
+        {{#if currentAuthors}}
+        Viewing by author: {{ currentAuthors }}
+        <a href="/archive"><i class="fas fa-times"></i></a>
+        {{else}}
+        Viewing all articles
+        {{/if}}
       {{/if}}
     </div>
     {{> article-previews }}

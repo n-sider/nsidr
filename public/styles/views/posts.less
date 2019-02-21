@@ -92,11 +92,13 @@
       & > a {
         display: block;
         flex: 0 0 200px;
+        height: 100%;
         transition: all .2s ease-in-out;
 
         span {
           display: flex;
           justify-content: center;
+          height: 100%;
           align-items: center;
           text-align: center;
           font-size: 22px;
@@ -108,6 +110,14 @@
 
           svg {
             margin-left: 10px;
+          }
+
+          &.archive,
+          &.archive:last-child {
+
+            svg {
+              margin: 0;
+            }
           }
         }
 
@@ -141,6 +151,9 @@
           }
           &:last-child span svg {
             animation: 1s ease-in-out 0s infinite more;
+          }
+          &:last-child span.archive svg {
+            animation: 2s ease-in-out .2s infinite shake;
           }
         }
       }
