@@ -1,6 +1,6 @@
 {
   "name": "nsidr",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "nsidr",
   "main": "keystone.js",
   "scripts": {
@@ -21,7 +21,7 @@
     "dotenv": "^6.0.0",
     "express-handlebars": "^3.0.0",
     "handlebars": "^4.1.0",
-    "keystone": "github:Tathanen/keystone#nested-lists-modern",
+    "keystone": "Tathanen/keystone#nested-lists-modern",
     "keystone-storage-adapter-s3": "^2.0.0",
     "keystone-utils": "^0.4.0",
     "moment": "^2.22.2",
@@ -30,7 +30,7 @@
   },
   "engines": {
     "node": ">=8.15.0",
-    "npm": ">=6.8.0"
+    "npm": ">=6.4.1"
   },
   "devDependencies": {
     "eslint": "^5.6.1",
