@@ -49,8 +49,17 @@
 
             small {
               display: flex;
-              margin-top: 10px;
               font-size: 14px;
+
+              & > span {
+                display: flex;
+                margin: 10px 15px 0 0;
+                white-space: nowrap;
+
+                &:not(:first-child) {
+                  flex: 1 0 auto;
+                }
+              }
 
               svg {
                 margin-right: 8px;
@@ -59,11 +68,15 @@
 
               ol {
                 display: flex;
-                margin-right: 15px;
+                flex-wrap: wrap;
 
-                li:not(:first-child)::before {
-                  margin-right: 5px;
-                  content: ",";
+                li {
+                  margin-bottom: 5px;
+
+                  &:not(:last-child)::after {
+                    margin-right: 5px;
+                    content: ",";
+                  }
                 }
               }
             }
@@ -174,12 +187,8 @@
         line-height: 22px;
         font-size: 18px;
       }
-      small {
-        .fa-user,
-        .fa-user-friends,
-        ol {
-          display: none;
-        }
+      small > span:first-child {
+        display: none;
       }
     }
     .preview-body {

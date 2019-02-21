@@ -12,14 +12,18 @@
             <h1>{{ title }}</h1>
             <small>
               {{#if authors}}
-              <i class="fas fa-user{{#if multipleAuthors}}-friends{{/if}}"></i>
-              <ol>
-                {{#each authors}}
-                <li>{{ name.full }}</li>
-                {{/each}}
-              </ol>
+              <span>
+                <i class="fas fa-user{{#if multipleAuthors}}-friends{{/if}}"></i>
+                <ol>
+                  {{#each authors}}
+                  <li>{{ name.full }}</li>
+                  {{/each}}
+                </ol>
+              </span>
               {{/if}}
-              <i class="fas fa-calendar"></i> {{ displayDate }}
+              <span>
+                <i class="fas fa-calendar"></i> {{ displayDate }}
+              </span>
             </small>
           </div>
         </header>

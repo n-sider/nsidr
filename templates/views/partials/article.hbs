@@ -4,21 +4,27 @@
     <h1>{{ article.title }}</h1>
     <small>
       {{#if article.authors}}
-      <i class="fas fa-user{{#if article.multipleAuthors}}-friends{{/if}}"></i>
-      <ol>
-        {{#each article.authors}}
-        <li>{{ name.full }}</li>
-        {{/each}}
-      </ol>
+      <span>
+        <i class="fas fa-user{{#if article.multipleAuthors}}-friends{{/if}}"></i>
+        <ol>
+          {{#each article.authors}}
+          <li>{{ name.full }}</li>
+          {{/each}}
+        </ol>
+      </span>
       {{/if}}
-      <i class="fas fa-calendar"></i> {{ article.displayDate }}
+      <span>
+        <i class="fas fa-calendar"></i> {{ article.displayDate }}
+      </span>
       {{#if article.tags}}
-      <i class="fas fa-tag{{#if article.multipleTags}}s{{/if}}"></i>
-      <ul>
-        {{#each article.tags}}
-        <li><a href="/archive?tags={{ encodedName }}">{{ name }}</a></li>
-        {{/each}}
-      </ul>
+      <span>
+        <i class="fas fa-tag{{#if article.multipleTags}}s{{/if}}"></i>
+        <ul>
+          {{#each article.tags}}
+          <li><a href="/archive?tags={{ encodedName }}">{{ name }}</a></li>
+          {{/each}}
+        </ul>
+      </span>
       {{/if}}
     </small>
   </header>

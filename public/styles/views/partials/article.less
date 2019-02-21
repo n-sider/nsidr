@@ -8,7 +8,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 25px 40px;
+    padding: 25px 40px 20px;
 
     h1 {
       line-height: 34px;
@@ -19,26 +19,35 @@
 
     small {
       display: flex;
-      flex-wrap: wrap;
-      margin-top: 10px;
       font-size: 14px;
+
+      & > span {
+        display: flex;
+        margin: 10px 15px 0 0;
+        white-space: nowrap;
+
+        &:not(:first-child) {
+          flex: 1 0 auto;
+        }
+      }
 
       svg {
         margin-right: 8px;
         color: @grayText;
-
-        &:not(:first-child) {
-          margin-left: 15px;
-        }
       }
 
       ol,
       ul {
         display: flex;
+        flex-wrap: wrap;
 
-        li:not(:first-child)::before {
-          margin-right: 5px;
-          content: ",";
+        li {
+          margin-bottom: 5px;
+
+          &:not(:last-child)::after {
+            margin-right: 5px;
+            content: ",";
+          }
         }
       }
     }
