@@ -437,9 +437,30 @@ body.not-found-view {
 
 }
 
+@media (max-width: 863px) {
+
+  body.article-view {
+    #site-header {
+      div {
+        width: auto;
+        margin: 0 40px;
+      }
+    }
+  }
+
+}
+
 @media (max-width: 800px) {
 
   body.content-view {
+    #site-header {
+      div {
+        margin: 0 20px;
+      }
+    }
+  }
+
+  body.article-view {
     #site-header {
       div {
         margin: 0 20px;
@@ -482,6 +503,16 @@ body.not-found-view {
   }
 
   body.content-view #site-header {
+    div {
+      margin: 0 auto;
+
+      h1 {
+        transform: scale(1);
+      }
+    }
+  }
+
+  body.article-view #site-header {
     div {
       margin: 0 auto;
 

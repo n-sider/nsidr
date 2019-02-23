@@ -2,6 +2,7 @@ const keystone = require('keystone');
 
 module.exports = (req, res) => {
   const view = new keystone.View(req, res);
+  const { query: params } = req;
   const { locals } = res;
 
   view.on('init', (next) => {
@@ -44,6 +45,8 @@ module.exports = (req, res) => {
             ? `/archive/${locals.article.slug}/${locals.currentPage.pageNumber + 1}` : undefined
         };
 
+        locals.currentLink = `/archive/${locals.article.slug}${
+          locals.currentPage.pageNumber > 1 ? `/${locals.currentPage.pageNumber}` : ''}`;
         locals.viewStyles = locals.article.style;
 
         if (!locals.currentPage) {
@@ -66,7 +69,11 @@ module.exports = (req, res) => {
       });
     }
     locals.layoutClass = 'article-view';
-    locals.fullViewport = true;
+
+    if (params.desktop && params.desktop === 'true') {
+      locals.fullViewport = true;
+    }
+
     return view.res.render('article', locals);
   });
 };

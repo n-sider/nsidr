@@ -1,3 +1,17 @@
+{{#if fullViewport}}
+<aside class="toggle-responsive show-responsive">
+  <a href="{{ currentLink }}">
+    <span><i class="fas fa-arrow-alt-square-left"></i>Return to mobile-friendly mode</span>
+  </a>
+</aside>
+{{else}}
+<aside class="toggle-responsive show-desktop">
+  <a href="?desktop=true">
+    <span>View in legacy (desktop) mode<i class="fas fa-arrow-alt-square-right"></i></span>
+  </a>
+</aside>
+{{/if}}
+
 <article class="article-template">
 
   <header class="article-header">
@@ -47,13 +61,17 @@
   {{#if pagination}}
   <footer class="pagination">
     {{#if pagination.prev}}
-    <a href="{{ pagination.prev }}"><span><i class="fas fa-arrow-alt-square-left"></i>prev</span></a>
+    <a href="{{ pagination.prev }}{{#if fullViewport}}?desktop=true{{/if}}">
+      <span><i class="fas fa-arrow-alt-square-left"></i>prev</span>
+    </a>
     {{else}}
     <div></div>
     {{/if}}
     <span>page {{ pagination.current }} of {{ pagination.total }}</span>
     {{#if pagination.next}}
-    <a href="{{ pagination.next }}"><span>next<i class="fas fa-arrow-alt-square-right"></i></span></a>
+    <a href="{{ pagination.next }}{{#if fullViewport}}?desktop=true{{/if}}">
+      <span>next<i class="fas fa-arrow-alt-square-right"></i></span>
+    </a>
     {{else}}
     <div></div>
     {{/if}}

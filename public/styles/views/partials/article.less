@@ -164,10 +164,11 @@
     .header { border-bottom: 1px solid #808080; font-size: 17px; font-weight: 700; line-height: normal; }
     .subheader { border-bottom: 0; font-size: 14px; font-weight: 700; color: @grayText; line-height: normal; }
 
-    .image_styled { padding: 3px; border: 1px solid @grayBg; }
+    img { max-width: 100%; }
+    .image_styled { max-width: ~"calc(100% - 8px)"; padding: 3px; border: 1px solid @grayBg; }
     .image_nostyle { border: none; }
-    .image_caption_styled { padding-top: 2px; text-align: center; font-size: 10px; }
-    .image_caption_nostyle { padding-top: 2px; text-align: center; font-size: 10px; }
+    .image_caption_styled { max-width: 100% !important; padding-top: 2px; text-align: center; font-size: 10px; }
+    .image_caption_nostyle { max-width: 100% !important; padding-top: 2px; text-align: center; font-size: 10px; }
     .align_center .image_caption_styled,
     .align_center .image_caption_nostyle { margin: 0 auto; }
 
@@ -344,4 +345,90 @@
       }
     }
   }
+}
+
+@media (max-width: 863px) {
+
+  .article-template {
+    width: auto;
+    margin: 0 40px;
+
+    .article-body {
+      #contentarea { flex: 0 1 auto; }
+      img { height: auto; }
+      .align_left,
+      .align_right,
+      [align="left"],
+      [align="right"] { max-width: 40%; height: auto; }
+
+      .image_caption_styled { width: auto !important; }
+      .image_caption_nostyle { width: auto !important; }
+    }
+  }
+
+}
+
+@media (max-width: 800px) {
+
+  .article-template {
+    margin: 0 20px;
+
+    .article-header {
+      padding: 15px 20px 20px;
+
+      h1 {
+        line-height: 26px;
+        font-size: 24px;
+      }
+      small {
+        font-size: 12px;
+
+        & > span {
+          margin-top: 8px;
+        }
+      }
+    }
+    .article-body {
+      padding: 0 20px 40px;
+
+      #sidebar {
+        display: none;
+      }
+    }
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .article-template {
+    margin: 0;
+    border-radius: 0;
+
+    .pagination {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+
+      & > div {
+        flex: 0 0 100px;
+      }
+      & > a {
+        flex: 0 0 100px;
+
+        &:first-child {
+          border-bottom-left-radius: 0;
+        }
+        &:last-child {
+          border-bottom-right-radius: 0;
+        }
+        span {
+          font-size: 16px;
+        }
+      }
+      & > span {
+        font-size: 16px;
+      }
+    }
+  }
+
 }
