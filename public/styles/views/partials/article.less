@@ -19,6 +19,7 @@
 
     small {
       display: flex;
+      overflow: hidden;
       font-size: 14px;
 
       & > span {
@@ -68,6 +69,7 @@
 
     #contentarea {
       flex: 1 0 461px;
+      overflow: hidden;
 
       .markup_main_standard {
         overflow: hidden;
@@ -361,7 +363,7 @@
       [align="left"],
       [align="right"] { max-width: 40%; height: auto; }
 
-      .image_caption_styled { width: auto !important; }
+      .image_caption_styled,
       .image_caption_nostyle { width: auto !important; }
     }
   }
@@ -390,6 +392,12 @@
     }
     .article-body {
       padding: 0 20px 40px;
+      font-family: "Open Sans";
+      line-height: 24px;
+      font-size: 16px;
+
+      .image_caption_styled,
+      .image_caption_nostyle { line-height: normal; }
 
       #sidebar {
         display: none;
@@ -404,6 +412,11 @@
   .article-template {
     margin: 0;
     border-radius: 0;
+
+    .article-body {
+      .quote { margin-left: 15px; padding-right: 20px; }
+      blockquote { margin: 14px 15px; }
+    }
 
     .pagination {
       border-bottom-left-radius: 0;
