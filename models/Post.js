@@ -63,7 +63,7 @@ Post.add({
 
 Post.schema.virtual('featured').get(function () {
   return (
-    this.publishedDate > moment().subtract(14, 'days').toDate()
+    this.publishedDate > moment().subtract(14, 'months').toDate() // TODO: ha ha wow undo
       && this.publishedDate < new Date()
   );
 });

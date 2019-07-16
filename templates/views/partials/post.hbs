@@ -3,13 +3,13 @@
   {{#if isFeatured}}
   <div class="featured"><i class="fas fa-rocket"></i>Featured Post</div>
   {{/if}}
+  {{#if post.shouldMoveFeatureImage}}
+  <div class="feature-image" style="background-image: url('{{ post.featureImage }}')">
+    <img src="{{ post.featureImage }}" alt="{{ post.title }}">
+  </div>
+  {{/if}}
 
-  <header class="post-header">
-    {{#if post.shouldMoveFeatureImage}}
-    <div class="feature-image">
-      <img src="{{ post.featureImage }}" alt="{{ post.title }}">
-    </div>
-    {{/if}}
+  <header class="post-header{{#if post.shouldMoveFeatureImage}} feature-overlay{{/if}}">
     <div class="title-byline">
       <img src="{{ getMood post.authors.[0] post.mood }}">
       <div>
