@@ -2,7 +2,7 @@
 
 Codebase for nsidr.com
 
-Runs on Node.js v8+ and npm v6+, using KeystoneJS v4 and MongoDB.
+Runs on Node.js v10+ and npm v6+, using KeystoneJS v4 and MongoDB.
 
 ## Installation
 
