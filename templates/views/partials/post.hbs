@@ -1,7 +1,7 @@
 <article class="post-template {{ post.topic }}">
 
   {{#if isFeatured}}
-  <div class="featured"><i class="fas fa-rocket"></i>Featured Post</div>
+  <div class="featured"><i class="fad fa-rocket" style="--fa-secondary-opacity: 0.60"></i>Featured Post</div>
   {{/if}}
   {{#if post.shouldMoveFeatureImage}}
   <div class="feature-image" style="background-image: url('{{ post.featureImage }}')">
@@ -15,13 +15,13 @@
       <div>
         <h1><a href="/posts/{{ post.slug }}">{{ post.title }}</a></h1>
         <small>
-          <i class="fas fa-user{{#if post.multipleAuthors}}-friends{{/if}}"></i>
+          <i class="fad fa-user{{#if post.multipleAuthors}}-friends{{/if}}" style="--fa-secondary-opacity: 0.70"></i>
           <ul>
             {{#each post.authors}}
             <li><a href="/posts?authors={{ name.full }}">{{ name.full }}</a></li>
             {{/each}}
           </ul>
-          <i class="fas fa-calendar"></i> {{ post.displayDate }}
+          <i class="fad fa-calendar" style="--fa-secondary-opacity: 0.70"></i> {{ post.displayDate }}
           {{#if isFeatured}}
           {{#if post.reactionSummary.total}}
           <span class="reactions">
@@ -29,16 +29,16 @@
             <span class="total">{{ post.reactionSummary.total }}</span>
             <ul class="tooltip">
               {{#if post.reactionSummary.thumbsUp}}
-              <li class="thumbs-up"><i class="fas fas fa-thumbs-up"></i>{{ post.reactionSummary.thumbsUp }}</li>
+              <li class="thumbs-up"><i class="fad fa-thumbs-up"></i>{{ post.reactionSummary.thumbsUp }}</li>
               {{/if}}
               {{#if post.reactionSummary.laugh}}
-              <li class="laugh"><i class="fas fas fa-laugh-squint"></i>{{ post.reactionSummary.laugh }}</li>
+              <li class="laugh"><i class="fas fa-laugh-squint"></i>{{ post.reactionSummary.laugh }}</li>
               {{/if}}
               {{#if post.reactionSummary.wow}}
-              <li class="wow"><i class="fas fas fa-surprise"></i>{{ post.reactionSummary.wow }}</li>
+              <li class="wow"><i class="fas fa-surprise"></i>{{ post.reactionSummary.wow }}</li>
               {{/if}}
               {{#if post.reactionSummary.sad}}
-              <li class="sad"><i class="fas fas fa-sad-tear"></i>{{ post.reactionSummary.sad }}</li>
+              <li class="sad"><i class="fas fa-sad-tear"></i>{{ post.reactionSummary.sad }}</li>
               {{/if}}
             </ul>
           </span>
@@ -48,10 +48,10 @@
             <i class="fas fa-grin"></i>
             <span class="total" v-html="postTotals.total"></span>
             <ul class="tooltip">
-              <li class="thumbs-up" v-if="postTotals.thumbsUp"><i class="fas fas fa-thumbs-up"></i>${postTotals.thumbsUp}</li>
-              <li class="laugh" v-if="postTotals.laugh"><i class="fas fas fa-laugh-squint"></i>${postTotals.laugh}</li>
-              <li class="wow" v-if="postTotals.wow"><i class="fas fas fa-surprise"></i>${postTotals.wow}</li>
-              <li class="sad" v-if="postTotals.sad"><i class="fas fas fa-sad-tear"></i>${postTotals.sad}</li>
+              <li class="thumbs-up" v-if="postTotals.thumbsUp"><i class="fad fa-thumbs-up"></i>${postTotals.thumbsUp}</li>
+              <li class="laugh" v-if="postTotals.laugh"><i class="fas fa-laugh-squint"></i>${postTotals.laugh}</li>
+              <li class="wow" v-if="postTotals.wow"><i class="fas fa-surprise"></i>${postTotals.wow}</li>
+              <li class="sad" v-if="postTotals.sad"><i class="fas fa-sad-tear"></i>${postTotals.sad}</li>
             </ul>
           </span>
           {{/if}}

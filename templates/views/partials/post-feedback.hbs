@@ -1,6 +1,6 @@
 <aside v-bind:class="['post-feedback', feedbackFocused ? 'focused' : '' ]">
   <div v-if="selectedReaction === null" key="default" class="react-icon">
-    <i class="fas fa-comment-alt-smile"></i>
+    <i class="fad fa-comment-alt-smile"></i>
   </div>
   <div v-else v-bind:class="['react-icon', 'reacted', selectedReaction.name]" key="reaction" v-on:click="react(null)">
     <i v-bind:class="selectedReaction.fa"></i>

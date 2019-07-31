@@ -13,7 +13,7 @@
             <small>
               {{#if authors}}
               <span>
-                <i class="fas fa-user{{#if multipleAuthors}}-friends{{/if}}"></i>
+                <i class="fad fa-user{{#if multipleAuthors}}-friends{{/if}}" style="--fa-secondary-opacity: 0.70"></i>
                 <ol>
                   {{#each authors}}
                   <li>{{ name.full }}</li>
@@ -22,7 +22,7 @@
               </span>
               {{/if}}
               <span>
-                <i class="fas fa-calendar"></i> {{ displayDate }}
+                <i class="fad fa-calendar" style="--fa-secondary-opacity: 0.70"></i> {{ displayDate }}
               </span>
             </small>
           </div>

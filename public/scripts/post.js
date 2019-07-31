@@ -24,7 +24,7 @@ new Vue({
       sad: 0
     },
     reactionOptions: [
-      { name: 'thumbs-up', fa: 'fas fa-thumbs-up' },
+      { name: 'thumbs-up', fa: 'fad fa-thumbs-up' },
       { name: 'laugh', fa: 'fas fa-laugh-squint' },
       { name: 'wow', fa: 'fas fa-surprise' },
       { name: 'sad', fa: 'fas fa-sad-tear' }
