@@ -35,13 +35,13 @@
 
         & > header {
           position: relative;
+          z-index: 1;
 
           .feature-image {
             position: relative;
             z-index: 1;
             height: 275px;
             overflow: hidden;
-            margin-bottom: 20px;
 
             span {
               display: block;
@@ -107,19 +107,21 @@
             width: 100%;
             bottom: -1px;
             background-color: fade(@white, 85%);
-            backdrop-filter: blur(3px);
-            -webkit-backdrop-filter: blur(3px);
           }
         }
 
         .preview-body {
-          padding: 0 20px;
+          position: relative;
+          z-index: 2;
+          padding: 18px 20px 0;
+          background-color: @white;
           line-height: 28px;
           font-size: 16px;
         }
 
         & > footer {
           position: absolute;
+          z-index: 3;
           left: 0;
           bottom: 0;
           width: 100%;
@@ -230,7 +232,7 @@
           }
         }
         .preview-body {
-          padding: 0 15px;
+          padding: 13px 15px 0;
           line-height: 24px;
           font-size: 14px;
         }
@@ -277,7 +279,7 @@
           }
         }
         .preview-body {
-          padding: 0 20px;
+          padding: 18px 20px 0;
           line-height: 28px;
           font-size: 16px;
         }
@@ -306,7 +308,7 @@
           }
         }
         .preview-body {
-          padding: 0 15px;
+          padding: 13px 15px 0;
           line-height: 24px;
           font-size: 14px;
         }
