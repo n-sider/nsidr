@@ -20,7 +20,7 @@
     "connect-mongo": "^3.0.0",
     "dotenv": "^8.0.0",
     "express-handlebars": "^3.1.0",
-    "handlebars": "^4.1.2",
+    "handlebars": "^4.3.0",
     "keystone": "Tathanen/keystone#nested-lists-modern",
     "keystone-storage-adapter-s3": "^2.0.0",
     "keystone-utils": "^0.4.0",
