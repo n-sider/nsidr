@@ -15,6 +15,7 @@ NSiderTag.add({
 NSiderTag.schema.virtual('encodedName').get(function () {
   return encodeURIComponent(this.name);
 });
+NSiderTag.schema.set('toObject', { virtuals: true });
 
 NSiderTag.defaultColumns = 'name';
 

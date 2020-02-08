@@ -19,7 +19,7 @@ module.exports = (req, res) => {
 
     post.populate('authors tags').exec((err, result) => {
       if (result) {
-        locals.post = result;
+        locals.post = result.toObject();
 
         locals.meta.title = `nsidr / ${locals.post.title}`;
         locals.meta.description = locals.post.brief || locals.meta.description;
@@ -45,7 +45,7 @@ module.exports = (req, res) => {
 
     posts.populate('authors').exec((err, result) => {
       if (result) {
-        locals.posts = result;
+        locals.posts = result.map(obj => obj.toObject());
       } else {
         err = new Error('Posts not found');
       }

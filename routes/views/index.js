@@ -15,11 +15,13 @@ module.exports = (req, res) => {
 
     posts.populate('authors reactions').exec((err, result) => {
       if (result) {
-        if (result[0].featured) {
-          [locals.leadingPost, ...locals.posts] = result;
+        const postObjects = result.map(obj => obj.toObject());
+
+        if (postObjects[0].featured) {
+          [locals.leadingPost, ...locals.posts] = postObjects;
           locals.hasFeaturedPost = true;
         } else {
-          locals.posts = result;
+          locals.posts = postObjects;
           locals.hasFeaturedPost = false;
         }
       } else {

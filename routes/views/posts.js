@@ -83,7 +83,7 @@ module.exports = (req, res) => {
       posts.populate('authors').exec((err, result) => {
         if (result) {
           countPosts.count().exec((countErr, totalCount) => {
-            locals.posts = result;
+            locals.posts = result.map(obj => obj.toObject());;
             locals.pagination = {
               prev: page > 1 ? `/posts?page=${page - 1}${filterQuerystring}` : undefined,
               current: page,

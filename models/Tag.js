@@ -12,6 +12,7 @@ Tag.add({
 Tag.schema.virtual('encodedName').get(function () {
   return encodeURIComponent(this.name);
 });
+Tag.schema.set('toObject', { virtuals: true });
 
 Tag.defaultColumns = 'name';
 

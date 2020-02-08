@@ -62,6 +62,7 @@ NSiderArticle.schema.virtual('multipleTags').get(function () {
 NSiderArticle.schema.virtual('multipleAuthors').get(function () {
   return this.authors && this.authors.length > 1;
 });
+NSiderArticle.schema.set('toObject', { virtuals: true });
 
 NSiderArticle.defaultColumns = 'title, publishedDate';
 

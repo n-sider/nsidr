@@ -118,9 +118,9 @@ Post.schema.virtual('twitter').get(function () {
 Post.schema.virtual('facebook').get(function () {
   return this.facebookLink || 'https://www.facebook.com/nsidr/';
 });
+Post.schema.set('toObject', { virtuals: true });
+Post.schema.plugin((schema) => { schema.options.usePushEach = true; });
 
 Post.defaultColumns = 'title, publishedDate';
-
-Post.schema.plugin((schema) => { schema.options.usePushEach = true; });
 
 Post.register();

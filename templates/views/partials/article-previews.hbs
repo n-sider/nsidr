@@ -16,7 +16,7 @@
                 <i class="fad fa-user{{#if multipleAuthors}}-friends{{/if}}" style="--fa-secondary-opacity: 0.70"></i>
                 <ol>
                   {{#each authors}}
-                  <li>{{ name.full }}</li>
+                  <li>{{ name.first }} {{ name.last }}</li>
                   {{/each}}
                 </ol>
               </span>

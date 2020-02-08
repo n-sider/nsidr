@@ -76,7 +76,7 @@ module.exports = (req, res) => {
       articles.exec((err, result) => {
         if (result) {
           countArticles.count().exec((countErr, totalCount) => {
-            locals.articles = result;
+            locals.articles = result.map(obj => obj.toObject());
             locals.pagination = {
               prev: page > 1 ? `/archive?page=${page - 1}${filterQuerystring}` : undefined,
               current: page,

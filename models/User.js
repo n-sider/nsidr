@@ -22,6 +22,7 @@ User.add({
 });
 
 User.schema.virtual('canAccessKeystone').get(function () { return this.isAdmin; });
+User.schema.set('toObject', { virtuals: true });
 
 User.defaultColumns = 'name, email, isAdmin';
 

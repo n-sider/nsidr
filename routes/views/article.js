@@ -12,7 +12,7 @@ module.exports = (req, res) => {
 
     article.populate('tags').exec((err, result) => {
       if (result) {
-        locals.article = result;
+        locals.article = result.toObject();
         locals.currentPage = locals.article.pages.find(page => page.pageNumber === (Number(req.params.page) || 1));
 
         locals.meta.title = `nsidr / ${locals.article.title}`;
