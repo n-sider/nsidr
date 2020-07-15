@@ -1,6 +1,6 @@
 {
   "name": "nsidr",
-  "version": "1.7.4",
+  "version": "1.7.5",
   "description": "nsidr",
   "main": "keystone.js",
   "scripts": {
@@ -20,7 +20,7 @@
     "connect-mongo": "^3.0.0",
     "dotenv": "^8.0.0",
     "express-handlebars": "^3.1.0",
-    "handlebars": "^4.7.3",
+    "handlebars": "^4.7.6",
     "keystone": "Tathanen/keystone#nested-lists-modern",
     "keystone-storage-adapter-s3": "^2.0.0",
     "keystone-utils": "^0.4.0",
