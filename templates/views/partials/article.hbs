@@ -22,7 +22,7 @@
         <i class="fad fa-user{{#if article.multipleAuthors}}-friends{{/if}}" style="--fa-secondary-opacity: 0.70"></i>
         <ol>
           {{#each article.authors}}
-          <li>{{ name.first }} {{ name.last }}</li>
+          <li><a href="/archive?authors={{ name.first }} {{ name.last }}">{{ name.first }} {{ name.last }}</a></li>
           {{/each}}
         </ol>
       </span>
