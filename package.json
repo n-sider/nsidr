@@ -19,7 +19,7 @@
   "dependencies": {
     "connect-mongo": "^3.0.0",
     "dotenv": "^8.0.0",
-    "express-handlebars": "^3.1.0",
+    "express-handlebars": "^5.3.1",
     "handlebars": "^4.7.7",
     "keystone": "Tathanen/keystone#nested-lists-modern",
     "keystone-storage-adapter-s3": "^2.0.0",
