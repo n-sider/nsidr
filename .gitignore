@@ -1,9 +1,4 @@
 /node_modules
-/conversion_scripts
+/nsidr/public
+**/resources
 *.log
-.env
-
-# Elastic Beanstalk Files
-.elasticbeanstalk/*
-!.elasticbeanstalk/*.cfg.yml
-!.elasticbeanstalk/*.global.yml

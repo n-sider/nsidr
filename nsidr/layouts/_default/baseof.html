@@ -1,0 +1,28 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {{ $styles := resources.Get "styles/global.scss" | toCSS (dict "outputStyle" "compressed") }}
+  <link href="{{ $styles.Permalink }}" rel="stylesheet">
+  <title>{{ block "title" . }}
+    {{ .Site.Title }}
+  {{ end }}</title>
+</head>
+<body>
+
+  <header id="site-header">{{ block "header" . }}
+    <h1><a href="/">nsidr</a></h1>
+  {{ end }}</header>
+
+  <main>{{ block "main" . }}
+  oh no where's the content
+  {{ end }}</main>
+
+  <footer id="site-footer">{{ block "footer" . }}
+    footer
+  {{ end }}</footer>
+
+</body>
+</html>
