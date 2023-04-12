@@ -1,0 +1,39 @@
+@import "reset";
+
+$white: #FFFFFF;
+$black: #333333;
+$trueBlack: #000000;
+$grayBg: #DDDDDD;
+$grayLineBg: #CCCCCC;
+$grayText: #AAAAAA;
+$background: #EEEEEE;
+
+$nsidr: #16A1FF;
+$hyrule: #19BC19;
+$fami: #FF3F3F;
+$disk: #FFD800;
+
+* {
+  box-sizing: border-box;
+
+  &::before,
+  &::after {
+    box-sizing: border-box;
+  }
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-height: 100vh;
+  font-family: "Open Sans";
+  background-color: $background;
+  color: $black;
+
+  a {
+    color: $nsidr;
+  }
+}
+
+@import "posts";

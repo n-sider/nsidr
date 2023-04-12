@@ -1,0 +1,18 @@
+{{ define "main" }}
+<div id="container">
+  <section>
+    {{ with .Content }}{{ . }}{{ end }}
+  </section>
+
+  {{ $posts := sort .Pages ".Date" }}
+  {{ with $posts }}
+  <ol>
+    {{ range $posts }}
+    <li>
+      <a href="{{.Permalink}}"><span>{{ .Date.Format "2006" }}</span> {{ .Title }}</a>
+    </li>
+    {{ end }}
+  </ol>
+  {{ end }}
+</div>
+{{ end }}
