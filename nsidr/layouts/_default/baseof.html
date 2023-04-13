@@ -2,27 +2,87 @@
 
 <html lang="en">
 <head>
+  {{ if hugo.IsProduction }}
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1395930-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'UA-1395930-3');
+  </script>
+  {{ end }}
+
   <meta charset="utf-8">
+  {{ if not .Page.Params.fullViewport }}
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {{ end }}
+  <title>{{ block "title" . }}{{ .Title }}{{ end }}</title>
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#16A1FF">
+  <meta name="msapplication-TileColor" content="#16A1FF">
+  <meta name="theme-color" content="#16A1FF">
+
+  {{ $defaultDescription := "nsidr.com, a fansite from a bygone era for Nintendo fans who still need to write." }}
+  {{ $defaultImage := "https://www.nsidr.com/logo-full.png" }}
+  {{ $defaultImageAlt := "nsidr" }}
+
+  <meta name="description" content="{{ .Page.Params.meta.description | default $defaultDescription }}">
+  <meta property="og:site_name" content="nsidr">
+  <meta property="og:title" content="{{ .Title }}">
+  <meta property="og:type" content="website">
+  <meta property="og:description" content="{{ .Page.Params.meta.description | default $defaultDescription }}">
+  <meta property="og:image" content="{{ .Page.Params.meta.image | default $defaultImage }}">
+  <meta property="og:url" content="{{ .Page.Params.meta.url }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image:alt" content="{{ .Page.Params.meta.imageAlt | default $defaultImageAlt }}">
+  <meta name="twitter:site" content="@nsidr">
+
   {{ $styles := resources.Get "styles/global.scss" | toCSS (dict "outputStyle" "compressed") }}
   <link href="{{ $styles.Permalink }}" rel="stylesheet">
-  <title>{{ block "title" . }}
-    {{ .Site.Title }}
-  {{ end }}</title>
+  <link href="/rss" rel="alternate" type="application/rss+xml" title="nsidr RSS feed">
+  {{ with .Page.Params.viewStyles }}
+  <style>
+    {{ .Page.Params.viewStyles }}
+  </style>
+  {{ end }}
 </head>
-<body>
 
-  <header id="site-header">{{ block "header" . }}
-    <h1><a href="/">nsidr</a></h1>
-  {{ end }}</header>
+<body class="{{ .Page.Params.layoutClass }}">
+  <header id="site-header">
+    <div>
+      <h1>
+        <a href="/"><span>n</span><span>s</span><span>i</span><span>d</span><span>r</span></a>
+      </h1>
+      <nav>
+        <ul>
+          <li><i class="fad fa-seedling"></i></li>
+          <li><i class="fad fa-seedling"></i></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
   <main>{{ block "main" . }}
-  oh no where's the content
+    oh no where's the content
   {{ end }}</main>
 
-  <footer id="site-footer">{{ block "footer" . }}
-    footer
-  {{ end }}</footer>
-
+  <footer id="site-footer">
+    <div>
+      <small><a href="/">&copy; {{ now.Format "2006" }} N-Sider Media</a></small>
+      <a href="https://github.com/n-sider"><i class="fab fa-github"></i></a>
+      <ul>
+        <li><a href="/rss"><i class="fas fa-rss-square"></i></a></li>
+        <li><a href="https://twitter.com/nsider"><i class="fab fa-twitter-square"></i></a></li>
+        <li><a href="https://www.facebook.com/N-Sider-141311642565331/"><i class="fab fa-facebook-square"></i></a></li>
+      </ul>
+    </div>
+  </footer>
+  {{ range .Page.Params.scripts }}
+  <script src="{{ . }}"></script>
+  {{ end }}
 </body>
 </html>
