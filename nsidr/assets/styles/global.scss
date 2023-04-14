@@ -44,4 +44,16 @@ body {
 }
 
 @import "animations";
-@import "posts";
+@import "layouts/partials/view-all-posts";
+@import "layouts/partials/post-previews";
+@import "layouts/partials/post-feedback";
+@import "layouts/partials/post";
+@import "layouts/partials/view-all-articles";
+@import "layouts/partials/article-previews";
+@import "layouts/partials/article";
+@import "layouts/template";
+@import "layouts/index";
+@import "layouts/posts";
+@import "layouts/post";
+@import "layouts/articles";
+@import "layouts/article";
