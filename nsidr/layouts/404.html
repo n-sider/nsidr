@@ -1,3 +1,69 @@
-{{ define "main" }}
-  aw nuts
+<!doctype html>
+{{ block "full" . }}
+<html lang="en">
+<head>
+  {{ if hugo.IsProduction }}
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1395930-3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'UA-1395930-3');
+  </script>
+  {{ end }}
+
+  <meta charset="utf-8">
+  <title>404 / nsidr</title>
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#16A1FF">
+  <meta name="msapplication-TileColor" content="#16A1FF">
+  <meta name="theme-color" content="#16A1FF">
+
+  {{ $defaultDescription := "nsidr.com, a fansite from a bygone era for Nintendo fans who still need to write." }}
+  {{ $defaultImage := "https://www.nsidr.com/logo-full.png" }}
+  {{ $defaultImageAlt := "nsidr" }}
+
+  <meta name="description" content="{{ $defaultDescription }}">
+  <meta property="og:site_name" content="nsidr">
+  <meta property="og:title" content="{{ .Title }}">
+  <meta property="og:type" content="website">
+  <meta property="og:description" content="{{ $defaultDescription }}">
+  <meta property="og:image" content="{{ $defaultImage }}">
+  <meta property="og:url" content="{{ .Page.Params.meta.url }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image:alt" content="{{ $defaultImageAlt }}">
+  <meta name="twitter:site" content="@nsidr">
+
+  {{ $styles := resources.Get "styles/global.scss" | toCSS (dict "outputStyle" "compressed") }}
+  <link href="{{ $styles.Permalink }}" rel="stylesheet">
+  <link href="/rss" rel="alternate" type="application/rss+xml" title="nsidr RSS feed">
+</head>
+
+<body class="not-found-view">
+
+  <header id="site-header">
+    <div>
+      <h1>
+        <a href="/"><span>n</span><span>s</span><span>i</span><span>d</span><span>r</span></a>
+      </h1>
+      <nav>
+        <ul>
+          <li><i class="fad fa-seedling"></i></li>
+          <li><i class="fad fa-seedling"></i></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="not-found">
+    <h1>oh, I've been done in</h1>
+    <p>404 not found</p>
+  </section>
+
+</body>
+</html>
 {{ end }}

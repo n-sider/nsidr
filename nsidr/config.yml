@@ -2,3 +2,9 @@ baseURL: https://www.nsidr.com/
 languageCode: en-us
 title: nsidr
 buildFuture: false
+taxonomies:
+  tag: tags
+  series: series
+  author: authors
+params:
+  staticPath: https://static.nsidr.com/

@@ -61,14 +61,14 @@
             justify-content: flex-start;
             padding: 15px 20px;
             margin-top: -90px;
-            background-color: fade($white, 90%);
+            background-color: rgba($white, .9);
 
             img {
               flex: 0 0 55px;
               height: 55px;
               margin-right: 15px;
               border-radius: 5px;
-              box-shadow: 1px 1px 0 fade($trueBlack, 20%);
+              box-shadow: 1px 1px 0 rgba($trueBlack, .2);
             }
 
             div {
@@ -106,7 +106,7 @@
             z-index: 2;
             width: 100%;
             bottom: -1px;
-            background-color: fade($white, 85%);
+            background-color: rgba($white, .85);
           }
         }
 
