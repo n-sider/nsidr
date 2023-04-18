@@ -1,0 +1,41 @@
+<ol class="post-previews">
+  {{ range .previews }}
+  <li>
+    <a href="{{ .Permalink }}">
+      <article class="{{ .Params.topic }}">
+
+        <header class="preview-header">
+          {{- with .Params.featureImage }}
+          <div class="feature-image">
+            <span style="background-image: url('{{ . }}')"></span>
+          </div>
+          {{ end }}
+          <div class="title-byline">
+            {{- $mood := .Params.mood | default "default" }}
+            {{- with .Params.authors }}
+              {{- range first 1 . }}
+                {{- $author := $.ctx.GetPage (printf "/authors/%s" (. | urlize)) }}
+                <img src="{{ index $author.Params.avatars $mood }}">
+              {{- end }}
+            {{- end }}
+            <div>
+              <h1>{{ .Title }}</h1>
+            </div>
+          </div>
+        </header>
+
+        <div class="preview-body">
+          {{ .Summary }}
+        </div>
+
+        <footer>
+          <span class="read-more">
+            <span>read more<i class="fas fa-arrow-alt-square-right"></i></span>
+          </span>
+        </footer>
+
+      </article>
+    </a>
+  </li>
+  {{ end }}
+</ol>

@@ -1,5 +1,5 @@
 <!doctype html>
-
+{{ block "full" . }}
 <html lang="en">
 <head>
   {{ if hugo.IsProduction }}
@@ -26,9 +26,9 @@
   <meta name="msapplication-TileColor" content="#16A1FF">
   <meta name="theme-color" content="#16A1FF">
 
-  {{ $defaultDescription := "nsidr.com, a fansite from a bygone era for Nintendo fans who still need to write." }}
-  {{ $defaultImage := "https://www.nsidr.com/logo-full.png" }}
-  {{ $defaultImageAlt := "nsidr" }}
+  {{- $defaultDescription := "nsidr.com, a fansite from a bygone era for Nintendo fans who still need to write." }}
+  {{- $defaultImage := "https://www.nsidr.com/logo-full.png" }}
+  {{- $defaultImageAlt := "nsidr" }}
 
   <meta name="description" content="{{ .Page.Params.meta.description | default $defaultDescription }}">
   <meta property="og:site_name" content="nsidr">
@@ -41,9 +41,12 @@
   <meta name="twitter:image:alt" content="{{ .Page.Params.meta.imageAlt | default $defaultImageAlt }}">
   <meta name="twitter:site" content="@nsidr">
 
-  {{ $styles := resources.Get "styles/global.scss" | toCSS (dict "outputStyle" "compressed") }}
+  <script defer src="/scripts/lib/fontawesome.min.js"></script>
+  {{- $styles := resources.Get "styles/global.scss" | toCSS (dict "outputStyle" "compressed") }}
   <link href="{{ $styles.Permalink }}" rel="stylesheet">
-  <link href="/rss" rel="alternate" type="application/rss+xml" title="nsidr RSS feed">
+  {{- with .OutputFormats.Get "rss" }}
+  {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+  {{- end }}
   {{ with .Page.Params.viewStyles }}
   <style>
     {{ .Page.Params.viewStyles }}
@@ -86,3 +89,4 @@
   {{ end }}
 </body>
 </html>
+{{ end }}

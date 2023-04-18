@@ -1,3 +1,52 @@
 {{ define "main" }}
-  home page
+<section id="index"{{ if .Page.Params.hasFeaturedPost }} class="has-featured-post"{{ end }}>
+
+  <div class="index-featured">
+
+    {{/*
+    {{ if .Page.Params.hasFeaturedPost }}
+    <div class="featured-post">
+      {{> post post=leadingPost isFeatured=true }}
+      <div class="continue-reading">
+        <a href="/posts/{{ leadingPost.slug }}">
+          <span>continue reading<i class="fas fa-arrow-alt-square-right"></i></span>
+        </a>
+      </div>
+    </div>
+    {{ end }}
+    */}}
+
+    <div class="index-exhibits">
+
+      <aside class="exhibit exhibit-one">
+        <h1>the hyrule fantasy</h1>
+        <p>coming next</p>
+      </aside>
+
+      <aside class="exhibit exhibit-two">
+        <h1>famiculture</h1>
+        <p>coming soon</p>
+      </aside>
+
+      <aside class="follow">
+        <div>
+          <h1>stay updated</h1>
+          <p>we don't update often,<br>so catch us when we do!</p>
+        </div>
+        <ul>
+          <li><a href="/index.xml" class="rss"><i class="fas fa-rss-square"></i></a></li>
+          <li><a href="https://twitter.com/nsidr" class="twitter"><i class="fab fa-twitter-square"></i></a></li>
+          <li><a href="https://www.facebook.com/nsidr/" class="facebook"><i class="fab fa-facebook-square"></i></a></li>
+        </ul>
+      </aside>
+
+    </div>
+
+  </div>
+
+  {{- $previews := first 4 (sort (where .Site.RegularPages "Type" "posts") ".Date") }}
+  {{ partial "post-previews.html" (dict "previews" $previews "ctx" $) }}
+  {{ partial "view-all-posts.html" }}
+
+</section>
 {{ end }}

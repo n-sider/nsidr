@@ -183,7 +183,7 @@
         z-index: 2;
         width: 100%;
         bottom: 0;
-        background-color: fade($white, 85%);
+        background-color: rgba($white, .85);
         backdrop-filter: blur(3px);
         -webkit-backdrop-filter: blur(3px);
         transform: translateZ(0);
@@ -596,7 +596,7 @@
           height: 60px;
           margin-top: 3px;
           margin-right: 10px;
-          box-shadow: 1px 1px 0 fade($trueBlack, 20%);
+          box-shadow: 1px 1px 0 rgba($trueBlack, .2);
         }
         div {
           min-height: 60px;
