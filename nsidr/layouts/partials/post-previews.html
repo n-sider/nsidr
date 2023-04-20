@@ -14,7 +14,7 @@
             {{- $mood := .Params.mood | default "default" }}
             {{- with .Params.authors }}
               {{- range first 1 . }}
-                {{- $author := $.ctx.GetPage (printf "/authors/%s" (. | urlize)) }}
+                {{- $author := $.ctx.GetPage (printf `/authors/%s` (. | urlize)) }}
                 <img src="{{ index $author.Params.avatars $mood }}">
               {{- end }}
             {{- end }}

@@ -1,22 +1,28 @@
 <!doctype html>
 {{ block "full" . }}
+{{ block "config" . }}{{ end }}
 <html lang="en">
 <head>
   {{ if hugo.IsProduction }}
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1395930-3"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ .Site.Params.ga }}"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
-    gtag('config', 'UA-1395930-3');
+    gtag('config', '{{ .Site.Params.ga }}');
   </script>
-  {{ end }}
+  {{- end }}
+
+  {{- $title := .Title | default .Site.Title }}
+  {{- with .Scratch.Get "pageNumber" }}
+    {{- $title = printf `%s / page %s` $title (string .) }}
+  {{- end }}
+  {{- $defaultDescription := .Summary | default .Site.Params.defaultDescription }}
 
   <meta charset="utf-8">
-  {{ if not .Page.Params.fullViewport }}
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  {{ end }}
-  <title>{{ block "title" . }}{{ .Title }}{{ end }}</title>
+  <!-- TODO: document.querySelector("meta[name='viewport']").setAttribute("content","") -->
+  <title>{{ cond (eq $title "nsidr") $title (printf `%s / nsidr` $title) }}</title>
 
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -26,19 +32,15 @@
   <meta name="msapplication-TileColor" content="#16A1FF">
   <meta name="theme-color" content="#16A1FF">
 
-  {{- $defaultDescription := "nsidr.com, a fansite from a bygone era for Nintendo fans who still need to write." }}
-  {{- $defaultImage := "https://www.nsidr.com/logo-full.png" }}
-  {{- $defaultImageAlt := "nsidr" }}
-
-  <meta name="description" content="{{ .Page.Params.meta.description | default $defaultDescription }}">
+  <meta name="description" content="{{ .Page.Params.blurb | default $defaultDescription }}">
   <meta property="og:site_name" content="nsidr">
-  <meta property="og:title" content="{{ .Title }}">
+  <meta property="og:title" content="{{ $title }}">
   <meta property="og:type" content="website">
-  <meta property="og:description" content="{{ .Page.Params.meta.description | default $defaultDescription }}">
-  <meta property="og:image" content="{{ .Page.Params.meta.image | default $defaultImage }}">
-  <meta property="og:url" content="{{ .Page.Params.meta.url }}">
+  <meta property="og:description" content="{{ .Page.Params.blurb | default $defaultDescription }}">
+  <meta property="og:image" content="{{ .Page.Params.featureImage | default .Site.Params.defaultImage }}">
+  <meta property="og:url" content="{{ .Permalink }}">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image:alt" content="{{ .Page.Params.meta.imageAlt | default $defaultImageAlt }}">
+  <meta name="twitter:image:alt" content="{{ $title }}">
   <meta name="twitter:site" content="@nsidr">
 
   <script defer src="/scripts/lib/fontawesome.min.js"></script>

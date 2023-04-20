@@ -1,0 +1,13 @@
+<footer class="pagination">
+  {{ if .HasPrev }}
+  <a href="{{ .Prev.URL }}"><span><i class="fas fa-arrow-alt-square-left"></i>prev</span></a>
+  {{ else }}
+  <div></div>
+  {{ end }}
+  <span>page {{ .PageNumber }} of {{ .TotalPages }}</span>
+  {{ if .HasNext }}
+  <a href="{{ .Next.URL }}"><span>next<i class="fas fa-arrow-alt-square-right"></i></span></a>
+  {{ else }}
+  <div></div>
+  {{ end }}
+</footer>

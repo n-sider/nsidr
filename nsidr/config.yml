@@ -1,4 +1,4 @@
-baseURL: https://www.nsidr.com/
+baseURL: "https://www.nsidr.com/"
 languageCode: en-us
 title: nsidr
 buildFuture: false
@@ -7,4 +7,7 @@ taxonomies:
   series: series
   author: authors
 params:
-  staticPath: https://static.nsidr.com/
+  staticPath: "https://static.nsidr.com/"
+  ga: UA-1395930-3
+  defaultDescription: "nsidr.com, a fansite from a bygone era for Nintendo fans who still need to write."
+  defaultImage: "https://www.nsidr.com/logo-full.png"

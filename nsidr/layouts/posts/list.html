@@ -1,18 +1,28 @@
-{{ define "main" }}
-<div id="container">
-  <section>
-    {{ with .Content }}{{ . }}{{ end }}
-  </section>
+{{ define "config" }}
+{{ if gt .Paginator.PageNumber 1 }}
+  {{ .Page.Scratch.Set "pageNumber" .Paginator.PageNumber }}
+{{ end }}
+{{ end }}
 
-  {{ $posts := sort .Pages ".Date" }}
-  {{ with $posts }}
-  <ol>
-    {{ range $posts }}
-    <li>
-      <a href="{{.Permalink}}"><span>{{ .Date.Format "2006" }}</span> {{ .Title }}</a>
-    </li>
-    {{ end }}
-  </ol>
-  {{ end }}
-</div>
+{{ define "main" }}
+<section id="posts">
+
+  <div class="post-list">
+    {{- $previews := sort .Paginator.Pages ".Date" }}
+    {{ partial "post-previews.html" (dict "previews" $previews "ctx" $) }}
+    {{ partial "pagination.html" .Paginator }}
+  </div>
+
+  <aside id="tag-search">
+    <div class="search-container">
+      <div class="search-posts">
+        <h1>search posts by tag</h1>
+      </div>
+      <div class="archive-link">
+        <a href="/archive"><i class="fas fa-archive"></i>view n-sider archive</a>
+      </div>
+    </div>
+  </aside>
+
+</section>
 {{ end }}
