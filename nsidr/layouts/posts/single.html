@@ -1,5 +1,14 @@
 {{ define "main" }}
-  <article>
-    {{ with .Content }}{{ . }}{{ end }}
-  </article>
+<section id="post">
+
+  {{ partial "post.html" . }}
+
+  {{/*}}
+  {{> post }}
+  {{> post-feedback post=post }}
+  {{> post-previews }}
+  {{> view-all-posts }}
+  {{*/}}
+
+</section>
 {{ end }}

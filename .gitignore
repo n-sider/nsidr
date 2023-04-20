@@ -1,4 +1,5 @@
 /node_modules
 /nsidr/public
 **/resources
+.hugo_build.lock
 *.log
