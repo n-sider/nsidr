@@ -3,14 +3,17 @@
 <html lang="en">
 <head>
   {{ if hugo.IsProduction }}
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1395930-3"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ .Site.Params.ga }}"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
-    gtag('config', 'UA-1395930-3');
+    gtag('config', '{{ .Site.Params.ga }}');
   </script>
-  {{ end }}
+  {{- end }}
+
+  {{- $title := .Title | default .Site.Title }}
+  {{- $defaultDescription := .Summary | default .Site.Params.defaultDescription }}
 
   <meta charset="utf-8">
   <title>404 / nsidr</title>
@@ -23,24 +26,22 @@
   <meta name="msapplication-TileColor" content="#16A1FF">
   <meta name="theme-color" content="#16A1FF">
 
-  {{ $defaultDescription := "nsidr.com, a fansite from a bygone era for Nintendo fans who still need to write." }}
-  {{ $defaultImage := "https://www.nsidr.com/logo-full.png" }}
-  {{ $defaultImageAlt := "nsidr" }}
-
   <meta name="description" content="{{ $defaultDescription }}">
   <meta property="og:site_name" content="nsidr">
-  <meta property="og:title" content="{{ .Title }}">
+  <meta property="og:title" content="{{ $title }}">
   <meta property="og:type" content="website">
   <meta property="og:description" content="{{ $defaultDescription }}">
-  <meta property="og:image" content="{{ $defaultImage }}">
-  <meta property="og:url" content="{{ .Page.Params.meta.url }}">
+  <meta property="og:image" content="{{ .Site.Params.defaultImage }}">
+  <meta property="og:url" content="{{ .Permalink }}">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image:alt" content="{{ $defaultImageAlt }}">
+  <meta name="twitter:image:alt" content="{{ $title }}">
   <meta name="twitter:site" content="@nsidr">
 
   {{ $styles := resources.Get "styles/global.scss" | toCSS (dict "outputStyle" "compressed") }}
   <link href="{{ $styles.Permalink }}" rel="stylesheet">
-  <link href="/rss" rel="alternate" type="application/rss+xml" title="nsidr RSS feed">
+  {{- with .OutputFormats.Get "rss" }}
+  {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+  {{- end }}
 </head>
 
 <body class="not-found-view">
