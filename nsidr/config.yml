@@ -9,5 +9,5 @@ taxonomies:
 params:
   staticPath: "https://static.nsidr.com/"
   ga: UA-1395930-3
-  defaultDescription: "nsidr.com, a fansite from a bygone era for Nintendo fans who still need to write."
+  defaultDescription: "nsidr.com, recalling the bygone exploits of middle-aged Nintendo-likers."
   defaultImage: "https://www.nsidr.com/logo-full.png"

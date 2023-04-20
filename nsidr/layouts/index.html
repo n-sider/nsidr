@@ -44,7 +44,7 @@
 
   </div>
 
-  {{- $previews := first 4 (sort (where .Site.RegularPages "Type" "posts") ".Date") }}
+  {{- $previews := first 4 (sort (where .Site.RegularPages "Type" "posts") ".Date" "desc") }}
   {{ partial "post-previews.html" (dict "previews" $previews "ctx" $) }}
   {{ partial "view-all-posts.html" }}
 

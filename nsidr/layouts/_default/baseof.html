@@ -1,6 +1,6 @@
 <!doctype html>
 {{ block "full" . }}
-{{ block "config" . }}{{ end }}
+{{- block "config" . }}{{ end }}
 <html lang="en">
 <head>
   {{ if hugo.IsProduction }}
@@ -80,7 +80,7 @@
       <small><a href="/">&copy; {{ now.Format "2006" }} N-Sider Media</a></small>
       <a href="https://github.com/n-sider"><i class="fab fa-github"></i></a>
       <ul>
-        <li><a href="/rss"><i class="fas fa-rss-square"></i></a></li>
+        <li><a href="/index.xml"><i class="fas fa-rss-square"></i></a></li>
         <li><a href="https://twitter.com/nsider"><i class="fab fa-twitter-square"></i></a></li>
         <li><a href="https://www.facebook.com/N-Sider-141311642565331/"><i class="fab fa-facebook-square"></i></a></li>
       </ul>
