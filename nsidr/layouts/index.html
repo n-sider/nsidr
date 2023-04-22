@@ -1,20 +1,22 @@
 {{ define "main" }}
-<section id="index"{{ if .Page.Params.hasFeaturedPost }} class="has-featured-post"{{ end }}>
+{{- $posts := first 4 (sort (where .Site.RegularPages "Type" "posts") ".Date" "desc") }}
+{{- range first 1 $posts }}
+<section id="index"{{ if .Params.featuredPost }} class="has-featured-post"{{ end }}>
 
   <div class="index-featured">
 
-    {{/*
-    {{ if .Page.Params.hasFeaturedPost }}
+  {{- if .Params.featuredPost }}
+    {{- $.Page.Scratch.Set "hasFeaturedPost" true }}
     <div class="featured-post">
-      {{> post post=leadingPost isFeatured=true }}
+      {{ partial "post.html" (dict "post" . "ctx" $) }}
       <div class="continue-reading">
-        <a href="/posts/{{ leadingPost.slug }}">
+        <a href="{{ .Permalink }}">
           <span>continue reading<i class="fas fa-arrow-alt-square-right"></i></span>
         </a>
       </div>
     </div>
-    {{ end }}
-    */}}
+  {{- end }}
+{{- end}}
 
     <div class="index-exhibits">
 
@@ -44,7 +46,10 @@
 
   </div>
 
-  {{- $previews := first 4 (sort (where .Site.RegularPages "Type" "posts") ".Date" "desc") }}
+  {{- $previews := $posts }}
+  {{- if (.Scratch.Get "hasFeaturedPost") }}
+    {{- $previews = last 3 $posts }}
+  {{- end }}
   {{ partial "post-previews.html" (dict "previews" $previews "ctx" $) }}
   {{ partial "view-all-posts.html" }}
 

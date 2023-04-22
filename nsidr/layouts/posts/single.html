@@ -1,7 +1,7 @@
 {{ define "main" }}
 <section id="post">
 
-  {{ partial "post.html" . }}
+  {{ partial "post.html" (dict "post" . "ctx" $) }}
   {{ partial "post-feedback.html" . }}
 
   {{- $taggedPosts := sort (
