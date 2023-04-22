@@ -1,58 +1,58 @@
-<article class="post-template {{ .Params.topic }}">
+<article class="post-template {{ .post.Params.topic }}">
 
-  {{- if .Scratch.Get "featuredPost" }}
+  {{- if $.ctx.Scratch.Get "hasFeaturedPost" }}
   <div class="featured"><i class="fad fa-rocket-launch" style="--fa-secondary-opacity: 0.60"></i>Featured Post</div>
   {{- end }}
 
-  {{- if .Params.shouldMoveFeatureImage }}
-  <div class="feature-image" style="background-image: url('{{ .Params.featureImage }}')">
-    <img src="{{ .Params.featureImage }}" alt="{{ .Title }}">
+  {{- if .post.Params.shouldMoveFeatureImage }}
+  <div class="feature-image" style="background-image: url('{{ .post.Params.featureImage }}')">
+    <img src="{{ .post.Params.featureImage }}" alt="{{ .post.Title }}">
   </div>
   {{- end }}
 
-  <header class="post-header{{ if .Params.shouldMoveFeatureImage }} feature-overlay{{ end }}">
+  <header class="post-header{{ if .post.Params.shouldMoveFeatureImage }} feature-overlay{{ end }}">
     <div class="title-byline">
-      {{- $mood := .Params.mood | default "default" }}
-      {{- with .Params.authors }}
+      {{- $mood := .post.Params.mood | default "default" }}
+      {{- with .post.Params.authors }}
         {{- range first 1 . }}
-          {{- $author := $.GetPage (printf `/authors/%s` (. | urlize)) }}
+          {{- $author := $.ctx.GetPage (printf `/authors/%s` (. | urlize)) }}
           <img src="{{ index $author.Params.avatars $mood }}">
         {{- end }}
       {{- end }}
       <div>
-        <h1><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
+        <h1><a href="{{ .post.Permalink }}">{{ .post.Title }}</a></h1>
         <small>
-          {{- with .Params.authors }}
+          {{- with .post.Params.authors }}
           <i class="fad fa-user{{ if gt (len .) 1 }}-friends{{ end }}" style="--fa-secondary-opacity: 0.70"></i>
           <ul>
             {{ range . }}
-            {{- $author := $.GetPage (printf `/authors/%s` (. | urlize)) }}
+            {{- $author := $.ctx.GetPage (printf `/authors/%s` (. | urlize)) }}
             <li><a href="{{ $author.Permalink }}">{{ $author.Title }}</a></li>
             {{ end }}
           </ul>
           {{- end }}
-          <i class="fad fa-calendar" style="--fa-secondary-opacity: 0.70"></i> {{ .Date | time.Format ":date_medium" }}
+          <i class="fad fa-calendar" style="--fa-secondary-opacity: 0.70"></i> {{ .post.Date | time.Format ":date_medium" }}
           {{ $reactionsTotal := add 0
-            (int .Params.reactions.thumbsUp)
-            (int .Params.reactions.laugh)
-            (int .Params.reactions.wow)
-            (int .Params.reactions.sad)
+            (int .post.Params.reactions.thumbsUp)
+            (int .post.Params.reactions.laugh)
+            (int .post.Params.reactions.wow)
+            (int .post.Params.reactions.sad)
           }}
           {{ if gt $reactionsTotal 0 }}
           <span class="reactions">
             <i class="fas fa-grin"></i>
             <span class="total">{{ string $reactionsTotal }}</span>
             <ul class="tooltip">
-              {{- with .Params.reactions.thumbsUp }}
+              {{- with .post.Params.reactions.thumbsUp }}
               <li class="thumbs-up"><i class="fad fa-thumbs-up"></i>{{ . }}</li>
               {{- end }}
-              {{- with .Params.reactions.laugh }}
+              {{- with .post.Params.reactions.laugh }}
               <li class="laugh"><i class="fas fa-laugh-squint"></i>{{ . }}</li>
               {{- end }}
-              {{- with .Params.reactions.wow }}
+              {{- with .post.Params.reactions.wow }}
               <li class="wow"><i class="fas fa-surprise"></i>{{ . }}</li>
               {{- end }}
-              {{- with .Params.reactions.sad }}
+              {{- with .post.Params.reactions.sad }}
               <li class="sad"><i class="fas fa-sad-tear"></i>{{ . }}</li>
               {{- end }}
             </ul>
@@ -64,15 +64,15 @@
   </header>
 
   <div class="post-body">
-    {{- $content := .Content }}
-    {{- if .Params.pullUpFeatureImage }}
-      {{- $content = replaceRE "(<(p|div)[^>]*?>)?\\s*?(<a[^>]*?>)?\\s*?<img[^>]*?>\\s*?(</a>)?\\s*?(</(?:p|div)>)?((<br[^>]*?>)?\\s*?)*" "" .Content 1 }}
+    {{- $content := .post.Content }}
+    {{- if .post.Params.pullUpFeatureImage }}
+      {{- $content = replaceRE "(<(p|div)[^>]*?>)?\\s*?(<a[^>]*?>)?\\s*?<img[^>]*?>\\s*?(</a>)?\\s*?(</(?:p|div)>)?((<br[^>]*?>)?\\s*?)*" "" .post.Content 1 }}
     {{- end }}
     {{ $content }}
   </div>
 
   <footer class="post-footer">
-    {{- $tags := .GetTerms "tags" }}
+    {{- $tags := $.ctx.GetTerms "tags" }}
     {{- with $tags}}
     <span class="tag-icon"><i class="fas fa-tag{{ if gt $tags 1 }}s{{ end }}"></i></span>
     {{- end }}
