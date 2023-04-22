@@ -2,13 +2,18 @@
 <section id="post">
 
   {{ partial "post.html" . }}
+  {{ partial "post-feedback.html" . }}
 
-  {{/*}}
-  {{> post }}
-  {{> post-feedback post=post }}
-  {{> post-previews }}
-  {{> view-all-posts }}
-  {{*/}}
+  {{- $taggedPosts := sort (
+    where (where .Site.RegularPages "Params.tags" "intersect" .Params.tags) "Title" "!=" .Title)
+    ".Date" "desc" }}
+  {{- $authoredPosts := sort (complement $taggedPosts (
+    where (where .Site.RegularPages "Params.authors" "intersect" .Params.authors) "Title" "!=" .Title))
+    ".Date" "desc" }}
+  {{- $previewCandidates := $taggedPosts | append $authoredPosts }}
+
+  {{ partial "post-previews.html" (dict "previews" (first 3 $previewCandidates) "ctx" $) }}
+  {{ partial "view-all-posts.html" }}
 
 </section>
 {{ end }}
