@@ -1,0 +1,32 @@
+{{ define "config" }}
+{{ if gt (.Paginate .Pages 20).PageNumber 1 }}
+  {{ .Page.Scratch.Set "pageNumber" (.Paginate .Pages 20).PageNumber }}
+{{ end }}
+{{ end }}
+
+{{ define "main" }}
+<section id="articles">
+
+  <div class="article-list">
+    <div class="filter-status">
+      <i class="fas fa-th-large"></i>
+      Viewing all articles
+    </div>
+    {{- $previews := sort (.Paginate .Pages 20).Pages ".Date" "desc" }}
+    {{ partial "article-previews.html" $previews }}
+    {{ partial "pagination.html" (.Paginate .Pages 20) }}
+  </div>
+
+  <aside id="tag-search">
+    <div class="search-container">
+      <div class="search-articles">
+        <h1>search archive by tag</h1>
+      </div>
+      <div class="posts-link">
+        <a href="/posts"><i class="fas fa-arrow-circle-left"></i>return to nsidr posts</a>
+      </div>
+    </div>
+  </aside>
+
+</section>
+{{ end }}

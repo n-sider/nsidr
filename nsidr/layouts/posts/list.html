@@ -8,6 +8,10 @@
 <section id="posts">
 
   <div class="post-list">
+    <div class="filter-status">
+      <i class="fas fa-th-large"></i>
+      Viewing all posts
+    </div>
     {{- $previews := sort .Paginator.Pages ".Date" "desc" }}
     {{ partial "post-previews.html" (dict "previews" $previews "ctx" $) }}
     {{ partial "pagination.html" .Paginator }}

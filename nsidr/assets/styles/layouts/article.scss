@@ -5,10 +5,12 @@
     max-width: 783px;
     margin: 0 auto 20px;
 
-    a {
+    button {
       display: block;
+      width: 100%;
       margin: 0 auto;
       background-color: $grayBg;
+      border: none;
       border-radius: 5px;
       transition: all .2s ease-in-out;
       text-align: center;
@@ -39,10 +41,13 @@
       }
     }
 
+    &.hide {
+      display: none;
+    }
     &.show-responsive {
       margin: 20px auto 40px;
 
-      a {
+      button {
         span {
           font-size: 40px;
           line-height: 80px;
@@ -56,7 +61,7 @@
         }
       }
     }
-    &.show-desktop a {
+    &.show-desktop button {
       span svg {
         margin-left: 10px;
       }
@@ -124,7 +129,7 @@
     .toggle-responsive {
       margin: 0;
 
-      a {
+      button {
         border-radius: 0;
 
         span {

@@ -1,0 +1,18 @@
+{{ define "config" }}
+{{- $paginator := .Paginate (.RegularPages.ByParam "page") 1 }}
+{{- with $paginator }}
+  {{- if gt .PageNumber 1 }}
+    {{- $.Scratch.Set "pageNumber" .PageNumber }}
+  {{- end }}
+{{- end }}
+{{ end }}
+
+{{ define "main" }}
+<section id="article">
+
+  {{- $paginator := .Paginate (.RegularPages.ByParam "page") 1 }}
+  {{ partial "article.html" (dict "article" . "paginator" $paginator "ctx" $) }}
+  {{ partial "view-all-articles.html" }}
+
+</section>
+{{ end }}

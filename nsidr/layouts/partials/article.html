@@ -1,0 +1,107 @@
+<script>
+  function toggleLegacyMode() {
+    if( localStorage.getItem("legacy-mode") ) {
+      localStorage.removeItem("legacy-mode");
+      document.querySelector("meta[name='viewport']").setAttribute("content","width=device-width, initial-scale=1.0");
+      document.querySelector(".toggle-responsive.show-desktop").classList.remove("hide");
+      document.querySelector(".toggle-responsive.show-responsive").classList.add("hide");
+    } else {
+      localStorage.setItem("legacy-mode", true);
+      document.querySelector("meta[name='viewport']").setAttribute("content","");
+      document.querySelector(".toggle-responsive.show-desktop").classList.add("hide");
+      document.querySelector(".toggle-responsive.show-responsive").classList.remove("hide");
+    }
+  }
+</script>
+
+<aside class="toggle-responsive show-responsive hide">
+  <button onclick="toggleLegacyMode()">
+    <span><i class="fas fa-arrow-alt-square-left"></i>Return to mobile-friendly mode</span>
+  </button>
+</aside>
+
+<aside class="toggle-responsive show-desktop hide">
+  <button onclick="toggleLegacyMode()">
+    <span>View in legacy (desktop) mode<i class="fas fa-arrow-alt-square-right"></i></span>
+  </button>
+</aside>
+
+<script>
+  if( localStorage.getItem("legacy-mode") ) {
+    document.querySelector(".toggle-responsive.show-responsive").classList.remove("hide");
+    document.querySelector("meta[name='viewport']").setAttribute("content","");
+  } else {
+    document.querySelector("meta[name='viewport']").setAttribute("content","width=device-width, initial-scale=1.0");
+    document.querySelector(".toggle-responsive.show-desktop").classList.remove("hide");
+  }
+</script>
+
+<article class="article-template">
+
+  <header class="article-header">
+    <h1>{{ .article.Title }}</h1>
+    <small>
+      {{- with $.ctx.GetTerms "contributors" }}
+      <span>
+        <i class="fad fa-user{{ if gt (len .) 1 }}-friends{{ end }}" style="--fa-secondary-opacity: 0.70"></i>
+        <ol>
+          {{- range . }}
+          <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
+          {{- end }}
+        </ol>
+      </span>
+      {{- end }}
+      <span>
+        <i class="fad fa-calendar" style="--fa-secondary-opacity: 0.70"></i> {{ .article.Date | time.Format ":date_medium" }}
+      </span>
+      {{- with $.ctx.GetTerms "series" }}
+      <span>
+        <i class="fas fa-tag{{ if gt (len .) 1 }}s{{ end }}"></i>
+        <ul>
+          {{- range . }}
+          <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
+          {{- end }}
+        </ul>
+      </span>
+      {{- end }}
+    </small>
+  </header>
+
+  {{- with .paginator }}
+    {{- range .Pages }}
+    <div class="article-body" id="page_{{ $.paginator.PageNumber }}">
+      <div id="contentarea">
+        <div class="markup_main_standard">
+          {{ .Content }}
+        </div>
+      </div>
+      {{- with .Params.sidebar }}
+      <aside id="sidebar">
+        <div class="markup_sidebar_standard">
+          {{ . }}
+        </div>
+      </aside>
+      {{- end }}
+    </div>
+    {{- end }}
+
+    {{ partial "pagination.html" $.paginator }}
+
+  {{- else }}
+    <div class="article-body">
+      <div id="contentarea">
+        <div class="markup_main_standard">
+          {{ .article.Content }}
+        </div>
+      </div>
+      {{- with .article.Params.sidebar }}
+      <aside id="sidebar">
+        <div class="markup_sidebar_standard">
+          {{ . }}
+        </div>
+      </aside>
+      {{- end }}
+    </div>
+  {{- end }}
+
+</article>

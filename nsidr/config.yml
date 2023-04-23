@@ -6,6 +6,7 @@ taxonomies:
   tag: tags
   series: series
   author: authors
+  contributor: contributors
 params:
   staticPath: "https://static.nsidr.com/"
   ga: UA-1395930-3
@@ -13,3 +14,4 @@ params:
   defaultImage: "https://www.nsidr.com/logo-full.png"
   twitter: "https://twitter.com/nsidr"
   facebook: "https://www.facebook.com/nsidr/"
+  github: "https://github.com/n-sider"

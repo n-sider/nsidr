@@ -21,7 +21,6 @@
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- TODO: document.querySelector("meta[name='viewport']").setAttribute("content","") -->
   <title>{{ cond (eq $title "nsidr") $title (printf `%s / nsidr` $title) }}</title>
 
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -51,7 +50,7 @@
   {{- end }}
   {{ with .Page.Params.viewStyles }}
   <style>
-    {{ .Page.Params.viewStyles }}
+    {{ safeCSS . }}
   </style>
   {{ end }}
 </head>
@@ -78,11 +77,11 @@
   <footer id="site-footer">
     <div>
       <small><a href="/">&copy; {{ now.Format "2006" }} N-Sider Media</a></small>
-      <a href="https://github.com/n-sider"><i class="fab fa-github"></i></a>
+      <a href="{{ .Site.Params.github }}"><i class="fab fa-github"></i></a>
       <ul>
         <li><a href="/index.xml"><i class="fas fa-rss-square"></i></a></li>
-        <li><a href="https://twitter.com/nsider"><i class="fab fa-twitter-square"></i></a></li>
-        <li><a href="https://www.facebook.com/N-Sider-141311642565331/"><i class="fab fa-facebook-square"></i></a></li>
+        <li><a href="{{ .Site.Params.twitter }}"><i class="fab fa-twitter-square"></i></a></li>
+        <li><a href="{{ .Site.Params.facebook }}"><i class="fab fa-facebook-square"></i></a></li>
       </ul>
     </div>
   </footer>
