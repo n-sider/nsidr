@@ -1,0 +1,41 @@
+<ol class="article-previews">
+  {{ range . }}
+  <li>
+    <a href="{{ .Permalink }}">
+      <article>
+
+        <header class="preview-header">
+          {{ if .Params.featureImage }}
+          <img src="{{ .Params.featureImage }}" alt="{{ .Title }}">
+          {{ end }}
+          <div>
+            <h1>{{ .Title }}</h1>
+            <small>
+              {{- with .GetTerms "contributors" }}
+              <span>
+                <i class="fad fa-user{{ if gt (len .) 1 }}-friends{{ end }}" style="--fa-secondary-opacity: 0.70"></i>
+                <ol>
+                  {{ range . }}
+                  <li>{{ .Title }}</li>
+                  {{ end }}
+                </ol>
+              </span>
+              {{ end }}
+              <span>
+                <i class="fad fa-calendar" style="--fa-secondary-opacity: 0.70"></i> {{ .Date | time.Format ":date_medium" }}
+              </span>
+            </small>
+          </div>
+        </header>
+
+        {{ with .Params.blurb }}
+        <div class="preview-body">
+          {{ . }}
+        </div>
+        {{ end }}
+
+      </article>
+    </a>
+  </li>
+  {{ end }}
+</ol>

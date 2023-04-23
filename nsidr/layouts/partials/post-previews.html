@@ -12,10 +12,9 @@
           {{ end }}
           <div class="title-byline">
             {{- $mood := .Params.mood | default "default" }}
-            {{- with .Params.authors }}
+            {{- with $.ctx.GetTerms "authors" }}
               {{- range first 1 . }}
-                {{- $author := $.ctx.GetPage (printf `/authors/%s` (. | urlize)) }}
-                <img src="{{ index $author.Params.avatars $mood }}">
+                <img src="{{ index .Params.avatars $mood }}">
               {{- end }}
             {{- end }}
             <div>
