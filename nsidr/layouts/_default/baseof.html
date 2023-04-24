@@ -12,7 +12,9 @@
     gtag('config', '{{ .Site.Params.ga }}');
   </script>
   {{- end }}
-
+  <script>
+    document.querySelector("html").classList.add("preload");
+  </script>
   {{- $title := .Title | default .Site.Title }}
   {{- with .Scratch.Get "pageNumber" }}
     {{- $title = printf `%s / page %s` $title (string .) }}
@@ -88,6 +90,9 @@
   {{ range .Page.Params.scripts }}
   <script src="{{ . }}"></script>
   {{ end }}
+  <script>
+    document.querySelector("html").classList.remove("preload");
+  </script>
 </body>
 </html>
 {{ end }}
