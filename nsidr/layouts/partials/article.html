@@ -56,7 +56,7 @@
       </span>
       {{- with $.ctx.GetTerms "series" }}
       <span>
-        <i class="fas fa-tag{{ if gt (len .) 1 }}s{{ end }}"></i>
+        <i class="fad fa-th-list"></i>
         <ul>
           {{- range . }}
           <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
