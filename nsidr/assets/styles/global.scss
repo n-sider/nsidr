@@ -29,6 +29,14 @@ $focusShadow: 0 0 30px 0 rgba($trueBlack, .2);
   }
 }
 
+.preload * {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -ms-transition: none !important;
+  -o-transition: none !important;
+  transition: none !important;
+}
+
 body {
   display: flex;
   flex-direction: column;
