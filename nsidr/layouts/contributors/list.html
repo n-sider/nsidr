@@ -11,8 +11,9 @@
 
   <div class="article-list">
     <div class="filter-status">
-      <i class="fas fa-th-list"></i>
-      Viewing all N-Sider articles
+      <i class="fad fa-user"></i>
+      Viewing N-Sider articles by {{ .Title }}
+      <a href="/archive"><i class="fas fa-times"></i></a>
     </div>
     {{- $previews := sort (.Paginate .Pages 20).Pages ".Date" "desc" }}
     {{ partial "article-previews.html" $previews }}

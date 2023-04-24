@@ -1,0 +1,97 @@
+.taxonomy-previews {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1340px;
+  margin: 0 auto;
+
+  & > li {
+    flex: 1 0 auto;
+    position: relative;
+    max-width: none;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    overflow: hidden;
+    background: $white;
+    background-size: 6px 6px;
+    border-radius: 5px;
+    transition: .15s ease-in-out all;
+
+    & > a {
+      display: block;
+      color: $black;
+
+      article {
+        border-top: 5px solid $nsidr;
+
+        .preview-header {
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-start;
+          padding: 15px 20px;
+
+          img {
+            flex: 0 0 55px;
+            height: 55px;
+            margin-right: 15px;
+          }
+
+          div {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 55px;
+
+            h1 {
+              line-height: 27px;
+              font-size: 24px;
+              font-weight: 700;
+              font-family: proxima-soft, sans-serif;
+            }
+
+            small {
+              display: flex;
+              font-size: 14px;
+
+              & > span {
+                display: flex;
+                margin: 10px 15px 0 0;
+                white-space: nowrap;
+
+                &:not(:first-child) {
+                  flex: 0 0 auto;
+                }
+              }
+
+              svg {
+                margin-right: 8px;
+                color: $grayText;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &:hover {
+      transform: scale(1.02);
+      box-shadow: $focusShadow;
+    }
+    &:active {
+      transition: all .1s ease-in-out;
+      transform: scale(.98);
+    }
+  }
+}
+
+@media (max-width: 800px) {
+
+  .taxonomy-previews > li > a > article {
+    & > header div {
+      h1 {
+        line-height: 22px;
+        font-size: 18px;
+      }
+    }
+  }
+
+}

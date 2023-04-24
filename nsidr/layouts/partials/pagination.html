@@ -1,3 +1,4 @@
+{{ if gt .TotalPages 1 }}
 <footer class="pagination">
   {{ if .HasPrev }}
   <a href="{{ .Prev.URL }}"><span><i class="fas fa-arrow-alt-square-left"></i>prev</span></a>
@@ -11,3 +12,4 @@
   <div></div>
   {{ end }}
 </footer>
+{{ end }}

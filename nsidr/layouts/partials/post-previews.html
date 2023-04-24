@@ -9,10 +9,14 @@
           <div class="feature-image">
             <span style="background-image: url('{{ . }}')"></span>
           </div>
-          {{ end }}
+          {{- end }}
           <div class="title-byline">
             {{- $mood := .Params.mood | default "default" }}
-            {{- with $.ctx.GetTerms "authors" }}
+            {{- $terms := .GetTerms "authors" }}
+            {{- if lt (len $terms) 1 }}
+              {{- $terms = $.GetTerms "authors" }}
+            {{- end }}
+            {{- with $terms }}
               {{- range first 1 . }}
                 <img src="{{ index .Params.avatars $mood }}">
               {{- end }}

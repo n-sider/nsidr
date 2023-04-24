@@ -11,8 +11,9 @@
 
   <div class="post-list">
     <div class="filter-status">
-      <i class="fas fa-th-large"></i>
-      Viewing all posts
+      <i class="fad fa-user"></i>
+      Viewing posts by {{ .Title }}
+      <a href="/posts"><i class="fas fa-times"></i></a>
     </div>
     {{- $previews := sort .Paginator.Pages ".Date" "desc" }}
     {{ partial "post-previews.html" (dict "previews" $previews "ctx" $) }}

@@ -4,7 +4,7 @@ title: nsidr
 buildFuture: false
 taxonomies:
   tag: tags
-  series: series
+  sequence: series
   author: authors
   contributor: contributors
 params:
