@@ -24,7 +24,7 @@
   {{- if index .Site.Taxonomies.contributors (.Title | urlize) }}
     {{ $archiveLink = printf `/contributors/%s/` (.Title | urlize) }}
   {{- end }}
-  <nav id="browse-taxonomies">
+  <nav id="browse-taxonomies" class="post-taxonomies">
     <div class="browse-container">
       <div class="browse-links">
         <h1>browse posts by</h1>

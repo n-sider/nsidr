@@ -394,14 +394,13 @@
 
           svg {
             animation: 2s ease-in-out .2s infinite shake;
-
-            #taxonomies & {
-              animation: 2s ease-in-out .2s infinite less;
-            }
           }
         }
       }
     }
+  }
+  &.archive-taxonomies .browse-container .archive-link a:hover svg {
+    animation: 2s ease-in-out .2s infinite less;
   }
 }
 
