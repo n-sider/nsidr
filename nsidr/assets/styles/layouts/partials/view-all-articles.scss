@@ -1,5 +1,6 @@
 .view-all-articles {
   display: block;
+  height: 60px;
   max-width: 1340px;
   margin: 0 auto;
   background-color: $grayBg;
@@ -14,12 +15,13 @@
     font-size: 26px;
     font-weight: 700;
     font-family: proxima-soft;
-    line-height: 60px;
+    line-height: 56px;
     color: $grayText;
     transition: transform .2s ease-in-out, color .2s ease-in-out;
 
     svg {
-      margin-left: 10px;
+      margin-top: 4px;
+      margin-right: 10px;
     }
   }
 
@@ -31,7 +33,7 @@
       color: $white;
 
       svg {
-        animation: 1s ease-in-out 0s infinite more;
+        animation: 1s ease-in-out 0s infinite less;
       }
     }
   }
