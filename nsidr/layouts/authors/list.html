@@ -20,6 +20,10 @@
     {{ partial "pagination.html" .Paginator }}
   </div>
 
+  {{- $archiveLink := "/archive" }}
+  {{- if index .Site.Taxonomies.contributors (.Title | urlize) }}
+    {{ $archiveLink = printf `/contributors/%s/` (.Title | urlize) }}
+  {{- end }}
   <nav id="browse-taxonomies">
     <div class="browse-container">
       <div class="browse-links">
@@ -28,7 +32,7 @@
         <a href="/tags"><span><i class="fas fa-tags"></i></span><span>tag</span></a>
       </div>
       <div class="archive-link">
-        <a href="/archive"><i class="fas fa-archive"></i>view N-Sider archive</a>
+        <a href="{{ $archiveLink }}"><i class="fas fa-archive"></i>view N-Sider archive</a>
       </div>
     </div>
   </nav>
