@@ -1,3 +1,5 @@
+{{ define "bodyClass" }}index-view{{ end }}
+
 {{ define "main" }}
 {{- $posts := first 4 (sort (where .Site.RegularPages "Type" "posts") ".Date" "desc") }}
 {{- range first 1 $posts }}

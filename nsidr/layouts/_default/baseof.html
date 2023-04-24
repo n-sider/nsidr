@@ -55,7 +55,7 @@
   {{ end }}
 </head>
 
-<body class="{{ .Page.Params.layoutClass }}">
+<body class="{{ block "bodyClass" . }}{{ end }}">
   <header id="site-header">
     <div>
       <h1>

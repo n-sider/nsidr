@@ -16,12 +16,14 @@
     margin-bottom: 20px;
     background-color: $grayBg;
     border-radius: 5px;
-    font-size: 16px;
+    font-family: proxima-soft;
+    font-size: 18px;
     font-weight: 700;
     color: $grayText;
 
     & > svg {
       margin-right: 11px;
+      font-size: 16px;
     }
 
     a {
@@ -176,119 +178,6 @@
       }
     }
   }
-
-  #tag-search {
-    flex: 0 0 300px;
-    margin-right: 40px;
-
-    .search-container {
-      position: fixed;
-      top: 150px;
-
-      .search-posts {
-        width: 300px;
-        margin-bottom: 40px;
-        padding: 20px;
-        border-radius: 5px;
-        border-top: 5px solid $disk;
-        background-color: $white;
-
-        h1 {
-          margin-bottom: 10px;
-          line-height: 26px;
-          text-align: center;
-          font-family: proxima-soft;
-          font-weight: 700;
-          font-size: 20px;
-        }
-
-        input {
-          width: 100%;
-          padding: 5px 10px;
-          background-color: $background;
-          border: 1px solid $grayBg;
-          border-radius: 5px;
-          transition: all .2s ease-in-out;
-
-          &:focus {
-            border-color: $nsidr;
-            outline: none;
-          }
-        }
-
-        ul {
-          display: flex;
-          flex-wrap: wrap;
-
-          li {
-            margin: 5px 5px 0 0;
-            padding: 7px 11px;
-            border-radius: 5px;
-            background-color: $background;
-
-            &.selected {
-              background-color: $nsidr;
-
-              a {
-                color: $white;
-              }
-            }
-          }
-        }
-
-        p {
-          font-size: 14px;
-          margin-top: 10px;
-          text-align: center;
-          color: $grayText;
-        }
-      }
-
-      .search-link {
-        display: none;
-      }
-
-      .archive-link {
-        display: flex;
-        justify-content: center;
-
-        a {
-          opacity: .4;
-          display: flex;
-          align-items: center;
-          min-width: 40px;
-          max-width: 40px;
-          height: 40px;
-          padding-left: 11px;
-          overflow: hidden;
-          background-color: $grayBg;
-          border-radius: 40px;
-          font-weight: 700;
-          font-family: proxima-soft;
-          font-size: 18px;
-          color: $grayText;
-          white-space: nowrap;
-          transition: all .2s ease-in-out;
-
-          svg {
-            margin-right: 15px;
-          }
-
-          &:hover {
-            opacity: 1;
-            max-width: 240px;
-            padding: 0 20px;
-            background-color: $nsidr;
-            color: $white;
-
-            svg {
-              animation: 2s ease-in-out .2s infinite shake;
-            }
-          }
-        }
-      }
-    }
-  }
 }
 
 @media (max-width: 1420px) {
@@ -312,103 +201,6 @@
       max-width: 1000px;
       margin: 0 auto;
     }
-
-    #tag-search {
-      flex: 0 0 0;
-      max-width: 1000px;
-      width: 100%;
-      margin: 0 auto;
-
-      .search-container {
-        position: relative;
-        top: 0;
-        max-height: 0;
-        padding-top: 60px;
-        overflow: hidden;
-        transition: max-height ease-in-out .5s;
-
-        .search-posts {
-          width: 100%;
-          margin-bottom: 20px;
-        }
-        .search-link {
-          display: block;
-          position: absolute;
-          top: 0;
-          right: 15px;
-          text-align: center;
-
-          a {
-            display: flex;
-            align-items: center;
-            min-width: 30px;
-            max-width: 30px;
-            height: 30px;
-            margin-top: 15px;
-            padding-left: 8px;
-            overflow: hidden;
-            background-color: $grayBg;
-            border-radius: 30px;
-            font-weight: 700;
-            font-family: proxima-soft;
-            font-size: 14px;
-            color: $white;
-            white-space: nowrap;
-            transition: all .2s ease-in-out;
-
-            svg {
-              margin-right: 10px;
-            }
-
-            &:hover {
-              background-color: $nsidr;
-              color: $white;
-
-              svg {
-                animation: 2s ease-in-out .2s infinite shake;
-              }
-            }
-          }
-        }
-
-        .archive-link {
-          position: absolute;
-          top: 0;
-          right: 60px;
-
-          a {
-            opacity: 1;
-            min-width: 30px;
-            max-width: 30px;
-            height: 30px;
-            margin-top: 15px;
-            padding-left: 8px;
-            border-radius: 30px;
-            line-height: 30px;
-            font-size: 14px;
-            color: $white;
-
-            svg {
-              margin-right: 10px;
-            }
-
-            &:hover {
-              max-width: 190px;
-              padding: 0 17px 0 15px;
-            }
-          }
-        }
-
-        &.show-search {
-          max-height: 400px;
-
-          .search-link a {
-            background-color: $nsidr;
-            color: $white;
-          }
-        }
-      }
-    }
   }
 
 }
@@ -428,11 +220,6 @@
     }
 
     .pagination {
-      width: auto;
-      margin: 0 40px;
-    }
-
-    #tag-search {
       width: auto;
       margin: 0 40px;
     }
@@ -476,14 +263,6 @@
         }
       }
     }
-
-    #tag-search {
-      margin: 0 20px;
-
-      .search-container .search-posts {
-        margin-bottom: 20px;
-      }
-    }
   }
 
 }
@@ -492,7 +271,7 @@
 
   #posts .post-list {
     .filter-status {
-      font-size: 14px;
+      font-size: 16px;
 
       svg {
         font-size: 16px;
@@ -503,19 +282,6 @@
       li {
         width: 100%;
       }
-    }
-  }
-
-}
-
-@media (max-width: 600px) {
-
-  #posts #tag-search {
-    margin: 0 5px;
-
-    .search-container .search-posts {
-      width: calc(100% - 30px);
-      margin: 0 15px 20px;
     }
   }
 

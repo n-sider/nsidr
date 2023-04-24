@@ -1,0 +1,528 @@
+#taxonomies {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: row-reverse;
+  max-width: 1340px;
+  width: 100%;
+  margin: 0 auto 40px;
+
+  .filter-status {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 40px;
+    padding-left: 12px;
+    margin-bottom: 20px;
+    background-color: $grayBg;
+    border-radius: 5px;
+    font-family: proxima-soft;
+    font-size: 18px;
+    font-weight: 700;
+    color: $grayText;
+
+    & > svg {
+      margin-right: 11px;
+      font-size: 16px;
+    }
+
+    a {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      flex: 0 0 40px;
+      height: 40px;
+      margin-left: auto;
+      border-left: 2px solid $background;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+      font-size: 16px;
+      color: $grayText;
+      cursor: pointer;
+      transition: all ease-in-out .2s;
+
+      &:hover {
+        background-color: $nsidr;
+        color: $white;
+
+        svg {
+          animation: 1s ease-in-out 0s infinite shake;
+        }
+      }
+    }
+  }
+
+  .term-list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    flex: 0 1 1000px;
+    min-height: calc(100vh - 172px);
+    margin-top: 40px;
+
+    .taxonomy-previews {
+      width: calc(100% + 20px);
+      margin-right: -20px;
+      align-self: center;
+    }
+
+    .pagination {
+      display: flex;
+      height: 60px;
+      margin-top: auto;
+      background-color: $grayBg;
+      border-radius: 5px;
+
+      & > a {
+        display: block;
+        flex: 0 0 200px;
+        transition: all .2s ease-in-out;
+
+        span {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          font-size: 22px;
+          font-weight: 700;
+          font-family: proxima-soft;
+          line-height: 60px;
+          color: $grayText;
+          transition: all .2s ease-in-out;
+
+          svg {
+            margin-left: 10px;
+          }
+        }
+
+        &:first-child {
+          border-top-left-radius: 5px;
+          border-bottom-left-radius: 5px;
+
+          span svg {
+            margin-right: 10px;
+          }
+        }
+        &:last-child {
+          border-top-right-radius: 5px;
+          border-bottom-right-radius: 5px;
+
+          span svg {
+            margin-left: 10px;
+          }
+        }
+
+        &:hover {
+          background-color: $nsidr;
+
+          span {
+            transform: scale(1.05);
+            color: $white;
+          }
+
+          &:first-child span svg {
+            animation: 1s ease-in-out 0s infinite less;
+          }
+          &:last-child span svg {
+            animation: 1s ease-in-out 0s infinite more;
+          }
+        }
+      }
+
+      & > div {
+        flex: 0 0 200px;
+      }
+
+      & > span {
+        display: block;
+        flex: 1 1;
+        border-left: 3px solid $background;
+        border-right: 3px solid $background;
+        text-align: center;
+        font-size: 22px;
+        font-weight: 700;
+        font-family: proxima-soft;
+        line-height: 60px;
+        color: $grayText;
+      }
+    }
+  }
+}
+
+@media (max-width: 1420px) {
+
+  #taxonomies {
+    flex-direction: column-reverse;
+
+    .filter-status {
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto 20px;
+    }
+
+    .term-list {
+      flex: 1 0 auto;
+      margin-top: 0;
+
+      .taxonomy-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+        max-width: 1000px;
+        margin: 0 auto;
+
+        .taxonomy-previews {
+          width: calc(100% + 20px);
+        }
+      }
+    }
+
+    .pagination {
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+  }
+
+}
+
+@media (max-width: 1080px) {
+
+  #taxonomies {
+    .filter-status {
+      width: auto;
+      margin: 0 40px 20px;
+    }
+
+    .term-list {
+      .taxonomy-container {
+        width: calc(100% - 80px);
+        margin: 0 40px;
+      }
+    }
+
+    .pagination {
+      width: auto;
+      margin: 0 40px;
+    }
+  }
+
+}
+
+@media (max-width: 800px) {
+
+  #taxonomies {
+    .filter-status {
+      width: auto;
+      margin: 0 20px 20px;
+    }
+
+    .term-list {
+      .taxonomy-container {
+        width: calc(100% - 40px);
+        margin: 0 20px;
+      }
+
+      .pagination {
+        width: auto;
+        margin: auto 20px 0;
+
+        & > div {
+          flex: 0 0 100px;
+        }
+        & > a {
+          flex: 0 0 100px;
+
+          span {
+            font-size: 18px;
+          }
+        }
+        & > span {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+
+}
+
+@media (max-width: 730px) {
+
+  #taxonomies .term-list {
+    .filter-status {
+      font-size: 16px;
+
+      svg {
+        font-size: 16px;
+      }
+    }
+  }
+
+}
+
+@media (max-width: 380px) {
+
+  #taxonomies {
+    .term-list {
+      .pagination {
+        & > div {
+          flex: 0 0 80px;
+        }
+        & > a {
+          flex: 0 0 80px;
+
+          span {
+            font-size: 16px;
+          }
+        }
+        & > span {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+
+}
+
+
+#browse-taxonomies {
+  flex: 0 0 300px;
+  margin-right: 40px;
+
+  .browse-container {
+    position: fixed;
+    top: 150px;
+
+    .browse-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      width: 300px;
+      margin-bottom: 30px;
+      padding: 20px;
+      border-radius: 5px;
+      border-top: 5px solid $disk;
+      background-color: $white;
+
+      h1 {
+        width: 100%;
+        margin-bottom: 20px;
+        line-height: 26px;
+        text-align: center;
+        font-family: proxima-soft;
+        font-weight: 700;
+        font-size: 24px;
+      }
+
+      a {
+        display: flex;
+        flex: 0 1 auto;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        margin-bottom: 25px;
+        font-family: proxima-soft;
+
+        span:first-child {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 60px;
+          height: 60px;
+          margin-bottom: 10px;
+          background-color: $grayBg;
+          border-radius: 40px;
+          font-weight: 700;
+          font-family: proxima-soft;
+          font-size: 24px;
+          color: $grayText;
+          white-space: nowrap;
+          transition: all .2s ease-in-out;
+        }
+        span:last-child {
+          position: absolute;
+          bottom: -15px;
+          transition: all .2s ease-in-out;
+          color: $grayText;
+        }
+
+        &:hover {
+          span:first-child {
+            transform: scale(1.05);
+            background-color: $nsidr;
+            color: $white;
+          }
+          span:last-child {
+            color: $nsidr;
+          }
+        }
+      }
+    }
+
+    .archive-link {
+      display: flex;
+      justify-content: center;
+
+      a {
+        opacity: .5;
+        display: flex;
+        align-items: center;
+        width: 240px;
+        height: 40px;
+        padding: 0 20px;
+        overflow: hidden;
+        background-color: transparent;
+        border-radius: 40px;
+        font-weight: 700;
+        font-family: proxima-soft;
+        font-size: 18px;
+        color: $grayText;
+        white-space: nowrap;
+        transition: all .2s ease-in-out;
+
+        svg {
+          margin-right: 15px;
+        }
+
+        &:hover {
+          opacity: 1;
+          background-color: $nsidr;
+          color: $white;
+
+          svg {
+            animation: 2s ease-in-out .2s infinite shake;
+
+            #taxonomies & {
+              animation: 2s ease-in-out .2s infinite less;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1420px) {
+
+  #browse-taxonomies {
+    position: relative;
+    flex: 0 0 0;
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+
+    .browse-container {
+      position: static;
+      height: 0;
+      padding-top: 60px;
+      overflow: hidden;
+
+      .browse-links {
+        height: 0;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        overflow: hidden;
+
+        a {
+          position: absolute;
+          top: 15px;
+          right: 0;
+          width: 30px;
+          height: 30px;
+          margin-bottom: 0;
+          overflow: hidden;
+
+          &:first-of-type {
+            right: 105px;
+          }
+          &:last-of-type {
+            right: 60px;
+          }
+
+          span:first-child {
+            width: 30px;
+            height: 30px;
+            margin-bottom: 0;
+
+            svg {
+              font-size: 12px;
+            }
+          }
+
+          &:hover span:first-child {
+            transform: none;
+            animation: 2s ease-in-out .2s infinite shake;
+          }
+        }
+      }
+
+      .archive-link {
+        position: absolute;
+        top: 0;
+        right: 15px;
+
+        a {
+          opacity: 1;
+          min-width: 30px;
+          max-width: 30px;
+          height: 30px;
+          margin-top: 15px;
+          padding-left: 8px;
+          border-radius: 30px;
+          background-color: $grayBg;
+          line-height: 30px;
+          font-size: 14px;
+          color: $grayText;
+        }
+      }
+
+      &.show-search {
+        max-height: 400px;
+
+        .search-link a {
+          background-color: $nsidr;
+          color: $white;
+        }
+      }
+    }
+  }
+
+}
+
+@media (max-width: 1080px) {
+
+  #browse-taxonomies {
+    width: auto;
+    margin: 0 40px;
+  }
+
+}
+
+@media (max-width: 800px) {
+
+  #browse-taxonomies {
+    margin: 0 20px;
+
+    .browse-container .browse-links {
+      margin-bottom: 20px;
+    }
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  #browse-taxonomies {
+    margin: 0 5px;
+
+    .browse-container .browse-links {
+      width: calc(100% - 30px);
+      margin: 0 15px 20px;
+    }
+  }
+
+}

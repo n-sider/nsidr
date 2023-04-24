@@ -1,0 +1,31 @@
+<ol class="taxonomy-previews">
+  {{ range .previews }}
+  {{- $count := (index $.ctx.Site.Taxonomies $.ctx.Title).Count (.Title | urlize) }}
+  {{- $type := "article" }}
+  {{- if or (eq $.ctx.Title "authors") (eq $.ctx.Title "tags") }}
+    {{- $type = "post" }}
+  {{- end }}
+  {{- if gt $count 1 }}
+    {{- $type = printf "%ss" $type }}
+  {{- end }}
+  <li>
+    <a href="{{ .Permalink }}">
+      <article>
+        <header class="preview-header">
+          {{ if .Params.featureImage }}
+          <img src="{{ .Params.featureImage }}" alt="{{ .Title }}">
+          {{ end }}
+          <div>
+            <h1>{{ .Title }}</h1>
+            <small>
+              <span>
+                <i class="fas fa-th-{{ if in $type "post" }}large{{ else }}list{{ end }}" style="--fa-secondary-opacity: 0.70"></i> {{ $count }} {{ $type }}
+              </span>
+            </small>
+          </div>
+        </header>
+      </article>
+    </a>
+  </li>
+  {{ end }}
+</ol>
