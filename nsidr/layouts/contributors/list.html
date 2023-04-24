@@ -20,6 +20,10 @@
     {{ partial "pagination.html" (.Paginate .Pages 20) }}
   </div>
 
+  {{- $postsLink := "/posts" }}
+  {{- if index .Site.Taxonomies.authors (.Title | urlize) }}
+    {{ $postsLink = printf `/authors/%s/` (.Title | urlize) }}
+  {{- end }}
   <nav id="browse-taxonomies">
     <div class="browse-container">
       <div class="browse-links">
@@ -28,7 +32,7 @@
         <a href="/series"><span><i class="fad fa-th-list"></i></span><span>series</span></a>
       </div>
       <div class="archive-link">
-        <a href="/posts"><i class="fas fa-arrow-circle-left"></i>return to nsidr posts</a>
+        <a href="{{ $postsLink }}"><i class="fas fa-arrow-circle-left"></i>return to nsidr posts</a>
       </div>
     </div>
   </nav>
