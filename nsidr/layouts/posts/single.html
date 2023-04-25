@@ -1,6 +1,20 @@
 {{ define "bodyClass" }}content-view{{ end }}
 
 {{ define "main" }}
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const scrollTarget = sessionStorage.getItem('scrollFeature');
+
+    if (scrollTarget !== null && scrollTarget > 0) {
+      window.scroll({ top: scrollTarget, behavior: 'smooth' });
+    }
+    sessionStorage.removeItem('scrollFeature');
+
+    document.querySelector('.post-footer .top-icon').addEventListener('click', () => {
+      window.scroll({ top: 0, behavior: 'instant' });
+    });
+  });
+</script>
 <section id="post">
 
   {{ partial "post.html" (dict "post" . "ctx" $) }}
