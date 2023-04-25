@@ -30,6 +30,9 @@
         &:not(:first-child) {
           flex: 0 0 auto;
         }
+        &.date {
+          margin-bottom: 5px;
+        }
       }
 
       svg {
