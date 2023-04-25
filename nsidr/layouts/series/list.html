@@ -15,6 +15,9 @@
       Viewing N-Sider articles in "{{ .Title }}"
       <a href="/archive"><i class="fas fa-times"></i></a>
     </div>
+    {{- with .Params.description }}
+    <p class="series-description">{{ . | safeHTML }}</p>
+    {{ end }}
     {{- $previews := sort (.Paginate .Pages 20).Pages ".Date" "desc" }}
     {{ partial "article-previews.html" $previews }}
     {{ partial "pagination.html" (.Paginate .Pages 20) }}

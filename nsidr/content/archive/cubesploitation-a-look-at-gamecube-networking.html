@@ -1,0 +1,262 @@
+---
+title: "Cubesploitation: A Look at GameCube Networking"
+date: 2004-03-08T06:00:00Z
+contributors:
+  - Dean Bergmann
+sidebar: |
+  <p><center><img src="https://static.nsidr.com/media/cubesploitation_cover.gif"></center></p>
+  
+  <p><font size="2"><strong><em>Note: The following article does not represent the views of 
+    N-Sider as a whole, and is only the view of the author. Furthermore, this article 
+    is not a guide on how to pirate games on the Nintendo GameCube. Any use of the 
+    tools mentioned in this article was for research purposes only, and only legally 
+    made homebrew was used.</em></strong></p></font>
+  
+  <p><font face="Arial, Helvetica, sans-serif">Homebrewing has been around for a 
+    while on different consoles. The PSX, Dreamcast, PS2, and Xbox all have development 
+    communities (which won't be linked here) that provide tools and guides on using 
+    your console for reasons other than gaming. An interesting fact about GameCube 
+    development however, is that no hardware modification is needed at all - which 
+    means no modification chips, and your warranty isn't voided either. Below are 
+    basic definitions of the programs mentioned in the article, for easy reference:</font></p>
+  <p><font face="Arial, Helvetica, sans-serif"><em><strong>Program A</strong></em> 
+    - The initial program that allowed the interception of the network signal - 
+    it tricked the GameCube into thinking a user's PC was actually a SEGA server.<em><br>
+    <br>
+    <strong>Program B</strong> - </em>A simple disc browser used to see directories 
+    and filenames off of a swapped GameCube disc<em>, </em>helpful to create custom 
+    Action Replay codes. <em><br>
+    <br>
+    <strong>Program C</strong> - </em>Essentially a glorified Dex-Drive, this program 
+    allows users to upload and download memory card files to and from their PC.<em><br>
+    <br>
+    <strong>Program D</strong> - </em>Allows a user to swap their disc from PSO 
+    to another game, and stream all the data from the GameCube drive to an image 
+    file on the user's PC hard disk.<em><br>
+    <br>
+    <strong>Program E</strong> - </em>Allows a user to load homebrewed applications. 
+    A modified version of this program was made to load illegal GameCube game images.<em><br>
+    <br>
+    <strong>Program F</strong> - </em> A central GUI (<strong>G</strong>raphical 
+    <strong>U</strong>ser <strong>I</strong>nterface) which provides an easy-to-use 
+    approach at copying and loading games / homebrew.</font></p><br>
+  <i>WAN</i> - Wide Area Network, simply a direct connection to the internet with no other workgroup PCs involved.<br><br>
+  <i>LAN</i> - Connecting through a PC workstation, usually typical Cable connections use a LAN function - shared connection.<br>
+  <p></p>
+  <p><font size="2" face="Arial, Helvetica, sans-serif">To report infringing items 
+    on internet auction sites, please call Nintendo at 1-800-255-3700 or e-mail 
+    them at <a href="mailto:auctionpiracy@noa.nintendo.com">auctionpiracy@noa.nintendo.com 
+    </a></font></p>
+  <p><font size="2" face="Arial, Helvetica, sans-serif">To report ROM sites, emulators, 
+    Game Copiers, Counterfeit manufacturing, or other illegal activities, please 
+    call Nintendo (at the number listed above) or e-mail them at <a href="mailto:piracyscene@noa.nintendo.com">piracyscene@noa.nintendo.com</a> 
+    </font></p>
+  <p><font size="2" face="Arial, Helvetica, sans-serif">For any other legal inquiry 
+    or concern, please call or e-mail Nintendo at <a href="mailto:noalegal@noa.nintendo.com">noalegal@noa.nintendo.com</a> 
+    </font></p>
+  <p><font size="2" face="Arial, Helvetica, sans-serif">For more information on 
+    piracy issues regarding the videogame industry, please visit the Entertainment 
+    Software Association's website at <a href="http://www.theESA.com">www.theESA.com</a>. 
+    </font></p>
+  
+  <TABLE CELLPADDING="7" CELLSPACING="0" WIDTH="100%">
+    <TR> 
+      <TD BGCOLOR="#D8D8D8" ALIGN="center"><font face="Arial, Helvetica, sans-serif"><b>Links</b></font></TD>
+    </TR>
+  </TABLE>
+  <p align="center"><font face="Arial, Helvetica, sans-serif"><a href="http://www.nintendo.com/corp/legal.jsp">Nintendo's 
+    Legal information on Anti-Piracy</a></font></p>
+  
+  <p>The following are excerpts from a Q&A from Nintendo.com's "Legal Information".</p>
+  
+  <p><b>Can I Download a Nintendo ROM from the Internet if I Already Own the Authentic Game?</b></p> 
+  
+  <p>There is a good deal of misinformation on the Internet regarding the backup/archival copy exception. It is not a "second copy" rule and is often mistakenly cited for the proposition that if you have one lawful copy of a copyrighted work, you are entitled to have a second copy of the copyrighted work even if that second copy is an infringing copy. The backup/archival copy exception is a very narrow limitation relating to a copy being made by the rightful owner of an authentic game to ensure he or she has one in the event of damage or destruction of the authentic. Therefore, whether you have an authentic game or not, or whether you have possession of a Nintendo ROM for a limited amount of time, i.e. 24 hours, it is illegal to download and play a Nintendo ROM from the Internet.</p>
+  
+  <p><b>How Does Nintendo Feel About the Emergence of Video Game Emulators?</b></p>
+  
+  <p>The introduction of emulators created to play illegally copied Nintendo software represents the greatest threat to date to the intellectual property rights of video game developers. As is the case with any business or industry, when its products become available for free, the revenue stream supporting that industry is threatened. Such emulators have the potential to significantly damage a worldwide entertainment software industry which generates over $15 billion annually, and tens of thousands of jobs.</p>
+  
+  <p><b>How Come Nintendo Does Not Take Steps Towards Legitimizing Nintendo Emulators?</b></p>
+  
+  <p>Emulators developed to play illegally copied Nintendo software promote piracy. That's like asking why doesn't Nintendo legitimize piracy. It doesn't make any business sense. It's that simple and not open to debate.</p>
+---
+
+
+<center><font size="5"><strong><font face="Arial, Helvetica, sans-serif">Cubesploitation: 
+A Look at<br> GameCube Networking</font></strong></font><br>
+</center>
+
+<font face="Arial, Helvetica, sans-serif"><br>
+
+<p>Have you ever sat down and looked at your GameCubes disc tray and wondered 
+  When will it play burned games?  Im sure many of 
+  you have and that same group of you has dismissed that question with the answer: 
+  Never. And that, my friends, is true for the most part. In the 
+  last year, an initiative has started; just as it did for the PlayStation and 
+  Xbox. And that initiative, is known as Homebrew GameCube development.</p>
+<p>Before I venture any further into this article, Ill give you a little 
+  rundown on what homebrew means:</p>
+<p align="center"><strong><em>Homebrew  n.</em></strong><em><br>
+  An alcoholic beverage that is made at home.</em></p>
+<p>Alright, so take that definition and replace the alcoholic beverage with GameCube 
+  programs and in a nutshell youve got homebrew coding. In the following 
+  sections I will provide a brief but informative overview of how piracy works 
+  on the GameCube, why its possible and a quazi-chronological history of 
+  its development. <br>
+</p>
+<p><strong><font size="4">The GameCube</font></strong><br>
+  Its no secret that the GameCube is the most secure console out there 
+  when it comes to piracy. The discs are rumoured to be read in a reverse manner 
+  (outside to in, instead of inside to out), the discs are specially sized, and 
+  finally the disc tray itself is unable to hold discs larger than a GoD 
+  (GameCube Optical Disc). Combine these elements with built in barcode detection, 
+  and dummy files to throw off copying attempts, and youve got one tough console 
+  to mess with.</p>
+<p>When the GameCube was released, people immediately began trying to find ways 
+  to begin home development on the system, much of this research was in vain until 
+  Sega announced plans to bring <i>Phantasy Star Online Episodes 1 & 2</i> to the 
+  GameCube. Nintendo released the Modem and Broadband Adaptors when PSO was released, 
+  and people quickly jumped on the chance to network their GameCube to a PC  
+  opening a whole new realm of access to the console.</p>
+<p><br>
+  <font size="4"><strong>Phantasy Star Online: An Orgy of Bits</strong></font><br>
+  If you dont know by now, you may be wondering why PSO was such a stepping 
+  stone in terms of GameCube piracy. Why would a Sega game, of all games, be the 
+  key? Well there is one very simple answer to a complex question: Network configurability.</p>
+<div align="center"><img src="https://static.nsidr.com/features/wanlan.jpg" width="450" height="100"></div>
+<p>Releasing PSO with the ability to configure every aspect of your network (IP 
+  address, Subnet Mask, Gateway, and DNS servers) was no doubt a risk Nintendo 
+  / Sega had to take. However, this was also essential to connecting the GameCube 
+  to the PC and not the Sega master server, as originally intended.</p>
+</font>
+<p><font face="Arial, Helvetica, sans-serif">In a perfect world, a cable modem 
+  would be connected directly into your Broadband Adaptor, and it would auto detect 
+  your IP settings and connect to the Sega servers  which works. The reason 
+  manual configuration was included was so you could connect to a LAN network, 
+  and use a shared internet connection  meaning the GameCube was always 
+  meant to be connected to a PC workstation in the event this needed to be done. 
+  Its notable to mention that the recently released <i>Phantasy Star Online 
+  III</i> appears to only support WAN connections, and it seems Nintendo and Sega 
+  have corrected the piracy issue with this new release.</font></p>
+<p><font face="Arial, Helvetica, sans-serif"><br>
+  <strong><font size="4">Establishing a Connection</font></strong></font></p>
+<p align="center"><img src="https://static.nsidr.com/features/standard.jpg" width="450" height="100"></p>
+<p><font face="Arial, Helvetica, sans-serif"><br>
+  When homebrew development began, a program was released (for the purposes of 
+  this article, we will call it <em>Program A</em>) that could connect to the 
+  GameCube and upload homebrewed code. Before <em>Program A</em> would work however, 
+  the connection protocols and ports that the GameCube used had to be discovered. 
+  There are commonly used ports and routines for this. In essence, networking 
+  between a GameCube and a PC was born.</font></p>
+<p><font face="Arial, Helvetica, sans-serif">How were these homebrewed programs 
+  loaded? Whether it be from a buffer overflow (as common on the Xbox, which is 
+  how the homebrew front began there), or PSOs rumoured ability to accept 
+  executable code on each subsequent server connection, programs can be loaded 
+  once the system is fooled into connecting to your PC via <em>Program A</em>.</font></p>
+<p align="center"><font face="Arial, Helvetica, sans-serif"><img src="https://static.nsidr.com/features/program_a.jpg" width="450" height="100"></font></p>
+<p><font face="Arial, Helvetica, sans-serif">The obvious, but never admitted goal 
+  of the initial homebrew coders was to find a way to copy GameCube games, then 
+  reload those games without the use of the original disc. Thus, <em>Programs 
+  B, C, </em>and<em> D</em> were born. <em>Program B</em> was a simple disc browser 
+   allowing users to swap discs and browse a list of files located on a 
+  GameCube disc. <em>Program C</em> was also simple as it allowed the browsing, 
+  download, and subsequent upload of files from and to a GameCube memory card. 
+  Between the releases of <em>Program C </em>and<em> D</em> were the first releases 
+  of GameCube game images, no one knew for sure how these came about for quite 
+  some time, until <em>Program D</em>, which allowed the ability to stream all 
+  the data from a GameCube disc was released. The final program, <em>E</em>, was 
+  released soon after. This program allowed the loading of game images to the 
+  GameCube  bringing about the beginning of the <i>illegal</i> side of homebrew 
+  coding.</font></p>
+<p><font size="4" face="Arial, Helvetica, sans-serif"><strong><br>
+  The Evolution of a Revolution</strong></font><font face="Arial, Helvetica, sans-serif"><br>
+  As homebrewers got more and more into GameCube customization and exploitation, 
+  all the previously mentioned programs were combined into one central GUI tool 
+  (Graphical User Interface), as everything before was done through the command 
+  prompt. The introduction of a central program (well call <em>F</em>) 
+  allowed a standard (albeit amateur) user to illegally rip, and load GameCube games through 
+  the PSO-Exploit.</font></p>
+<p><font face="Arial, Helvetica, sans-serif">An interesting tidbit with the GameCube 
+  is the region free play of PSO-Exploit games. If a Japanese or PAL version of 
+  a game is loaded, an NTSC GameCube will play them without problem and the game-saves from the other regions can also be saved on your NTSC formatted card.  This occurs without any corruption errors as if they were the actual discs in the system.</font></p>
+<p align="center"><font face="Arial, Helvetica, sans-serif"><img src="https://static.nsidr.com/features/loading.jpg" width="450" height="100"></font></p>
+<p><font face="Arial, Helvetica, sans-serif"><em>Program F</em> has since become 
+  upgraded to a point where games can be illegally ripped with the ease of clicking only 
+  one button.  A database of settings for loading individual games has also been 
+  incorporated, ensuring the best possible results are displayed on your television 
+  screen. Furthermore, amateur piracy has been growing  which has led to 
+  rumours that this is the very reason PSO 1 & 2 is no longer available. Or 
+  that the extremely limited supply of Broadband Adapters at retailers may be 
+  a direct result of this as well.</font></p>
+<p><font face="Arial, Helvetica, sans-serif">The list of tools for GameCube homebrewing 
+  are growing as well  an NES emulator has been written allowing users to 
+  load up certain NES ROMs (only a certain type of mapper is compatible) the same 
+  way they would load a GameCube game via the PSO-Exploit. The NES games are loaded 
+  entirely in the GameCubes RAM and played internally on the 'Cube, whereas 
+  GameCube images are streamed from the PC as if it were one giant GoD.</font></p>
+<p><font face="Arial, Helvetica, sans-serif">Most notably however, is the rather 
+  new but evolving illegal Nintendo 64 emulation on the GameCube (games are also loaded entirely 
+  into memory, unfortunately imposing a size limit to the ROM). When Nintendo 
+  released the <i>The Legend of Zelda: Ocarina of Time & Master Quest</i> for the GameCube, a professional 
+  homebrewer sought out to isolate the loader for the games  as it was 
+  widely believed that the games were simply being emulated onto the GameCube.</font></p>
+<p><font face="Arial, Helvetica, sans-serif">This was found to be true and after 
+  a few weeks, an N64 loader was released that supported a very small array of 
+  first generation games  the only ones that worked were Nintendo made, 
+  as they all ran on similar engines. The working games of the initial release 
+  included Mario 64, Mario Kart 64, Ocarina of Time, and a few others like Pilot 
+  Wings and Mario Tennis. Since that release, it has evolved into supporting more 
+  and more games like Duke Nukem 64 and Super Smash Brothers. Apparently all of 
+  these N64 games run almost flawlessly, and save games are created on your memory 
+  card with each respective game name in the title area. Needless to say it has 
+  evolved quite a bit and shows no signs of slowing down. It is widely believed 
+  that the second Zelda Collectors disc, the one that includes Majoras 
+  Mask, will support an even wider array of N64 games due to the increased size 
+  of the Majoras Mask ROM.</font></p>
+<p><font face="Arial, Helvetica, sans-serif">Projects are in the works to illegally port 
+  SNES games to the GameCube (sources say Super Bomberman is currently the only working 
+  game, but suffers major slowdown and sound errors), and a GBA emulator is also 
+  being toyed with.</font></p>
+<p><font face="Arial, Helvetica, sans-serif"><strong><font size="4"><br>
+  Thinking Outside the Cube</font></strong><br>
+  Now that the GameCube tools are evolving steadily, other utilities are being 
+  created on the PC side of things. A GameCube image browser is available, allowing 
+  you to pick out certain files and directories and load them on to your hard 
+  drive. You want that intro movie from Jedi Outcast? No problem. A certain sound 
+  file from Mario Sunshine? Theres a GameCube sound converter out there 
+  for direct rips. Ever wanted to browse the internet with the PSO browser? Well 
+  you can, and somewhat successfully as well. </font></p>
+<p><font face="Arial, Helvetica, sans-serif">Despite this, the games are far from perfect. Sometimes they load very slowly  the videos are choppy, and the game 
+  play, while most of the time perfect, has occasional slowdowns and tends to 
+  lock up the Cube. Illegally ripping a game from a disc takes approximately an hour, and 
+  the file sizes are upwards of 1.4GB  although there are tools to remove 
+  excess garbage data (mentioned earlier), they take time to apply.</font></p>
+<p><font face="Arial, Helvetica, sans-serif">The PC side of 'Cube development doesnt 
+  stop there. Recently, the same guys who got Linux running on the Xbox have also 
+  gotten it to boot on the GameCube with Ethernet capabilities - basic kernel booting 
+  and a NFS file structure with full Windows X support. Their future hopes are 
+  to support streaming media and a full O/S through a loadable image.</font></p>
+<p><font face="Arial, Helvetica, sans-serif"><strong><font size="4"><br>
+  What it all Boils Down to</font></strong><br>
+  <img src="https://static.nsidr.com/features/pirate.gif" width="160" height="140" align="left" alt="Arr ... thar be homebrew on tha horizon">GameCube homebrewing 
+  is more than just piracy  in fact, piracy is a small but significant 
+  part of the entire scene, creating a competition between pro-piracy versus pro-development. 
+  While amateur users will simply want to use the method for illegally copying and loading 
+  games, the enthusiasts and developers truly interested in the system will use 
+  it to their benefit, programming and porting code to work on the GameCube console.</font></p>
+<p><font face="Arial, Helvetica, sans-serif">The development of open source projects 
+  on the GameCube is a first for Nintendo fans; allowing user created games to 
+  be run on the hardware without any physical modifications to the system itself, 
+  the PSO-Exploit may very well be beneficial to those parties who wish to further 
+  expand their knowledge of console programming.</font></p>
+<p><font face="Arial, Helvetica, sans-serif">The homebrew initiative on the GameCube 
+  is still in its infancy and this article will be updated when new developments 
+  and breakthroughs in legal homebrewing occur.</font></p>
+<p><font face="Arial, Helvetica, sans-serif"><em><a href="mailto:dean@n-sider.com?subject=cubesploitation">Dean 
+  Bergmann</a></em></font></p>
+<hr>
+<p> <font face="Arial, Helvetica, sans-serif"><em>Revision History:</em><br>
+  <strong>v1.1</strong>  March 8th 2004  Minor Edits - added Mario pirate caption (Thanks Brenden)<br>
+  <strong>v1.0</strong>  March 7th 2004  First Published<br>
+  </font> </p>

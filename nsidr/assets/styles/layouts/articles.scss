@@ -53,6 +53,14 @@
     }
   }
 
+  .series-description {
+    margin-bottom: 20px;
+    padding: 15px 20px;
+    background-color: $white;
+    border-radius: 5px;
+    line-height: 24px;
+  }
+
   .article-list {
     display: flex;
     flex-direction: column;
@@ -179,6 +187,12 @@
       margin: 0 auto 20px;
     }
 
+    .series-description {
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto 20px;
+    }
+
     .article-list {
       flex: 1 0 auto;
       margin-top: 0;
@@ -206,6 +220,11 @@
       margin: 0 40px 20px;
     }
 
+    .series-description {
+      width: auto;
+      margin: 0 40px 20px;
+    }
+
     .article-list {
       .article-previews {
         width: calc(100% - 80px);
@@ -225,6 +244,11 @@
 
   #articles {
     .filter-status {
+      width: auto;
+      margin: 0 20px 20px;
+    }
+
+    .series-description {
       width: auto;
       margin: 0 20px 20px;
     }

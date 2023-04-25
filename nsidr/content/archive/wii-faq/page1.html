@@ -1,0 +1,114 @@
+---
+page: 1
+sidebar: |
+  <div class="align_center"><b>Additional Links</b></div><br />
+  <ul>
+    <li><a href="http://www.wii.com">Official Wii Website</a></li>
+    <li><a href="http://www.joystiq.com/media/2006/10/mii.swf">Create a Mii</a></li>
+    <li><a href="http://wii.ign.com/articles/735/735577p1.html">Boxart for Launch Software</a></li>
+  </ul>
+---
+
+
+<style type="text/css">
+<!--
+.style9 {font-weight: bold; margin-top: 12px; font-family: Arial, Helvetica, sans-serif;}
+.style10 {font-family: Arial, Helvetica, sans-serif}
+-->
+</style><center>
+<div class="countdownBox">
+  <font color="gray" size="3" face="arial"><strong>Time Until Launch </strong><br><span id="countdown" class="countdown"></span></font>
+</div></center><br>
+
+<script type="text/javascript">
+<!--
+var launchDate = new Date("11/19/2006 00:00:00");
+var launchHTML = "<i><b>Wii've Launched!</b></i>"
+
+function updateCountdown(){
+  var now = new Date();
+
+  if(now >= launchDate){ // Yay!
+    document.getElementById("countdown").innerHTML = launchHTML;
+    return;
+  }
+
+  var secs = (launchDate - now) / 1000;  // Convert milliseconds to seconds
+  var minutes = parseInt(secs / 60);  // 60    1 minute (Duh)
+            // 1440    number of minutes in a day
+  var hours = parseInt(secs / 3600);  // 3600    60 minutes
+  var days = parseInt(secs / 86400);  // 86400  24 hours
+
+
+  hours -= parseInt(days * 24);
+  minutes -= parseInt((days * 1440) + (hours * 60));
+  secs = parseInt(secs - ((days * 86400) + (hours * 3600) + (minutes * 60)));
+
+  // Should Wii pad secs, minutes and hours with zeros?
+  // If not just remove this block.
+  if(minutes < 10){
+    minutes = "0"+minutes;
+  }
+  if(hours < 10){
+    hours = "0"+hours;
+  }
+  if(secs < 10){
+    secs = "0"+secs;
+  }
+
+  // This can be customized to suit. Include HTML if you want too!
+  var html = days+" days, "+hours+" hours, "+minutes+" minutes, and "+
+       secs+" seconds";
+
+  document.getElementById("countdown").innerHTML = html;
+  setTimeout("updateCountdown()",1000);
+
+}
+
+updateCountdown();
+
+-->
+</script>
+
+
+
+<p>Welcome to the stage of the future.  In the pages that follow, N-Sider will provide you with the most extensive collection of information for the new generation of gaming.  We hope you enjoy the journey to a place where games are once again synonymous with the name Nintendo.  Explore.</p>
+
+<table cellpadding="0" cellspacing="5" width="96%" align="center">
+
+  <tr>
+    <td width="15%"><a href="https://www.nsidr.com/archive/wii-faq/page/2"><img src="https://static.nsidr.com/media/news-2006-09-19-wiiheader.jpg" border="0"></a></td>
+    <td width="85%" valign="middle"><a href="https://www.nsidr.com/archive/wii-faq/page/2" style="text-decoration:none"><font size="5">Wii FAQ</font></a><br>A massive Q&A addressing the Wii's every characteristic.</td>
+  </tr>
+
+  <tr>
+    <td width="15%"><a href="https://www.nsidr.com/newsview.php?type=story&storyid=2440"><img src="https://static.nsidr.com/media/news-2006-09-19-wiiheader.jpg" border="0"></a></td>
+    <td width="85%" valign="middle"><a href="https://www.nsidr.com/newsview.php?type=story&storyid=2440" style="text-decoration:none"><font size="5">Launch Calculator</font></a><br>To help you budget for your upcoming spending spree.</td>
+  </tr>
+
+  <tr>
+    <td width="15%"><a href="https://www.nsidr.com/newsview.php?type=story&storyid=2077"><img src="https://static.nsidr.com/media/news-2006-09-19-wiiheader.jpg" border="0"></a></td>
+    <td width="85%" valign="middle"><a href="https://www.nsidr.com/newsview.php?type=story&storyid=2077" style="text-decoration:none"><font size="5">Software</font></a><br>Every game currently confirmed to be in development.</td>
+  </tr>
+
+  <tr>
+    <td width="15%"><a href="https://www.nsidr.com/archive/a-third-party-revolution"><img src="https://static.nsidr.com/media/news-2006-09-19-wiiheader.jpg" border="0"></a></td>
+    <td width="85%" valign="middle"><a href="https://www.nsidr.com/archive/a-third-party-revolution" style="text-decoration:none"><font size="5">Publishers & Developers</font></a><br>Who's got projects a brewin', and who doesn't.</td>
+  </tr>
+
+  <tr>
+    <td width="15%"><a href="https://www.nsidr.com/newsview.php?type=story&storyid=2422"><img src="https://static.nsidr.com/media/news-2006-09-19-wiiheader.jpg" border="0"></a></td>
+    <td width="85%" valign="middle"><a href="https://www.nsidr.com/newsview.php?type=story&storyid=2422" style="text-decoration:none"><font size="5">Channel Lineup</font></a><br>What you'll be able to expect at launch.</td>
+  </tr>
+
+  <tr>
+    <td width="15%"><a href="https://www.nsidr.com/archive/why-wii"><img src="https://static.nsidr.com/media/news-2006-09-19-wiiheader.jpg" border="0"></a></td>
+    <td width="85%" valign="middle"><a href="https://www.nsidr.com/archive/why-wii" style="text-decoration:none"><font size="5">The Name</font></a><br>What were they thinking?  We might have an idea.</td>
+  </tr>
+
+  <tr>
+    <td width="15%"><a href="https://www.nsidr.com/archive/wii-faq/page/3"><img src="https://static.nsidr.com/media/news-2006-09-19-wiiheader.jpg" border="0"></a></td>
+    <td width="85%" valign="middle"><a href="https://www.nsidr.com/archive/wii-faq/page/3" style="text-decoration:none"><font size="5">Thoughts</font></a><br>We weigh in on what excites us the most.</td>
+  </tr>
+
+</table>

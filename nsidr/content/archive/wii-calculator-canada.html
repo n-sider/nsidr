@@ -1,0 +1,449 @@
+---
+title: "Wii Calculator (Canada)"
+date: 2005-09-19T22:58:39Z
+---
+
+<style type="text/css">
+<!--
+.style9 {font-weight: bold; margin-top: 12px; font-family: Arial, Helvetica, sans-serif;}
+.style10 {font-family: Arial, Helvetica, sans-serif}
+-->
+</style><center>
+<div class="countdownBox">
+  <font face="arial" color="gray" size="3"><strong>Time Until Launch </strong><br><span id="countdown" class="countdown"></span></font>
+</div></center><br>
+
+<script type="text/javascript">
+<!--
+var launchDate = new Date("11/19/2006 00:00:00");
+var launchHTML = "<i><b>Wii've Launched!</b></i>"
+
+function updateCountdown(){
+  var now = new Date();
+
+  if(now >= launchDate){ // Yay!
+    document.getElementById("countdown").innerHTML = launchHTML;
+    return;
+  }
+
+  var secs = (launchDate - now) / 1000;  // Convert milliseconds to seconds
+  var minutes = parseInt(secs / 60);  // 60    1 minute (Duh)
+            // 1440    number of minutes in a day
+  var hours = parseInt(secs / 3600);  // 3600    60 minutes
+  var days = parseInt(secs / 86400);  // 86400  24 hours
+
+
+  hours -= parseInt(days * 24);
+  minutes -= parseInt((days * 1440) + (hours * 60));
+  secs = parseInt(secs - ((days * 86400) + (hours * 3600) + (minutes * 60)));
+
+  // Should Wii pad secs, minutes and hours with zeros?
+  // If not just remove this block.
+  if(minutes < 10){
+    minutes = "0"+minutes;
+  }
+  if(hours < 10){
+    hours = "0"+hours;
+  }
+  if(secs < 10){
+    secs = "0"+secs;
+  }
+
+  // This can be customized to suit. Include HTML if you want too!
+  var html = days+" days, "+hours+" hours, "+minutes+" minutes, and "+
+       secs+" seconds";
+
+  document.getElementById("countdown").innerHTML = html;
+  setTimeout("updateCountdown()",1000);
+
+}
+
+updateCountdown();
+
+
+function calc(){
+  var form = document.getElementById("myForm");
+  var sum = 0;
+  for(var i=0;i < form.length;i++){
+    if((form[i].type == "checkbox" && form[i].checked == false) ||
+  isNaN(form[i].value)){
+      continue;
+    }
+    else{
+      sum += parseFloat(form[i].value);
+    }
+  }
+
+  var tax = parseFloat(document.getElementById("tax").value);
+  if(!isNaN(tax)){
+    sum += tax * sum;
+  }
+
+  document.getElementById("total").innerHTML = "$"+sum.toFixed(2);
+  document.getElementById("total2").value = "$"+sum.toFixed(2);
+}
+
+-->
+</script>
+
+<div style="margin-bottom: 5px; text-align: center;">
+  <a href="https://www.nsidr.com/newsview.php?type=story&storyid=2440">American Calculator</a> | <b>Canadian Calculator</b>
+</div>
+
+<div style="text-align:center;font-size:36px;">
+  <img src="https://static.nsidr.com/media/wiicalc.jpg" border="1" />
+  <font size="1"><br/><br/>TOTAL</font><br><div id="total"></div>
+</div>
+
+
+<form onChange="javascript:calc();" action="javascript:calc();">
+<table width="100%" align="center">
+<tr>
+<td width="100%">
+
+<div style="font-size:18px;font-weight:bold;margin-top:12px;">
+  <div align="center">Sales Tax (estimate)</div>
+</div></td>
+<tr>
+<td width="100%">
+  <div align="center">
+    <!-- Note: I included the state abbreviations to prevent Mozilla from selecting the last element on
+the chain with the same value when reloaded. It should always select the same element now. -->
+    <select onChange="javascript:calc();" id="tax">
+      <option value="none">none</option>
+
+      <option value="0.13 BC">British Columbia - 13%</option>
+      <option value="0.06 AL">Alberta - 6%</option>
+      <option value="0.13 SK">Saskatchewan - 13%</option>
+      <option value="0.13 MN">Manitoba - 13%</option>
+      <option value="0.14 ON">Ontario - 14%</option>
+      <option value="0.135 QC">Quebec - 13.5%</option>
+      <option value="0.14 NL">Newfoundland - 14%</option>
+      <option value="0.14 NS">Nova Scotia - 14%</option>
+      <option value="0.14 NB">New Brunswick - 14%</option>
+      <option value="0.16 PI">PEI - 16%</option>
+      <option value="0.06 NT">Northwest Territories - 6%</option>
+      <option value="0.06 NU">Nunavut - 6%</option>
+      <option value="0.06 YU">Yukon - 6%</option>
+    </select>
+  </div></td>
+</tr>
+</table>
+</form>
+
+<form id="myForm" onChange="javascript:calc();" action="javascript:calc();">
+
+<br/>
+<table width="100%" align="center">
+<tr>
+<td width="100%">
+<div style="font-weight:bold;margin-top:12px;"></div>
+<div style="height:80px;background:#f0f8ff;"><img src="https://static.nsidr.com/media/news-2006-09-18-nintendowiicalculator2.jpg" align="left">
+  <input type="checkbox" value="279.95" checked /><b>Nintendo Wii with WiiSports</b> - ($279.95)<br>
+The full package includes one Wii remote controller, one Nunchuck controller and WiiSports, a familiar collection of five sports that intimately use the console's features.</div>
+</td>
+</tr>
+</table>
+
+
+<table width="100%">
+  <tr>
+    <td width="100%" valign="middle"><div class="style9"></div></td>
+  </table>
+<table width="100%" border="0" cellspacing="0" cellpadding="5">
+  <tr>
+    <td width="33%"><div align="center">
+      <select name="select" onChange="javascript:calc();">
+        <option value="none">none</option>
+        <option value="45.99">1</option>
+        <option value="91.98">2</option>
+        <option value="137.97">3</option>
+        </select>
+      <br>
+      <strong>Wii Remote</strong><br>
+      ($45.99 each)</div></td>
+    <td width="33%"><div align="center">
+      <select name="select3" onChange="javascript:calc();">
+        <option value="none">none</option>
+        <option value="24.99">1</option>
+        <option value="49.98">2</option>
+        <option value="74.97">3</option>
+        </select>
+      <br>
+      <strong>Wii Nunchuk</strong><br>
+      ($24.99 each)</div></td>
+    <td width="33%"><div align="center">
+      <select name="select2" onChange="javascript:calc();">
+        <option value="none">none</option>
+        <option value="24.99">1</option>
+        <option value="49.98">2</option>
+        <option value="74.97">3</option>
+        </select>
+      <br>
+      <strong>Retro Controller</strong><br>
+      ($24.99 each)</div></td>
+  </tr>
+</table>
+
+<table>
+<tr>
+<td>
+<div class="style9"></div></td>
+<tr>
+<td>
+<div class="style10" style="background: rgb(240, 248, 255) none repeat scroll 0%; height: 150px; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial;">
+  <input value="59.99" type="checkbox"><b>Avatar: The Last Airbender</b> - ($59.99)<br>
+  <img src="https://static.nsidr.com/media/news-2006-09-19-avatar.jpg" align="right" hspace="4">
+<font size="2">Avatar: The Last Airbender follows the story of a young boy suspected
+of being the incarnation of the "Spirit of the Planet." Embark on a
+quest with your friends in order to bring harmony to the world and
+
+master its elements. Players can use the Wii remote control to attack
+-- swing up or down for one attack and left or right for the other.
+Perform team based attacks with friends.</font></div>
+<div class="style10" style="background: white none repeat scroll 0%; height: 150px; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial;">
+  <input value="59.99" type="checkbox"><b>Barnyard</b> - ($59.99)<br>
+  <img src="https://static.nsidr.com/media/news-2006-09-19-barnyard.jpg" align="right" hspace="4">
+<font size="2">Barnyard is an adaptation of the GameCube version. Although no new
+additions are planned, the game will make full use of the Wii remote
+control. The game follows the events of the movie and places the player
+in control of familiar characters. Players roam the barnyard and play
+mini-games including golf, driving, and darts which have proven to be
+ideal for the Wiimote.</font></div>
+<div class="style10" style="background: rgb(240, 248, 255) none repeat scroll 0%; height: 150px; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial;">
+  <input value="59.99" type="checkbox"><b>Blazing Angels: Squadrons of WWII</b> - ($59.99)<br>
+  <img src="https://static.nsidr.com/media/news-2006-09-19-blazingangels.jpg" align="right" hspace="4">
+<font size="2">Blazing Angels: Squadrons of WWII is a flight combat game originally
+released for Xbox 360 -- which has a 67 percent average review ranking.
+The game will feature 42 different World War II planes that the player
+can use throughout 18 missions of famous events. While the Xbox version
+features an online mode, Ubisoft has not confirmed further omissions or
+additions.</font></div>
+<div class="style10" style="background: white none repeat scroll 0%; height: 150px; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial;">
+  <input value="59.99" type="checkbox"><b>Blitz: The League</b> - ($59.99)<br>
+  <img src="https://static.nsidr.com/media/news-2006-09-19-blitz.jpg" align="right" hspace="4">
+<font size="2">Blitz: The League is an extension of Midway's NFL Blitz series. It
+takes an 'extreme' angle compared to traditional football games. The
+title was released for PlayStation 2 and Xbox in 2005 and received a 77
+percent average review ranking. Midway reveals it has updated the game
+with special functionality for release on Wii. The game features a
+campaign mode with 18 teams.</font></div>
+<div class="style10" style="background: rgb(240, 248, 255) none repeat scroll 0%; height: 150px; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial;">
+  <input value="59.99" type="checkbox"><b>Call of Duty 3</b> - ($59.99)<br>
+  <img src="https://static.nsidr.com/media/news-2006-09-19-callofduty.jpg" align="right" hspace="4">
+<font size="2">Call of Duty 3 is the latest in the popular World War II first person
+shooter series. This installment centers around the Normandy Breakout.
+Players play as American, British and for the first time, Canadian and
+Polish soliders. More hand to hand combat will be featured including
+throwing grenades and enemy soldiers trying to rip the weapon out of
+your hands.</font></div>
+<div class="style10" style="background: white none repeat scroll 0%; height: 150px; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial;">
+  <input value="59.99" type="checkbox"><b>Disney and Pixar's Cars</b> - ($59.99)<br>
+  <img src="https://static.nsidr.com/media/news-2006-09-19-cars.jpg" align="right" hspace="4">
+<font size="2">Cars is based on the animated film of the same name by Pixar Animation.
+Although Cars has already seen release on current platforms including
+GameCube, THQ has decided to utilize the unique features of the Wii
+remote. The game's story continues where the film left off and offers
+players both racing as well as adventure sequences using the over a
+dozen playable characters.</font></div>
+<div class="style10" style="background: rgb(240, 248, 255) none repeat scroll 0%; height: 150px; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial;">
+  <input value="59.99" type="checkbox"><b>Dragon Ball Z: Budokai Tenkaichi 2</b> - ($59.99)<br>
+  <img src="https://static.nsidr.com/media/news-2006-09-19-dragonball.jpg" align="right" hspace="4">
+<font size="2">Dragon Ball Z: Budokai Tenkaichi 2 is being touted as the first
+fighting game to take full advantage of the Wii remote control. Despite
+early hype, the developer has since confirmed players can also use the
+traditional GameCube controller. The game will feature fully 3D
+destructible worlds and over 100 playable characters from the Dragon
+Ball universe.</font></div>
+<div class="style10" style="background: white none repeat scroll 0%; height: 150px; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial;">
+  <input value="59.99" type="checkbox"><b>Elebits</b> - ($59.99)<br>
+  <img src="https://static.nsidr.com/media/news-2006-09-19-elebits.jpg" align="right" hspace="4">
+<font size="2">Elebits is both unique and strange. Players visit a quiet neighborhood
+where they must use their Wii remote as a gravity zapper. This device
+gives them the ability to pick up anything from pots and pans to entire
+homes. Your goal is to collect the mysterious, cute little critters
+called Elebits. Elebits then give you the power needed to explore even
+more places.</font></div>
+<div class="style10" style="background: rgb(240, 248, 255) none repeat scroll 0%; height: 150px; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial;">
+  <input value="59.99" type="checkbox"><b>Excite Truck</b> - ($59.99)<br>
+  <img src="https://static.nsidr.com/media/news-2006-09-19-excite.jpg" align="right" hspace="4">
+<font size="2">Excite Truck is Nintendo's debut racer. The title is a homage to the
+Excitebike series of motorbike games, only now with trucks. The game
+has an extreme edge, featuring lightening fast speed and terrain that
+morphs to cause havoc for your opponents. Players take hold of the
+remote with both hands like a steering wheel and tilt the device
+forward or back to control jumps and landings.</font></div>
+<div class="style10" style="background: white none repeat scroll 0%; height: 150px; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial;">
+  <input value="59.99" type="checkbox"><b>Far Cry Vengeance</b> - ($59.99)<br>
+  <img src="https://static.nsidr.com/media/news-2006-09-19-farcry.jpg" align="right" hspace="4">
+<font size="2">In Far Cry, players take the role of Jack Carver in a crazy adventure
+of shooting, jumping, and driving through a tropical forest full of
+enemy combatants. The Wii remote will be put to full use as a gun,
+grenade thrower, and steering wheel. Far Cry is said to feature
+elements from the sequel Far Cry Instincts Evolution as well as a new
+storyline, new maps, characters and gear.</font></div>
+<div class="style10" style="background: rgb(240, 248, 255) none repeat scroll 0%; height: 150px; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial;">
+  <input value="59.99" type="checkbox"><b>GT Pro Series</b> - ($59.99)<br>
+  <img src="https://static.nsidr.com/media/news-2006-09-19-gtpro.jpg" align="right" hspace="4">
+<font size="2">GT Pro Series is an extension of MTO's multiplatform GT racing series.
+Previous titles include GT Cube for GameCube and GT Advance for Game
+Boy Advance. This latest title is being developed exclusively for Wii
+to take full advantage of the Wii remote. The game will feature over 80
+licensed cars, a variety of ways to tune your vehicles and fluid
+drift-style controls and physics.</font></div>
+<div class="style10" style="background: white none repeat scroll 0%; height: 150px; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial;">
+  <input value="59.99" type="checkbox"><b>Madden NFL 2007</b> - ($59.99)<br>
+  <img src="https://static.nsidr.com/media/news-2006-09-19-madden.jpg" align="right" hspace="4">
+<font size="2">After EA purchased the exclusive rights to the NFL license years back,
+Madden has become the premier football title. Madden NFL '07 for Wii
+will be defined by the unique control enabled by the Wii remote.
+Players will perform all actions with the motion sensitive device
+including launching the ball for a pass. How will traditional sports
+players react to the new controls?</font></div>
+<div class="style10" style="background: rgb(240, 248, 255) none repeat scroll 0%; height: 150px; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial;">
+  <input value="59.99" type="checkbox"><b>Marvel: Ultimate Alliance</b> - ($59.99)<br>
+  <img src="https://static.nsidr.com/media/news-2006-09-19-marvel.jpg" align="right" hspace="4">
+<font size="2">Marvel Ultimate Alliance combines over 24 Marvel Super Heroes including
+Spider-Man, Wolverine, Blade and Captain America in an epic action RPG
+to save planet Earth and the Marvel Universe. Players can customize
+their players and teams to create the ultimate fighting alliance. The
+Wii nunchaku controller is said to work well for throwing, flying, and
+swimming in the game.</font></div>
+<div class="style10" style="background: white none repeat scroll 0%; height: 150px; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial;">
+  <input value="59.99" type="checkbox"><b>Metal Slug Anthology</b> - ($59.99)<br>
+  <img src="https://static.nsidr.com/media/news-2006-09-19-metalslug.jpg" align="right" hspace="4">
+<font size="2">Metal Slug Anthology is a compilation of SNK's infamous series. The
+game will include Metal Slug, Metal Slug 2, Metal Slug X, Metal Slug 3,
+Metal Slug 4 and Metal Slug 5 updated to take advantage of the Wii
+remote control. The game will also feature a two player multiplayer
+mode. The Metal Slug series was first released in 1996 on the Neo-Geo
+as a side-scrolling action game.</font></div>
+<div class="style10" style="background: rgb(240, 248, 255) none repeat scroll 0%; height: 150px; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial;">
+  <input value="59.99" type="checkbox"><b>Monster 4x4 World Circuit</b> - ($59.99)<br>
+  <img src="https://static.nsidr.com/media/news-2006-09-19-monster.jpg" align="right" hspace="4">
+<font size="2">Monster 4x4 World Circuit was released on the Xbox earlier this year
+and received below average reviews. The Wii title is being re-developed
+with new features and Wii remote compatibility. Players can choose from
+a variety of monster trucks to win races and boost stats. The game
+boasts several modes including world tour and single play as well as
+four-player multiplayer.</font></div>
+<div class="style10" style="background: white none repeat scroll 0%; height: 150px; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial;">
+  <input value="59.99" type="checkbox"><b>Need for Speed Carbon</b> - ($59.99)<br>
+  <img src="https://static.nsidr.com/media/news-2006-09-19-needforspeed.jpg" align="right" hspace="4">
+<font size="2">Do you have a Need for Speed? EA believes you do. The company will
+utilize the motion sensing features of the Wii remote so players can
+interact with their cars. Players are encouraged to customize their
+cars and mold the ultimate racer. You must keep your crew close in your
+race to protect the city and conquer those of your rivals. The showdown
+will occur in Carbon Canyon.</font></div>
+<div class="style10" style="background: rgb(240, 248, 255) none repeat scroll 0%; height: 150px; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial;">
+  <input value="59.99" type="checkbox"><b>Open Season</b> - ($59.99)<br>
+  <img src="https://static.nsidr.com/media/news-2006-09-19-open.jpg" align="right" hspace="4">
+<font size="2">Open Season is based on the Sony Pictures animated film of the same
+name. Players will take control of the game's animal characters using
+the Wii remote. Your goal as a grizzly named Boog and deer named Elliot
+is to work with the other animals to rid the hunters from your forest.
+Open Season is being released for all platforms including GameCube,
+Nintendo DS and GBA.</font></div>
+<div class="style10" style="background: white none repeat scroll 0%; height: 150px; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial;">
+  <input value="59.99" type="checkbox"><b>Rapala Tournament Fishing</b> - ($59.99)<br>
+  <img src="https://static.nsidr.com/media/news-2006-09-19-rapala.jpg" align="right" hspace="4">
+<font size="2">If there was ever a game perfect for the Wii remote, this would be it.
+Activision's arcade-style fishing series is released under its
+Activision Value brand. Although somewhat of a niche genre, past Rapala
+games have received average reviews. Rapala Tournament Fishing features
+two modes of play including free fishing and tournament fishing using
+the Wii remote.</font></div>
+<div class="style10" style="background: rgb(240, 248, 255) none repeat scroll 0%; height: 150px; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial;">
+  <input value="59.99" type="checkbox"><b>Rayman Raving Rabbids</b> - ($59.99)<br>
+  <img src="https://static.nsidr.com/media/news-2006-09-19-rayman.jpg" align="right" hspace="4">
+<font size="2">Rayman Raving Rabbids is being developed by renowned director Michel
+Ancel, known for titles such as Beyond Good and Evil. A variety of
+humorous mini-games are planned. In Rayman Raving Rabbids, players must
+help Rayman battle, dance and rise up against the crazed army of
+bunnies. Alongside Red Steel, Raving Rabbids is one of the most
+anticipated third-party games.</font></div>
+<div class="style10" style="background: white none repeat scroll 0%; height: 150px; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial;">
+  <input value="59.99" type="checkbox"><b>Red Steel</b> - ($59.99)<br>
+  <img src="https://static.nsidr.com/media/news-2006-09-19-redsteel.jpg" align="right" hspace="4">
+<font size="2">Red Steel is an exclusive first person shooter in development for Wii.
+It was also the first title ever announced for the console. Players
+will use both guns and swords against advanced foes. Holding the Wii
+remote sideways for example will translate on-screen. Interactive
+environments and graphics further increase the appeal of what could
+very well be the best launch title.</font></div>
+<div class="style10" style="background: rgb(240, 248, 255) none repeat scroll 0%; height: 150px; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial;">
+  <input value="59.99" type="checkbox"><b>SpongeBob SquarePants: Creature from Krusty Krab</b> - ($59.99)<br>
+  <img src="https://static.nsidr.com/media/news-2006-09-19-spongebob.jpg" align="right" hspace="4">
+<font size="2">SpongeBob SquarePants: Creature from the Krusty Krab is the latest in
+the SpongeBob game series. The Wii remote will create new gameplay
+mechanics that players can use to travel through Bikini Bottom's nine
+different levels, one of which features 2D side-scrolling. Several
+modes and a variety of mini-games will be included including Flight and
+Free Area.</font></div>
+<div class="style10" style="background: white none repeat scroll 0%; height: 150px; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial;">
+  <input value="59.99" type="checkbox"><b>Super Monkey Ball: Banana Blitz</b> - ($59.99)<br>
+  <img src="https://static.nsidr.com/media/news-2006-09-19-supermonkey.jpg" align="right" hspace="4">
+<font size="2">Super Monkey Ball: Banana Blitz is the latest in Sega's Monkey Ball
+series. Players roll monkeys encased in plastic balls down narrow paths
+to reach the banana-promised goal. In addition, a multitude of
+mini-party games are included such as whack-a-mole, ring toss, and jump
+rope. A first in the series will be the ability to jump, accomplished
+with a flick of the Wii Remote control.</font></div>
+<div class="style10" style="background: rgb(240, 248, 255) none repeat scroll 0%; height: 150px; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial;">
+  <input value="59.99" type="checkbox"><b>The Legend of Zelda: Twilight Princess</b> - ($59.99)<br>
+  <img src="https://static.nsidr.com/media/news-2006-09-19-zelda.jpg" align="right" hspace="4">
+<font size="2">The Legend of Zelda: Twilight Princess is the most highly anticipated
+title of 2006. The game has been in development for over three years
+with its first unveiling at E3 2004. While the title will also release
+on the GameCube, the Wii version will utilize the unique features of
+the motion sensing remote. Fueled by high expectations, this is
+possibly Nintendo's most expensive title ever.</font></div>
+<div class="style10" style="background: white none repeat scroll 0%; height: 150px; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial;">
+  <input value="59.99" type="checkbox"><b>Tony Hawk's Downhill Jam</b> - ($59.99)<br>
+  <img src="https://static.nsidr.com/media/news-2006-09-19-tony.jpg" align="right" hspace="4">
+<font size="2">Tony Hawk's Downhill Jam is a new take on the Tony Hawk franchise.
+Instead of casually doing tricks in a local skate park, players are
+instead doing tricks while racing frantically down hills in locations
+around the world. The Wii remote is held horizontally while playing.
+Unlike a steering wheel however, players will tilt the controller in
+the direction they wish to zoom downhill.</font></div>
+<div class="style10" style="background: rgb(240, 248, 255) none repeat scroll 0%; height: 150px; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial;">
+  <input value="59.99" type="checkbox"><b>Trauma Center: Second Opinion</b> - ($59.99)<br>
+  <img src="https://static.nsidr.com/media/news-2006-09-19-traumacenter.jpg" align="right" hspace="4">
+<font size="2">Trauma Center Second Opinion is a remake of Trauma Center: Under the
+Knife for the Nintendo DS. With anime style graphics, players take the
+role of doctor to save the lives of patients. Atlus has confirmed that
+the Wii version will contain new content including surgical implements,
+operation types, multiple difficulty levels, and revised Wii remote
+controls.</font></div>
+<div class="style10" style="background: white none repeat scroll 0%; height: 150px; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial;">
+  <input value="59.99" type="checkbox"><b>World Series of Poker</b> - ($59.99)<br>
+  <img src="https://static.nsidr.com/media/news-2006-09-19-poker.jpg" align="right" hspace="4">
+<font size="2">Activision's World Series of Poker series began in 2005. It wasn't
+regarded favorably by reviewers but sold decently enough thanks to its
+low price as part of the Activision Value brand. The game features all
+the recognizable poker games such as Texas Hold 'Em, 7 Card Stud,
+Omaha, and 5 Card Draw as well as the ability to create your own poker
+face to use in the game.</font></div>
+
+<p align="center">
+      <select name="select2" onChange="javascript:calc();">
+        <option value="none">none</option>
+        <option value="6.00">500</option>
+        <option value="12.00">1000</option>
+        <option value="18.00">1500</option>
+        <option value="24.00">2000</option>
+        </select><br>
+      <strong>Virtual Console Points</strong><br>
+      ($0.0124 each)<br>
+</p>
+
+</td></tr>
+</tbody></table>
+</form>
+
+
+<script type="text/javascript">
+calc();
+</script>

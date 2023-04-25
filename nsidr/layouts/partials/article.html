@@ -97,7 +97,7 @@
       {{- with .article.Params.sidebar }}
       <aside id="sidebar">
         <div class="markup_sidebar_standard">
-          {{ . }}
+          {{ . | safeHTML }}
         </div>
       </aside>
       {{- end }}

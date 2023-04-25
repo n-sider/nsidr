@@ -1,0 +1,39 @@
+---
+page: 1
+---
+
+<H3>Zelda GC Blowout!</H3>
+
+<BR>
+<p>Ever since last August, there has been much talk over the new Zelda for GameCube.  People from all walks of life have been consistently flooding into forums to speak their opinions on the new style.  The amount of controversy over the subject sparked an idea in the minds of some N-Sider editors.  Perhaps if we were to make a contest about the new look of Zelda, we could stir up some ideas.  The contest was put up a number of weeks ago, and the submissions were very strong.  As most of you know, the contest asked for people to submit art in the same format that the new Zelda is in.  Before jumping head first into the entries, I ask you read about the new style, and maybe even learn something about what is going into the presentation of Zelda.
+
+<p><b>The Style</b>
+
+<p>Essentially the new style of Zelda follows a form of rendering called cell shading.  By using this approach, the designers give the visuals a look similar to a cartoon.  The name derives from the process of making cartoons whereby putting a single frame on a plastic sheet called a cell.  Instead of shading an object with different degrees of color, the rendering method makes for any one color to (usually) use only two shades.  For instance, Links hair is straight golden blonde, but in cell shading it will only have two shades:  light and dark.  However, unlike most cartoons, the form of cell shading that Nintendo is utilizing does not have black outline lines.  Like cartoons, the few cell shaded games in the past utilized outline lines for objects.  Essentially, these black lines would surround an objects edges and give it the look of being sketched.  In an interesting move though, the new Zelda has completely ditched the black outlines for a solid painted look.  I have created a mock transition picture to show what the change looks like:
+<p align="center"><img src="https://static.nsidr.com/media/compare.jpg" height="150" width="150">
+   
+<p>The look of Link and company has also seen a great deal of change in terms of physical design.  Probably the most controversial subject is with the new Link model itself.  The new model for link has him sporting a new chibi anime style.  This style means that link has exaggerated features, with his eyes and head being slightly disproportioned.  Mainly this new model is really stepping towards more Japanese anime style and less realism that is so much related to previous incarnations of Link.  Other models shown in the few amount of footage seen are those of moblins and also of the environments.  Moblins are large beasts that resemble pigs, who now definitely now look the part with their new models.  Interesting to note is the fluidity of animation with the models.  Though the look might be more retro, the animation certainly isnt.  Everything from Links hair, to a moblins skull chain, moves with a certain fluidity that is unprecedented.  Even the ribbons attached to the moblins spear moves with realistic cloth physics.  To witness the entire style further, stay tooned (sorry) for E3 this May, where the N-Sider crew go hands-on with the our baby.
+<p align="center"><img src="http://www.nintendoweb.com/media/zelda_gcn/zelda_gcn02.jpg" height="150" width="150">
+
+<p><b>The Technology</b> 
+
+<p>With a new style comes a new challenge of development.  The technology that goes into creating simple cell shading is complex, but nobody really knows what is going on for Zeldas case.  It remains to be seen what kind of hardware hit there will be when the trace lines are not on the models, and when dynamic lighting is used to the extent that has been so far.  However, if we study what goes on with standard cell shading we might begin to understand the mathematics involved in creating the visuals.  
+
+<p>In simple cell shading methods for PC programming, using mainly OpenGL, the theory of cell shading can be analyzed.  The first thing you must do is find out a lighting situation.  Examine the picture below:
+<p align = "center"><img src="http://pages.prodigy.net/tan.ax/CelShadingTutor/FigA.jpg" height="150" width="150"></p>
+
+
+<p>The equation for a single pixel on the screen with lighting is essentially the dot product between a normal vector from the model and the ray from a light source.  This is equal to the cosine of the angle between both the normal vector and the ray from the light source.  Once you have this, you use it to index a color in a texture map, like in the following figure:
+<p align = "center"><img src="http://pages.prodigy.net/tan.ax/CelShadingTutor/FigB.jpg" height="150" width="150"></p>
+
+<p>So, using the result from the cosine, we index a specific color from our texture map or range of colors so to speak.  Figure B shows a very simplistic palette of cell shading colors.  Essentially when you determine the angle that the light is at, you can determine which shade of color to use.  For this example we have three shades: bright, normal, and shadowed.  By using this color indexing we can achieve the lighted shading that we wanted.  Figure C shows what a cross section of a cylinder would look like with a light source.  
+<p align = "center"><img src="http://pages.prodigy.net/tan.ax/CelShadingTutor/FigC.jpg" height="150" width="150"></p>
+
+<p>As you can see, when the angle between the light ray and vector approaches zero, the bright color is indexed.  As it calculates along the surface, you move all the way to the shaded area.  With the rules of cell shading, if there is a negative value when calculating the cosine, it is set to 0 on our color scale.  That is essentially the back side, or complete shaded area of the object.  As an example, if the light hits a point on the polygon at 60 degrees, then the cosine of the angle is 0.5 and the corresponding shade will be white (on our Figure B you can match it up).  
+
+<p>Of course this is an extremely dummied explanation just to get the point across.  The patented method of rendering in Zelda was listed with the following text translated from Japanese:
+
+<p><i>It asks for the pixel located in the edge of a subject using a depth (Z) value, and a border color is alternatively blended to these pixels, and is displayed on them. In order to ask for the edge of a subject, the depth value and the depth value of a circumference pixel of a certain pixel are compared. Based on this distance value, the boundary layer color for which it asks to the color value of this pixel is blended. It is used for this distance value adjusting for example the quantity of the boundary layer color which was used for the operation of the alpha value of a pixel and was blended by the pixel color after that. The frame buffer where an alpha value is usually memorized in the portion of the subject which has a discernment value is made to memorize other examples. This discernment value is used for discriminating a pause of the portion of a subject for giving a boundary layer color.</i>
+
+<p>Deciphering this, it seems like a great deal of resources (for the hardware) may be dedicated towards edge-finding algorithms.  Perhaps the elimination of the trace lines makes for a much more demanding engine.  You can also add to the equation the dynamic color lighting.  When link hangs from the chandelier at the end of the video, you can see a flickering orange light from the torches on here.  This just adds to the resources needed to compute a single frame of animation.  
+Still, as of now the above patent transcription is the only example we have that gives an indication of the rendering processes involved.  Now after understanding the style and technology involved with Zelda, lets move on to the creative aspect.  The following page has the entries for the N-Sider Zelda contest.</p>  
