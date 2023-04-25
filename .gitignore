@@ -1,6 +1,5 @@
 /node_modules
 /nsidr/public
-/migration
 **/resources
 .hugo_build.lock
 *.log
