@@ -1,0 +1,15 @@
+---
+title: "An explanation of the smoothing lag"
+date: 2008-06-18T10:30:35Z
+contributors:
+  - Mattie Behrens
+---
+
+I saw yesterday that GoNintendo commenters are <a href="http://gonintendo.com/?p=46428#comments">confused</a> by <a href="https://www.nsidr.com/newsview.php?type=story&storyid=3184">my earlier post</a> about smoothing Wii Fit's weight chart.  The confusion seems to deal with the lag, which I did actually mention briefly on Monday, but I'm happy to go into a little more detail.<br />
+<br />
+First, for reference, the original graph:<br />
+<br />
+<div class="align_center"><img src="https://static.nsidr.com/images/inline_images/inline-4-3606-1.jpg" width="450" height="147" class="image_styled" /></div><br />
+The red line in that graph is what's called a weighted moving average, which averages today's weight and past weights with a perpetually-decreasing importance; i.e. 1 Ã— today's weight + 0.9 Ã— yesterday's average Ã· 1.9, and so forth&#8212;though I should note these numbers aren't exactly what Eat Watch uses.  For day-to-day weight tracking, you need a methodology that actually <i>works</i> day-to-day; while best-fit lines are great for analyzing a data set you already have, a weighted moving average helps you see a developing trend as you are creating it.<br />
+<br />
+If you tried to create new curves as you went, they'd change daily&#8212;not to mention that your early curves, when you were just starting out, would be completely useless as they'd simply lack enough data to be meaningful.  Weighted moving averages don't have that problem.

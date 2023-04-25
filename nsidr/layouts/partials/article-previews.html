@@ -30,7 +30,7 @@
 
         {{ with .Params.blurb }}
         <div class="preview-body">
-          {{ . }}
+          {{ . | safeHTML }}
         </div>
         {{ end }}
 
