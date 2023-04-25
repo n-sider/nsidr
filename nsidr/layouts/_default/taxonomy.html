@@ -1,6 +1,6 @@
 {{ define "config" }}
-{{ if gt (.Paginate .Pages 40).PageNumber 1 }}
-  {{ .Page.Scratch.Set "pageNumber" (.Paginate .Pages 40).PageNumber }}
+{{ if gt (.Paginate (sort .Pages ".Title" "asc") 100).PageNumber 1 }}
+  {{ .Page.Scratch.Set "pageNumber" (.Paginate (sort .Pages ".Title" "asc") 100).PageNumber }}
 {{ end }}
 {{ end }}
 
@@ -19,11 +19,11 @@
       Viewing all {{ if eq $type "posts" }}post{{ else }}N-Sider article{{ end }} {{ .Title }}
       <a href="/{{ $type }}"><i class="fas fa-times"></i></a>
     </div>
-    {{- $previews := sort (.Paginate .Pages 40).Pages ".Title" "asc" }}
+    {{- $previews := (.Paginate (sort .Pages ".Title" "asc") 100).Pages }}
     <div class="taxonomy-container">
       {{ partial "taxonomy-previews.html" (dict "previews" $previews "ctx" $) }}
     </div>
-    {{ partial "pagination.html" (.Paginate .Pages 40) }}
+    {{ partial "pagination.html" (.Paginate (sort .Pages ".Title" "asc") 100) }}
   </div>
 
   {{ if eq $type "posts" }}

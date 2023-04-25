@@ -9,9 +9,5 @@
   "bugs": {
     "url": "https://github.com/n-sider/nsidr/issues"
   },
-  "homepage": "https://www.nsidr.com",
-  "engines": {
-    "node": ">=19.8.1",
-    "npm": "=9.5.1"
-  }
+  "homepage": "https://www.nsidr.com"
 }

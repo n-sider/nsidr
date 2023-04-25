@@ -1,6 +1,19 @@
 {{ define "bodyClass" }}index-view{{ end }}
 
 {{ define "main" }}
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const continueTarget = document.querySelector('.continue-reading a');
+
+    if (continueTarget) {
+      continueTarget.addEventListener('click', (e) => {
+        e.preventDefault();
+        sessionStorage.setItem('scrollFeature', window.pageYOffset);
+        window.location.href = document.querySelector('.continue-reading a');
+      });
+    }
+  });
+</script>
 {{- $posts := first 4 (sort (where .Site.RegularPages "Type" "posts") ".Date" "desc") }}
 {{- range first 1 $posts }}
 <section id="index"{{ if .Params.featuredPost }} class="has-featured-post"{{ end }}>

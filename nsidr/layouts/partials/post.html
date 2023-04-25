@@ -64,10 +64,10 @@
 
   <div class="post-body">
     {{- $content := .post.Content }}
-    {{- if .post.Params.pullUpFeatureImage }}
+    {{- if .post.Params.shouldMoveFeatureImage }}
       {{- $content = replaceRE "(<(p|div)[^>]*?>)?\\s*?(<a[^>]*?>)?\\s*?<img[^>]*?>\\s*?(</a>)?\\s*?(</(?:p|div)>)?((<br[^>]*?>)?\\s*?)*" "" .post.Content 1 }}
     {{- end }}
-    {{ $content }}
+    {{ $content | safeHTML }}
   </div>
 
   <footer class="post-footer">
