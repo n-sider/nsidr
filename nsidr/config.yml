@@ -2,6 +2,7 @@ baseURL: "https://www.nsidr.com/"
 languageCode: en-us
 title: nsidr
 buildFuture: false
+rssLimit: 10
 taxonomies:
   tag: tags
   sequence: series
@@ -15,3 +16,11 @@ params:
   twitter: "https://twitter.com/nsidr"
   facebook: "https://www.facebook.com/nsidr/"
   github: "https://github.com/n-sider"
+deployment:
+  targets:
+    - name: s3deploy
+      URL: "s3://www.nsidr.com?region=us-east-1"
+      cloudFrontDistributionID: E3HE4930UQIMEF
+  matchers:
+    - pattern: ^.+\.(html|js|css|eot|ttf|woff|woff2)$
+      gzip: true
