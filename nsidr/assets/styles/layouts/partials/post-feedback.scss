@@ -274,11 +274,10 @@
     }
     .respond {
       h1 {
-        margin-left: 35px;
         font-size: 22px;
       }
       & > span:first-of-type {
-        margin: 5px 0 20px 35px;
+        margin: 5px 0 20px;
       }
     }
   }
