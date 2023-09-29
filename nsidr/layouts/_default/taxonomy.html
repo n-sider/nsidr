@@ -14,11 +14,11 @@
 <section id="taxonomies">
 
   <div class="term-list">
-    <div class="filter-status">
+    <h1 class="browse-by">
       <i class="fas fa-th"></i>
-      Viewing all {{ if eq $type "posts" }}post{{ else }}N-Sider article{{ end }} {{ .Title }}
+      All {{ if eq $type "posts" }}post{{ else }}N-Sider article{{ end }} {{ .Title }}
       <a href="/{{ $type }}"><i class="fas fa-times"></i></a>
-    </div>
+    </h1>
     {{- $previews := (.Paginate (sort .Pages ".Title" "asc") 100).Pages }}
     <div class="taxonomy-container">
       {{ partial "taxonomy-previews.html" (dict "previews" $previews "ctx" $) }}
@@ -30,7 +30,7 @@
   <nav id="browse-taxonomies" class="post-taxonomies">
     <div class="browse-container">
       <div class="browse-links">
-        <h1>browse posts by</h1>
+        <h3>browse posts by</h3>
         <a href="/authors"><span><i class="fad fa-user-friends"></i></span><span>author</span></a>
         <a href="/tags"><span><i class="fas fa-tags"></i></span><span>tag</span></a>
       </div>
@@ -43,7 +43,7 @@
   <nav id="browse-taxonomies" class="archive-taxonomies">
     <div class="browse-container">
       <div class="browse-links">
-        <h1>browse archive by</h1>
+        <h3>browse archive by</h3>
         <a href="/contributors"><span><i class="fad fa-user-friends"></i></span><span>contributor</span></a>
         <a href="/series"><span><i class="fad fa-th-list"></i></span><span>series</span></a>
       </div>

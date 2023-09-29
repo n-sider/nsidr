@@ -16,7 +16,7 @@
           <img src="{{ .Params.featureImage }}" alt="{{ .Title }}">
           {{ end }}
           <div>
-            <h1>{{ .Title }}</h1>
+            <h2>{{ .Title }}</h2>
             <small>
               <span>
                 <i class="fas fa-th-{{ if in $type "post" }}large{{ else }}list{{ end }}" style="--fa-secondary-opacity: 0.70"></i> {{ $count }} {{ $type }}

@@ -129,7 +129,7 @@
     flex-wrap: wrap;
     animation: .5s ease-in-out enter;
 
-    h1 {
+    h2 {
       flex: 0 0 100%;
       margin-bottom: 10px;
       font-size: 40px;
@@ -230,7 +230,7 @@
     .respond {
       flex: 0 0 285px;
 
-      h1 {
+      h2 {
         margin-top: -15px;
         font-size: 30px;
       }
@@ -273,7 +273,7 @@
       }
     }
     .respond {
-      h1 {
+      h2 {
         font-size: 22px;
       }
       & > span:first-of-type {

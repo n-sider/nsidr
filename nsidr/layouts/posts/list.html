@@ -10,10 +10,10 @@
 <section id="posts">
 
   <div class="post-list">
-    <div class="filter-status">
+    <h1 class="browse-by">
       <i class="fas fa-th-large"></i>
-      Viewing all posts
-    </div>
+      All posts
+    </h1>
     {{- $previews := sort .Paginator.Pages ".Date" "desc" }}
     {{ partial "post-previews.html" (dict "previews" $previews "ctx" $) }}
     {{ partial "pagination.html" .Paginator }}
@@ -22,7 +22,7 @@
   <nav id="browse-taxonomies" class="post-taxonomies">
     <div class="browse-container">
       <div class="browse-links">
-        <h1>browse posts by</h1>
+        <h3>browse posts by</h3>
         <a href="/authors"><span><i class="fad fa-user-friends"></i></span><span>author</span></a>
         <a href="/tags"><span><i class="fas fa-tags"></i></span><span>tag</span></a>
       </div>

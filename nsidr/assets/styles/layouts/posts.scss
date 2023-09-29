@@ -7,7 +7,7 @@
   width: 100%;
   margin: 0 auto 40px;
 
-  .filter-status {
+  .browse-by {
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -185,7 +185,7 @@
   #posts {
     flex-direction: column-reverse;
 
-    .filter-status {
+    .browse-by {
       width: 100%;
       max-width: 1000px;
       margin: 0 auto 20px;
@@ -208,7 +208,7 @@
 @media (max-width: 1080px) {
 
   #posts {
-    .filter-status {
+    .browse-by {
       width: auto;
       margin: 0 40px 20px;
     }
@@ -231,7 +231,7 @@
 
   #posts {
     .post-list {
-      .filter-status {
+      .browse-by {
         margin: 0 20px 20px;
       }
 
@@ -270,7 +270,7 @@
 @media (max-width: 730px) {
 
   #posts .post-list {
-    .filter-status {
+    .browse-by {
       font-size: 16px;
 
       svg {

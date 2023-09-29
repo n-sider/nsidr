@@ -10,10 +10,10 @@
 <section id="articles">
 
   <div class="article-list">
-    <div class="filter-status">
+    <h1 class="browse-by">
       <i class="fas fa-th-list"></i>
-      Viewing all N-Sider articles
-    </div>
+      All N-Sider articles
+    </h1>
     {{- with .Params.description }}
     <p class="description">{{ . | safeHTML }}</p>
     {{ end }}
@@ -25,7 +25,7 @@
   <nav id="browse-taxonomies" class="archive-taxonomies">
     <div class="browse-container">
       <div class="browse-links">
-        <h1>browse archive by</h1>
+        <h3>browse archive by</h3>
         <a href="/contributors"><span><i class="fad fa-user-friends"></i></span><span>contributor</span></a>
         <a href="/series"><span><i class="fad fa-th-list"></i></span><span>series</span></a>
       </div>
