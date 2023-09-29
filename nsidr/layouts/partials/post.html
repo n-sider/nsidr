@@ -30,7 +30,7 @@
             {{ end }}
           </ul>
           {{- end }}
-          <i class="fad fa-calendar" style="--fa-secondary-opacity: 0.70"></i> {{ .post.Date | time.Format ":date_medium" }}
+          <i class="fad fa-calendar" style="--fa-secondary-opacity: 0.70"></i> <time datetime="{{ .post.Date | time.Format "2006-01-02" }}">{{ .post.Date | time.Format ":date_medium" }}</time>
           {{ $reactionsTotal := add 0
             (int .post.Params.reactions.thumbsUp)
             (int .post.Params.reactions.laugh)

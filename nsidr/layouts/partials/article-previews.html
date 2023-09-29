@@ -22,7 +22,7 @@
               </span>
               {{ end }}
               <span>
-                <i class="fad fa-calendar" style="--fa-secondary-opacity: 0.70"></i> {{ .Date | time.Format ":date_medium" }}
+                <i class="fad fa-calendar" style="--fa-secondary-opacity: 0.70"></i> <time datetime="{{ .Date | time.Format "2006-01-02" }}">{{ .Date | time.Format ":date_medium" }}</time>
               </span>
             </small>
           </div>

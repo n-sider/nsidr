@@ -52,7 +52,7 @@
       </span>
       {{- end }}
       <span class="date">
-        <i class="fad fa-calendar" style="--fa-secondary-opacity: 0.70"></i> {{ .article.Date | time.Format ":date_medium" }}
+        <i class="fad fa-calendar" style="--fa-secondary-opacity: 0.70"></i> <time datetime="{{ .article.Date | time.Format "2006-01-02" }}">{{ .article.Date | time.Format ":date_medium" }}</time>
       </span>
       {{- with $.ctx.GetTerms "series" }}
       <span>
