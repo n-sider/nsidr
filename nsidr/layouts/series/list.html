@@ -13,7 +13,7 @@
     <h1 class="browse-by">
       <i class="fas fa-th-list"></i>
       N-Sider articles in "{{ .Title }}"
-      <a href="/archive"><i class="fas fa-times"></i></a>
+      <a href="/archive" aria-label="Browse all articles"><i class="fas fa-times"></i></a>
     </h1>
     {{- with .Params.description }}
     <p class="description">{{ . | safeHTML }}</p>
@@ -26,9 +26,9 @@
   <nav id="browse-taxonomies" class="archive-taxonomies">
     <div class="browse-container">
       <div class="browse-links">
-        <h3>browse archive by</h3>
-        <a href="/contributors"><span><i class="fad fa-user-friends"></i></span><span>contributor</span></a>
-        <a href="/series"><span><i class="fad fa-th-list"></i></span><span>series</span></a>
+        <h3 id="browse-archive-title">browse archive by</h3>
+        <a href="/contributors" id="browse-archive-contributors" aria-labelledby="browse-archive-title browse-archive-contributors"><span><i class="fad fa-user-friends"></i></span><span>contributor</span></a>
+        <a href="/series" id="browse-archive-series" aria-labelledby="browse-archive-title browse-archive-series"><span><i class="fad fa-th-list"></i></span><span>series</span></a>
       </div>
       <div class="archive-link">
         <a href="/posts"><i class="fas fa-arrow-circle-left"></i>return to nsidr posts</a>

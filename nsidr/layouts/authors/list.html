@@ -13,7 +13,7 @@
     <h1 class="browse-by">
       <i class="fad fa-user"></i>
       Posts by {{ .Title }}
-      <a href="/posts"><i class="fas fa-times"></i></a>
+      <a href="/posts" aria-label="Browse all posts"><i class="fas fa-times"></i></a>
     </h1>
     {{- $previews := sort .Paginator.Pages ".Date" "desc" }}
     {{ partial "post-previews.html" (dict "previews" $previews "ctx" $) }}
@@ -27,9 +27,9 @@
   <nav id="browse-taxonomies" class="post-taxonomies">
     <div class="browse-container">
       <div class="browse-links">
-        <h3>browse posts by</h3>
-        <a href="/authors"><span><i class="fad fa-user-friends"></i></span><span>author</span></a>
-        <a href="/tags"><span><i class="fas fa-tags"></i></span><span>tag</span></a>
+        <h3 id="browse-posts-title">browse posts by</h3>
+        <a href="/authors" id="browse-posts-authors" aria-labelledby="browse-posts-title browse-posts-authors"><span><i class="fad fa-user-friends"></i></span><span>author</span></a>
+        <a href="/tags" id="browse-posts-tags" aria-labelledby="browse-posts-title browse-posts-tags"><span><i class="fas fa-tags"></i></span><span>tag</span></a>
       </div>
       <div class="archive-link">
         <a href="{{ $archiveLink }}"><i class="fas fa-archive"></i>view N-Sider archive</a>

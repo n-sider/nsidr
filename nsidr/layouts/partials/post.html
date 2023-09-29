@@ -1,4 +1,4 @@
-<article class="post-template {{ .post.Params.topic }}">
+<article class="post-template {{ .post.Params.topic }}" aria-labelledby="post-title">
 
   {{- if $.ctx.Scratch.Get "hasFeaturedPost" }}
   <div class="featured"><i class="fad fa-rocket-launch" style="--fa-secondary-opacity: 0.60"></i>Featured Post</div>
@@ -19,7 +19,7 @@
         {{- end }}
       {{- end }}
       <div>
-        <h1><a href="{{ .post.Permalink }}">{{ .post.Title }}</a></h1>
+        <h1><a href="{{ .post.Permalink }}" id="post-title">{{ .post.Title }}</a></h1>
         <small>
           {{- with .post.Params.authors }}
           <i class="fad fa-user{{ if gt (len .) 1 }}-friends{{ end }}" style="--fa-secondary-opacity: 0.70"></i>
@@ -73,14 +73,14 @@
   <footer class="post-footer">
     {{- $tags := $.ctx.GetTerms "tags" }}
     {{- with $tags }}
-    <span class="tag-icon"><i class="fas fa-tag{{ if gt (len .) 1 }}s{{ end }}"></i></span>
+    <h2 class="tag-icon"><i class="fas fa-tag{{ if gt (len .) 1 }}s{{ end }}"></i><span>Tags</span></h2>
     {{- end }}
     <ul>
       {{- range $tags }}
       <li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>
       {{- end }}
     </ul>
-    <span class="top-icon"><i class="fas fa-arrow-alt-up"></i></span>
+    <button class="top-icon"><i class="fas fa-arrow-alt-up"></i></button>
   </footer>
 
 </article>

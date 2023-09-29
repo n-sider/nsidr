@@ -14,13 +14,13 @@
   }
 </script>
 
-<aside class="toggle-responsive show-responsive hide">
+<aside class="toggle-responsive show-responsive hide" aria-hidden="true">
   <button onclick="toggleLegacyMode()">
     <span><i class="fas fa-arrow-alt-square-left"></i>Return to mobile-friendly mode</span>
   </button>
 </aside>
 
-<aside class="toggle-responsive show-desktop hide">
+<aside class="toggle-responsive show-desktop hide" aria-hidden="true">
   <button onclick="toggleLegacyMode()">
     <span>View in legacy (desktop) mode<i class="fas fa-arrow-alt-square-right"></i></span>
   </button>
@@ -36,10 +36,10 @@
   }
 </script>
 
-<article class="article-template">
+<article class="article-template" aria-labelledby="article-title">
 
   <header class="article-header">
-    <h1>{{ .article.Title }}</h1>
+    <h1 id="article-title">{{ .article.Title }}</h1>
     <small>
       {{- with $.ctx.GetTerms "contributors" }}
       <span>

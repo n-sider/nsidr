@@ -28,7 +28,8 @@
     ".Date" "desc" }}
   {{- $previewCandidates := $taggedPosts | append $authoredPosts }}
 
-  <aside class="post-related">
+  <aside class="post-related" aria-labelledby="related-title">
+    <h2 id="related-title">Related Posts</h2>
     {{ partial "post-previews.html" (dict "previews" (first 3 $previewCandidates) "ctx" $) }}
     {{ partial "view-all-posts.html" }}
   </aside>

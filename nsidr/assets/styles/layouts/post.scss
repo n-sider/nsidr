@@ -1,5 +1,9 @@
 #post {
   padding: 60px 0 40px;
+
+  .post-related #related-title {
+    display: none;
+  }
 }
 
 @media (max-width: 1420px) {
