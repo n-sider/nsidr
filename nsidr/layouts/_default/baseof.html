@@ -63,9 +63,15 @@
 <body class="{{ block "bodyClass" . }}{{ end }}">
   <header id="site-header">
     <div>
-      <h1>
+      {{- if eq .RelPermalink "/" }}
+      <h1 class="logo">
         <a href="/"><span>n</span><span>s</span><span>i</span><span>d</span><span>r</span></a>
       </h1>
+      {{- else }}
+      <span class="logo">
+        <a href="/"><span>n</span><span>s</span><span>i</span><span>d</span><span>r</span></a>
+      </span>
+      {{- end }}
       <nav>
         <ul>
           <li><i class="fad fa-seedling"></i></li>

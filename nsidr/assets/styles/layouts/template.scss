@@ -10,7 +10,8 @@
     max-width: 1340px;
     margin: 40px auto 0;
 
-    h1 {
+    .logo {
+      display: block;
       margin-left: 20px;
 
       a {
@@ -189,7 +190,7 @@ body.content-view {
     max-width: 1000px;
     margin-top: 0;
 
-    h1 {
+    .logo {
       margin-top: 15px;
       margin-left: 15px;
 
@@ -216,7 +217,7 @@ body.article-view {
     width: 783px;
     margin-top: 0;
 
-    h1 {
+    .logo {
       margin-top: 15px;
       margin-left: 15px;
 
@@ -245,7 +246,7 @@ body.list-view {
     div {
       height: 0;
 
-      h1 {
+      .logo {
         position: fixed;
       }
     }
@@ -259,7 +260,7 @@ body.not-found-view {
     div {
       justify-content: center;
 
-      h1 {
+      .logo {
         transform-origin: center top;
         margin-left: 0;
 
@@ -297,7 +298,7 @@ body.not-found-view {
       max-width: none;
       margin: 20px 0 0;
 
-      h1 {
+      .logo {
         margin-left: 0;
       }
       nav {
@@ -312,7 +313,7 @@ body.not-found-view {
       max-width: 940px;
       margin: 20px auto 0;
 
-      h1 {
+      .logo {
         position: relative;
         z-index: 1;
         padding: 0 30px;
@@ -343,7 +344,7 @@ body.not-found-view {
         max-width: 1000px;
         margin: 0 auto;
 
-        h1 {
+        .logo {
           margin-left: 15px;
         }
 
@@ -366,7 +367,7 @@ body.not-found-view {
         max-width: 1000px;
         margin: 0 auto;
 
-        h1 {
+        .logo {
           margin-left: 15px;
         }
 
@@ -393,7 +394,7 @@ body.not-found-view {
         max-width: 700px;
         margin: 0 auto;
 
-        h1 {
+        .logo {
           position: static;
           margin-top: 15px;
           margin-left: 15px;
@@ -500,7 +501,7 @@ body.not-found-view {
     div {
       margin: 15px 0 -45px;
 
-      h1 a {
+      .logo a {
         font-size: 48px;
 
         &::before {
@@ -517,7 +518,7 @@ body.not-found-view {
       max-width: calc(100% - 40px);
       margin: 15px auto -12px;
 
-      h1 {
+      .logo {
         padding: 0 18px;
       }
       &::after {
@@ -530,7 +531,7 @@ body.not-found-view {
     div {
       margin: 0 auto;
 
-      h1 {
+      .logo {
         transform: scale(1);
       }
     }
@@ -540,7 +541,7 @@ body.not-found-view {
     div {
       margin: 0 auto;
 
-      h1 {
+      .logo {
         transform: scale(1);
       }
     }
@@ -551,7 +552,7 @@ body.not-found-view {
       max-width: calc(100% - 100px);
       margin: 0 5px;
 
-      h1 {
+      .logo {
         transform: scale(1);
       }
     }
@@ -585,7 +586,7 @@ body.not-found-view {
     div {
       max-width: 100%;
 
-      h1 {
+      .logo {
         padding: 0;
       }
       &::after {
