@@ -20,6 +20,9 @@
     {{- $title = printf `%s / page %s` $title (string .) }}
   {{- end }}
   {{- $defaultDescription := .Summary | default .Site.Params.defaultDescription }}
+  {{- if .Page.Params.description }}
+    {{- $defaultDescription = .Page.Params.description }}
+  {{- end }}
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,11 +36,11 @@
   <meta name="msapplication-TileColor" content="#16A1FF">
   <meta name="theme-color" content="#16A1FF">
 
-  <meta name="description" content="{{ .Page.Params.blurb | default $defaultDescription }}">
+  <meta name="description" content="{{ .Page.Params.blurb | default $defaultDescription | plainify }}">
   <meta property="og:site_name" content="nsidr">
   <meta property="og:title" content="{{ $title }}">
   <meta property="og:type" content="website">
-  <meta property="og:description" content="{{ .Page.Params.blurb | default $defaultDescription }}">
+  <meta property="og:description" content="{{ .Page.Params.blurb | default $defaultDescription | plainify }}">
   <meta property="og:image" content="{{ .Page.Params.featureImage | default .Site.Params.defaultImage }}">
   <meta property="og:url" content="{{ .Permalink }}">
   <meta name="twitter:card" content="summary_large_image">
