@@ -28,8 +28,10 @@
     ".Date" "desc" }}
   {{- $previewCandidates := $taggedPosts | append $authoredPosts }}
 
-  {{ partial "post-previews.html" (dict "previews" (first 3 $previewCandidates) "ctx" $) }}
-  {{ partial "view-all-posts.html" }}
+  <aside class="post-related">
+    {{ partial "post-previews.html" (dict "previews" (first 3 $previewCandidates) "ctx" $) }}
+    {{ partial "view-all-posts.html" }}
+  </aside>
 
 </section>
 {{ end }}
