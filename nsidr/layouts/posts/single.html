@@ -18,7 +18,7 @@
 <section id="post">
 
   {{ partial "post.html" (dict "post" . "ctx" $) }}
-  {{ partial "post-feedback.html" . }}
+  {{ partial "post-thanks.html" . }}
 
   {{- $taggedPosts := sort (
     where (where .Site.RegularPages "Params.tags" "intersect" .Params.tags) "Title" "!=" .Title)
