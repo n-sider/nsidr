@@ -3,15 +3,6 @@
 {{- block "config" . }}{{ end }}
 <html lang="en">
 <head>
-  {{ if hugo.IsProduction }}
-  <script async src="https://www.googletagmanager.com/gtag/js?id={{ .Site.Params.ga }}"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', '{{ .Site.Params.ga }}');
-  </script>
-  {{- end }}
   <script>
     document.querySelector("html").classList.add("preload");
   </script>
@@ -43,9 +34,6 @@
   <meta property="og:description" content="{{ .Page.Params.blurb | default $defaultDescription | plainify }}">
   <meta property="og:image" content="{{ .Page.Params.featureImage | default .Site.Params.defaultImage }}">
   <meta property="og:url" content="{{ .Permalink }}">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image:alt" content="{{ $title }}">
-  <meta name="twitter:site" content="@nsidr">
 
   <script defer src="/scripts/lib/fontawesome.min.js"></script>
   {{- $styles := resources.Get "styles/global.scss" | toCSS (dict "outputStyle" "compressed") }}
@@ -91,8 +79,6 @@
       <a href="{{ .Site.Params.github }}"><i class="fab fa-github"></i></a>
       <ul>
         <li><a href="/index.xml"><i class="fas fa-rss-square"></i></a></li>
-        <li><a href="{{ .Site.Params.twitter }}"><i class="fab fa-twitter-square"></i></a></li>
-        <li><a href="{{ .Site.Params.facebook }}"><i class="fab fa-facebook-square"></i></a></li>
       </ul>
     </div>
   </footer>
